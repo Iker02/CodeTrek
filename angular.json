@@ -43,6 +43,7 @@
           "options": {
             "outputPath": "dist/code-trek-final",
             "index": "src/index.html",
+            "baseHref": "/code-trek-final/",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
@@ -124,6 +125,9 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
