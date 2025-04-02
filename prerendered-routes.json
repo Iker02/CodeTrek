@@ -1,0 +1,18 @@
+{
+  "routes": {
+    "/code-trek-final": {},
+    "/code-trek-final/catalogo": {},
+    "/code-trek-final/course/csharp/level/1": {},
+    "/code-trek-final/course/csharp/level/2": {},
+    "/code-trek-final/course/csharp/level/3": {},
+    "/code-trek-final/course/csharp/level/4": {},
+    "/code-trek-final/course/csharp/level/5": {},
+    "/code-trek-final/course/python/level/1": {},
+    "/code-trek-final/course/python/level/2": {},
+    "/code-trek-final/course/python/level/3": {},
+    "/code-trek-final/course/python/level/4": {},
+    "/code-trek-final/course/python/level/5": {},
+    "/code-trek-final/login": {},
+    "/code-trek-final/register": {}
+  }
+}
