@@ -1,0 +1,138 @@
+<body class="bg-gray-900 text-white">
+  <main class="w-3/5 mx-auto p-8 mt-14">
+    <h1 class="text-3xl font-bold mb-4">Learn programming</h1>
+
+    <!-- Botones de categorías -->
+    <div class="flex flex-wrap gap-2 mb-4">
+      <button class="px-4 py-2 bg-gray-700 rounded-xl">All topics</button>
+      <button class="px-4 py-2 bg-gray-700 rounded-xl">Python</button>
+      <button class="px-4 py-2 bg-gray-700 rounded-xl">JavaScript</button>
+      <button class="px-4 py-2 bg-gray-700 rounded-xl">Web Development</button>
+      <button class="px-4 py-2 bg-gray-700 rounded-xl">Data Science</button>
+      <button class="px-4 py-2 bg-gray-700 rounded-xl">Machine Learning</button>
+      <button class="px-4 py-2 bg-gray-700 rounded-xl">
+        Artificial Intelligence
+      </button>
+    </div>
+
+    <!-- Campo de búsqueda -->
+    <div class="relative mb-4">
+      <input
+        class="w-full px-4 py-2 rounded-xl bg-gray-700 text-white focus:outline-none"
+        placeholder="Search courses, projects, resources..."
+        type="text"
+      />
+      <i class="fas fa-search absolute right-4 top-3 text-gray-400"></i>
+    </div>
+
+    <!-- Botones de filtros -->
+    <div class="flex flex-wrap gap-4 mb-4">
+      <button class="px-4 py-2 bg-gray-700 rounded-xl">New</button>
+      <button class="px-4 py-2 bg-gray-700 rounded-xl">Trending</button>
+      <button class="px-4 py-2 bg-gray-700 rounded-xl">Top Rated</button>
+      <button class="px-4 py-2 bg-gray-700 rounded-xl">Free</button>
+      <button class="px-4 py-2 bg-gray-700 rounded-xl">Premium</button>
+    </div>
+
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+    >
+      <button (click)="onLanguageSelect('Python')">
+        <div class="bg-gray-800 rounded-xl p-4">
+          <img
+            alt="Python programming illustration"
+            class="w-full object-cover rounded-xl mb-2"
+            height="200"
+            src="assets/lenguaje-python.jpg"
+            width="200"
+          />
+          <h2 class="text-lg font-bold">Python</h2>
+        </div>
+      </button>
+      <button (click)="onLanguageSelect('JavaScript')">
+        <div class="bg-gray-800 rounded-xl p-4">
+          <img
+            alt="JavaScript programming illustration"
+            class="w-full object-cover rounded-xl mb-2"
+            height="200"
+            src="assets/JS-picture.jpg"
+            width="200"
+          />
+          <h2 class="text-lg font-bold">JavaScript</h2>
+        </div>
+      </button>
+      <button (click)="onLanguageSelect('CSharp')">
+        <div class="bg-gray-800 rounded-xl p-4">
+          <img
+            alt="Web Development illustration"
+            class="w-full object-cover rounded-xl mb-2"
+            height="200"
+            src="assets/C.jpg"
+            width="200"
+          />
+          <h2 class="text-lg font-bold">CSharp</h2>
+        </div>
+      </button>
+      <button (click)="onLanguageSelect('HTML')">
+        <div class="bg-gray-800 rounded-xl p-4">
+          <img
+            alt="Data Science illustration"
+            class="w-full object-cover rounded-xl mb-2"
+            height="200"
+            src="assets/html-picture.jpg"
+            width="200"
+          />
+          <h2 class="text-lg font-bold">HTML</h2>
+        </div>
+      </button>
+      <button (click)="onLanguageSelect('SQL')">
+        <div class="bg-gray-800 rounded-xl p-4">
+          <img
+            alt="Machine Learning illustration"
+            class="w-full object-cover rounded-xl mb-2"
+            height="200"
+            src="assets/SQL.jpg"
+            width="200"
+          />
+          <h2 class="text-lg font-bold">SQL</h2>
+        </div>
+      </button>
+      <button (click)="onLanguageSelect('Kotlin')">
+        <div class="bg-gray-800 rounded-xl p-4">
+          <img
+            alt="Artificial Intelligence illustration"
+            class="w-full object-cover rounded-xl mb-2"
+            height="200"
+            src="assets/Kotlin.png"
+            width="200"
+          />
+          <h2 class="text-lg font-bold">Kotlin</h2>
+        </div>
+      </button>
+      <button (click)="onLanguageSelect('Java')">
+        <div class="bg-gray-800 rounded-xl p-4">
+          <img
+            alt="Cybersecurity illustration"
+            class="w-full object-cover rounded-xl mb-2"
+            height="200"
+            src="assets/java-picture.jpg"
+            width="200"
+          />
+          <h2 class="text-lg font-bold">Java</h2>
+        </div>
+      </button>
+      <button (click)="onLanguageSelect('VisualBasic')">
+        <div class="bg-gray-800 rounded-xl p-4">
+          <img
+            alt="Game Development illustration"
+            class="w-full object-cover rounded-xl mb-2"
+            height="200"
+            src="assets/visualBasic.jpg"
+            width="200"
+          />
+          <h2 class="text-lg font-bold">VisualBasic</h2>
+        </div>
+      </button>
+    </div>
+  </main>
+</body>
