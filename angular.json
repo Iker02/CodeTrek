@@ -58,7 +58,8 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "baseHref": "/CodeTrek/"
           },
           "configurations": {
             "production": {
