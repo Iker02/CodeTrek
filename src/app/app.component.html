@@ -23,7 +23,7 @@
 
       <!-- Botón de hamburguesa (Solo en pantallas pequeñas) -->
       <button
-        class="md:hidden flex items-center justify-center p-2 rounded-lg text-white"
+        class="md:hidden flex items-center justify-center p-2 rounded-lg text-white transform transition-all duration-150 ease-in-out active:scale-90 active:rotate-180"
         (click)="toggleMenu()"
       >
         <svg
@@ -59,7 +59,6 @@
         </button>
         <button
           class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 text-white text-sm font-bold leading-normal tracking-[0.015em]"
-          
         >
           <span class="truncate">Challenges</span>
         </button>
@@ -89,13 +88,15 @@
         'translate-x-full': !isMenuOpen
       }"
     >
-      <div class="p-4 flex flex-col space-y-4 flex gap-2 sm:gap-4">
+      <div
+        class="p-4 flex flex-col space-y-4 flex gap-2 sm:gap-4 "
+      >
         <!-- Botón para cerrar el menú -->
         <button
-          class="self-end text-gray-400 hover:text-white"
+          class="self-end text-gray-400 hover:text-white text-2xl transform transition-transform duration-150 ease-in-out active:scale-90"
           (click)="toggleMenu()"
         >
-          ✕
+          ❌
         </button>
 
         <button class="flex items-center justify-center bg-grey-700">
@@ -114,14 +115,14 @@
           <span class="truncate">Home</span>
         </button>
         <button
-          class="flex min-w-[84px] max-w-[480px] cursor-pointer  overflow-hidden rounded-xl h-10 px-4 text-white text-sm font-bold leading-normal tracking-[0.015em]"
+          class="flex min-w-[84px] max-w-[480px] cursor-pointer overflow-hidden rounded-xl h-10 px-4 text-white text-sm font-bold leading-normal tracking-[0.015em]"
           (click)="navigateToCatalog()"
           (click)="toggleMenu()"
         >
           <span class="truncate">Catalog</span>
         </button>
         <button
-          class="flex min-w-[84px] max-w-[480px] cursor-pointer  overflow-hidden rounded-xl h-10 px-4 text-white text-sm font-bold leading-normal tracking-[0.015em]"
+          class="flex min-w-[84px] max-w-[480px] cursor-pointer overflow-hidden rounded-xl h-10 px-4 text-white text-sm font-bold leading-normal tracking-[0.015em]"
         >
           <span class="truncate">Challenges</span>
         </button>
