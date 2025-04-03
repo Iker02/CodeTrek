@@ -43,6 +43,7 @@
           "options": {
             "outputPath": "dist/code-trek-final",
             "index": "src/index.html",
+            "baseHref": "/",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
@@ -58,9 +59,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
-            "baseHref": "/CodeTrek/"
-          },
+            "scripts": []          },
           "configurations": {
             "production": {
               "budgets": [
