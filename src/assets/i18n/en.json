@@ -1,0 +1,77 @@
+{
+  "header": {
+    "home": "Home",
+    "catalog": "Catalog",
+    "challenges": "Challenges",
+    "signIn": "Sign In",
+    "selectLanguage": "Select a language",
+    "defaultLanguage": "English",
+    "profileAlt": "Profile picture"
+  },
+  "menu": {
+    "close": "Close",
+    "openMenu": "Open menu"
+  },
+  "branding": {
+    "appName": "CODETREK"
+  },
+  "buttons": {
+    "navigateHome": "Go to Home",
+    "navigateCatalog": "Go to Catalog",
+    "navigateLogin": "Go to Login"
+  },
+  "homepage": {
+    "hero": {
+      "title": "Learn to code with hands-on exercises in Python, JavaScript, and more...",
+      "search_placeholder": "Start typing",
+      "search_button": "Search"
+    },
+    "features": {
+      "title": "Hands-on coding experience",
+      "description": "CodeTrek's interactive coding environment makes it easy to learn new languages and concepts. Get started with our free beginner courses or dive into a paid course for a more in-depth learning experience.",
+      "items": [
+        {
+          "title": "Practice coding with guided challenges",
+          "description": "Hundreds of coding challenges for you to solve"
+        },
+        {
+          "title": "Write and run code in the browser",
+          "description": "No setup required—just start typing"
+        },
+        {
+          "title": "Get instant feedback on your work",
+          "description": "Our automated test suite checks your work"
+        },
+        {
+          "title": "Save your progress and come back later",
+          "description": "Create an account to track your progress"
+        }
+      ]
+    },
+    "courses": {
+      "title": "Featured Courses",
+      "see_more": "See more",
+      "see_less": "See less"
+    },
+    "challenges": {
+      "title": "Top Challenges",
+      "items": [
+        {
+          "title": "Python Basics",
+          "description": "Solve basic programming challenges",
+          "progress": "3/14"
+        },
+        {
+          "title": "JavaScript Basics",
+          "description": "Write JavaScript functions",
+          "progress": "2/12"
+        },
+        {
+          "title": "Web Development Basics",
+          "description": "Practice using HTML and CSS",
+          "progress": "4/16"
+        }
+      ]
+    }
+  }
+}

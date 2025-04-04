@@ -31,6 +31,16 @@ import { CSharpLevel4Component } from './components/csharp-level-4/csharp-level-
 import { CSharpLevel5Component } from './components/csharp-level-5/csharp-level-5.component';
 import { ProgrammingTutorialComponent } from './components/programming-tutorial/programming-tutorial.component';
 
+// 🔹 Importaciones de ngx-translate
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
+// 🔄 Función para cargar los archivos de traducción
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +62,19 @@ import { ProgrammingTutorialComponent } from './components/programming-tutorial/
     CSharpLevel5Component,
     ProgrammingTutorialComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule, // Necesario para las peticiones HTTP
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
+  ],
   providers: [
     provideClientHydration(withEventReplay()),
     { provide: 'FirebaseApp', useValue: firebaseApp },
