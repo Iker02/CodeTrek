@@ -45,15 +45,13 @@ export class ProgrammingTutorialComponent implements OnInit {
     const content: { [key: string]: { videoUrl: string, documentation: string } } = {
       Python: {
         videoUrl: 'https://www.youtube.com/embed/kqtD5dpn9C8?autoplay=1&controls=1&showinfo=0&modestbranding=1&rel=0',
-        documentation: `🐍 Python is a high-level, versatile, and easy-to-learn programming language, widely used in web development, data science, artificial intelligence, automation, and cybersecurity. Its clear syntax makes it accessible to both beginners and experts.
+        documentation: `🐍 Python is a versatile, high-level language known for its simplicity and broad applications in web development, data science, AI, automation, and cybersecurity.
 
-Its features include simple syntax, support for multiple programming paradigms, being an interpreted language, and having an extensive standard library. It is cross-platform and has a large community for support.
+Its clear syntax makes it beginner-friendly, while its extensive standard library, cross-platform support, and active community make it powerful for experts.
 
-Python is fundamental in web development with frameworks like Django and Flask, and in data analysis with tools like Pandas, NumPy, and TensorFlow. It is also used in automation, game development, cybersecurity, and the Internet of Things with devices like Raspberry Pi.
+Used in frameworks like Django and Flask, and tools like Pandas and TensorFlow, Python is essential for web development, data analysis, automation, and IoT.
 
-Its advantages include ease of learning, higher productivity, compatibility with other languages, and being open source. Companies like Google, Netflix, Facebook, and NASA use it in various applications.
-
-Thanks to its power and flexibility, Python is one of the best options for those looking to start programming or develop complex projects across various industries.`,
+Companies like Google, Netflix, and NASA rely on it, making Python a top choice for both beginners and professionals. `,
       },
       CSharp: {
         videoUrl: 'https://www.youtube.com/embed/gfkTfcpWqAY?autoplay=1&controls=1&showinfo=0&modestbranding=1&rel=0',
