@@ -38,7 +38,7 @@ export class ProgrammingTutorialComponent implements OnInit {
   }
 
   navigateToCourse(language: string) {
-    this.router.navigate([`/course/${language}`]);
+    this.router.navigate([`/course/${language.toLocaleLowerCase()}`]);
   }
 
   setContent() {
