@@ -22,8 +22,7 @@
           text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
         "
           >
-            Learn to code with hands-on exercises in Python, JavaScript, and
-            more...
+            {{ 'homepage.hero.title' | translate }}
           </h1>
 
           <!-- Search Bar -->
@@ -32,7 +31,7 @@
           >
             <div class="flex w-full items-center rounded-xl">
               <input
-                placeholder="Start typing"
+                placeholder="{{ 'homepage.hero.search_placeholder' | translate }}"
                 class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-white focus:outline-0 focus:ring-0 border border-[#3c4753] bg-[#1c2126] focus:border-[#3c4753] h-full placeholder:text-[#9dabb8] px-[15px] rounded-r-none border-r-0 pr-2 border-l-0 pl-5 text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal"
                 value=""
               />
@@ -42,7 +41,7 @@
                 <button
                   class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#1980e6] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
                 >
-                  <span class="truncate">Search</span>
+                  <span class="truncate">{{'homepage.hero.search_button' | translate}}</span>
                 </button>
               </div>
             </div>
@@ -55,14 +54,12 @@
         <h1
           class="text-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]"
         >
-          Hands-on coding experience
+          {{ 'homepage.features.title' | translate }}
         </h1>
         <p
           class="text-white text-base font-normal leading-normal max-w-[720px]"
         >
-          CodeTrek's interactive coding environment makes it easy to learn new
-          languages and concepts. Get started with our free beginner courses or
-          dive into a paid course for a more in-depth learning experience.
+        {{ 'homepage.features.description' | translate }}
         </p>
       </div>
       <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3">
@@ -75,10 +72,10 @@
           ></div>
           <div>
             <p class="text-white text-base font-medium leading-normal">
-              Practice coding with guided challenges
+              {{ 'homepage.features.items.practice.title' | translate }}
             </p>
             <p class="text-[#9dabb8] text-sm font-normal leading-normal">
-              Hundreds of coding challenges for you to solve
+              {{ 'homepage.features.items.practice.description' | translate }}
             </p>
           </div>
         </div>
@@ -91,10 +88,10 @@
           ></div>
           <div>
             <p class="text-white text-base font-medium leading-normal">
-              Write and run code in the browser
+              {{ 'homepage.features.items.write.title' | translate }}
             </p>
             <p class="text-[#9dabb8] text-sm font-normal leading-normal">
-              No setup required—just start typing
+              {{ 'homepage.features.items.write.description' | translate }}
             </p>
           </div>
         </div>
@@ -107,10 +104,10 @@
           ></div>
           <div>
             <p class="text-white text-base font-medium leading-normal">
-              Get instant feedback on your work
+              {{ 'homepage.features.items.feedback.title' | translate }}
             </p>
             <p class="text-[#9dabb8] text-sm font-normal leading-normal">
-              Our automated test suite checks your work
+              {{ 'homepage.features.items.feedback.description' | translate }}
             </p>
           </div>
         </div>
@@ -123,10 +120,10 @@
           ></div>
           <div>
             <p class="text-white text-base font-medium leading-normal">
-              Save your progress and come back later
+              {{ 'homepage.features.items.save.title' | translate }}
             </p>
             <p class="text-[#9dabb8] text-sm font-normal leading-normal">
-              Create an account to track your progress
+              {{ 'homepage.features.items.save.description' | translate }}
             </p>
           </div>
         </div>
@@ -135,7 +132,7 @@
     <h2
       class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5"
     >
-      Featured Courses
+      {{ 'homepage.courses.title' | translate }}
     </h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-3 p-4">
       <div
@@ -152,11 +149,12 @@
             {{ course.title }}
           </p>
           <p class="text-[#9dabb8] text-sm font-normal leading-normal">
-            {{ course.description }}
+            {{ course.descriptionKey | translate }}
           </p>
         </div>
       </div>
     </div>
+    
 
     <!-- Botón "Ver más / Ver menos" abajo a la izquierda -->
     <div class="bottom-4 left-4">
@@ -164,14 +162,14 @@
         (click)="toggleCourses()"
         class="px-4 py-2 bg-blue-600 text-white rounded-lg"
       >
-        {{ allCoursesShown ? "See less" : "See more" }}
-      </button>
+      <p>{{ allCoursesShown ? ( 'homepage.courses.see_less' | translate ) : ( 'homepage.courses.see_more' | translate ) }}</p>
+    </button>
     </div>
 
     <h2
       class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5 bg-grey-700"
     >
-      Top Challenges
+      {{'homepage.challenges.title' | translate}}
     </h2>
     <div
       class="flex items-center gap-4 bg-grey-700 px-4 min-h-[72px] py-2 justify-between"
@@ -187,13 +185,13 @@
           <p
             class="text-white text-base font-medium leading-normal line-clamp-1"
           >
-            Python Basics
+            {{'homepage.challenges.challenge_1.title' | translate}}
           </p>
           <p
             class="text-[#9dabb8] text-sm font-normal leading-normal line-clamp-2"
           >
-            Solve basic programming challenges
-          </p>
+          {{'homepage.challenges.challenge_1.description' | translate}}
+        </p>
         </div>
       </div>
       <div class="shrink-0">
@@ -214,12 +212,12 @@
           <p
             class="text-white text-base font-medium leading-normal line-clamp-1"
           >
-            JavaScript Basics
-          </p>
+          {{'homepage.challenges.challenge_2.title' | translate}}
+        </p>
           <p
             class="text-[#9dabb8] text-sm font-normal leading-normal line-clamp-2"
           >
-            Write JavaScript functions
+          {{'homepage.challenges.challenge_2.description' | translate}}
           </p>
         </div>
       </div>
@@ -241,12 +239,12 @@
           <p
             class="text-white text-base font-medium leading-normal line-clamp-1"
           >
-            Web Development Basics
+          {{'homepage.challenges.challenge_3.title' | translate}}
           </p>
           <p
             class="text-[#9dabb8] text-sm font-normal leading-normal line-clamp-2"
           >
-            Practice using HTML and CSS
+          {{'homepage.challenges.challenge_3.description' | translate}}
           </p>
         </div>
       </div>

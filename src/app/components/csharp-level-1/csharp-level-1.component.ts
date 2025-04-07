@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -10,15 +11,15 @@ import { Router } from '@angular/router';
 export class CSharpLevel1Component {
   courseTitle: string = 'csharp';
   level: number = 1;
-  feedbackMessage: string = '';
+  feedbackMessage: any = '';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private translate: TranslateService ) {}
 
   checkAnswer(option: string) {
     if (option === 'option3') {
-      this.feedbackMessage = '✅ Correct! You can declare an int variable like this: `double number = 25.3;`';
+      this.feedbackMessage = this.translate.instant('csharp_level1.correct_message');
     } else {
-      this.feedbackMessage = '❌ Incorrect! That’s not correct. Try again.';
+      this.feedbackMessage = this.translate.instant('csharp_level1.incorrect_message');
     }
   }
 

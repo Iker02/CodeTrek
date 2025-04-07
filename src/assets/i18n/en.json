@@ -1,4 +1,24 @@
 {
+  "login": {
+    "welcome_back": "Welcome Back!",
+    "email_placeholder": "Email address",
+    "password_placeholder": "Password",
+    "forget_password": "Forget Password?",
+    "sign_in": "Sign In",
+    "dont_have_account": "Don't have an account?",
+    "sign_up": "Sign up"
+  },
+  "register": {
+    "create_account": "Create an Account",
+    "full_name_placeholder": "Full Name",
+    "email_placeholder": "Email address",
+    "password_placeholder": "Password",
+    "confirm_password_placeholder": "Confirm Password",
+    "already_have_account": "Already have an account?",
+    "sign_in": "Sign in",
+    "register_button": "Register"
+  },
+
   "header": {
     "home": "Home",
     "catalog": "Catalog",
@@ -29,49 +49,162 @@
     "features": {
       "title": "Hands-on coding experience",
       "description": "CodeTrek's interactive coding environment makes it easy to learn new languages and concepts. Get started with our free beginner courses or dive into a paid course for a more in-depth learning experience.",
-      "items": [
-        {
+      "items": {
+        "practice": {
           "title": "Practice coding with guided challenges",
           "description": "Hundreds of coding challenges for you to solve"
         },
-        {
+        "write": {
           "title": "Write and run code in the browser",
           "description": "No setup required—just start typing"
         },
-        {
+        "feedback": {
           "title": "Get instant feedback on your work",
           "description": "Our automated test suite checks your work"
         },
-        {
+        "save": {
           "title": "Save your progress and come back later",
           "description": "Create an account to track your progress"
         }
-      ]
+      }
     },
     "courses": {
       "title": "Featured Courses",
       "see_more": "See more",
-      "see_less": "See less"
+      "see_less": "See less",
+      "each_course": {
+        "description_Python": "Learn Python from scratch, covering syntax and basic concepts.",
+        "description_CSharp": "Master the fundamentals of C# for software and game development.",
+        "description_VisualBasic": "Get started with Visual Basic for simple Windows applications.",
+        "description_SQL": "Understand databases and learn to write SQL queries efficiently.",
+        "description_Kotlin": "Learn Kotlin, the modern language for Android development.",
+        "description_JavaScript": "Discover the basics of JavaScript for web development.",
+        "description_Java": "Explore Java programming, from OOP to application development.",
+        "description_HTML": "Learn the fundamentals of HTML to build web pages."
+      }
     },
     "challenges": {
       "title": "Top Challenges",
-      "items": [
-        {
-          "title": "Python Basics",
-          "description": "Solve basic programming challenges",
-          "progress": "3/14"
-        },
-        {
-          "title": "JavaScript Basics",
-          "description": "Write JavaScript functions",
-          "progress": "2/12"
-        },
-        {
-          "title": "Web Development Basics",
-          "description": "Practice using HTML and CSS",
-          "progress": "4/16"
-        }
-      ]
+      "challenge_1": {
+        "title": "Python Basics",
+        "description": "Solve basic programming challenges"
+      },
+      "challenge_2": {
+        "title": "JavaScript Basics",
+        "description": "Write JavaScript functions"
+      },
+      "challenge_3": {
+        "title": "Web Development Basics",
+        "description": "Practice using HTML and CSS"
+      }
     }
+  },
+  "learn_programming": {
+    "title": "Learn programming",
+    "search_placeholder": "Search courses, projects, resources...",
+    "filters": {
+      "new": "New",
+      "trending": "Trending",
+      "top_rated": "Top Rated",
+      "free": "Free",
+      "premium": "Premium"
+    },
+    "courses": {
+      "python": "Python",
+      "javascript": "JavaScript",
+      "csharp": "CSharp",
+      "html": "HTML",
+      "sql": "SQL",
+      "kotlin": "Kotlin",
+      "java": "Java",
+      "visualbasic": "VisualBasic"
+    }
+  },
+  "course_page": {
+    "description": "Choose a level to start learning:",
+    "level": "Level",
+    "unlock_skills": "Unlock new skills in this exciting level.",
+    "start_level": "Start Level",
+    "back_to_courses": "Back to Courses"
+  },
+  "course_details": {
+    "title": "Learn",
+    "documentation": {
+      "python": "Python is a powerful, easy-to-learn programming language used in web development, data analysis, artificial intelligence, automation, and more. Its syntax is clear and concise, making it an ideal language for both beginners and professionals. Python’s extensive ecosystem of libraries and frameworks allows for rapid development and scalability.",
+      "csharp": "C# is a programming language developed by Microsoft, widely used in desktop application development, video games with Unity, and enterprise applications.\n\nIts main features include modern syntax, support for object-oriented programming, and deep integration with the .NET platform. C# is known for its performance and robustness in building large-scale applications.\n\nIt is the primary language for creating video games in Unity, enabling the development of 2D and 3D games. It is also common in enterprise application development and mobile app development via Xamarin.",
+      "visualbasic": "Visual Basic is a programming language developed by Microsoft, designed to be easy to learn and widely used in desktop and enterprise applications.\n\nThrough its integration with the Visual Studio development environment, Visual Basic allows for the creation of Windows applications, databases, and process automation. Although not as popular as other languages, it is still used in many legacy systems and enterprise environments.\n\nIts key features are ease of use, simple syntax, and rapid creation of graphical interfaces through the use of visual forms.",
+      "sql": "SQL (Structured Query Language) is a language used to manage relational databases. It allows you to create, read, update, and delete data (CRUD) from databases.\n\nSQL is widely used in applications that require storage and manipulation of large amounts of data. With SQL, you can perform complex queries, join tables, aggregate data, and filter efficiently.\n\nThere are several database management systems (DBMS) that implement SQL, such as MySQL, PostgreSQL, Microsoft SQL Server, and Oracle Database.",
+      "kotlin": "Kotlin is a modern and concise programming language, primarily used in Android app development. It is fully interoperable with Java and allows for cleaner code with fewer errors.\n\nKotlin is known for its modern, safe syntax that reduces common errors like NullPointerException. It also supports functional and object-oriented programming, making it a versatile and powerful language.\n\nIn addition to Android, Kotlin is also used to develop web apps, server apps, and cross-platform applications using frameworks like Kotlin Multiplatform.",
+      "javascript": "JavaScript is the primary programming language for web development. It allows you to add interactivity to web pages, handle events, and make asynchronous requests to the server, all in real-time.\n\nAlong with HTML and CSS, JavaScript is the backbone of modern web development. With the advent of Node.js, JavaScript has also gained popularity in server-side development.\n\nToday, JavaScript is the most widely used language for developing interactive web applications and is widely used in frameworks like React, Angular, and Vue.js.",
+      "java": "Java is an object-oriented programming language widely used for enterprise applications, mobile apps, and backend systems.\n\nIt is known for its robustness, portability, and compatibility with various platforms. Java allows you to write code once and run it anywhere, making it a great option for distributed systems and large-scale applications.\n\nJava is widely used in Android app development and in enterprise server environments. Frameworks like Spring and Hibernate have solidified it as a reliable choice in the software industry.",
+      "html": "HTML (HyperText Markup Language) is the standard markup language used to structure web page content. It defines the elements that make up a web page, such as headers, paragraphs, links, and lists.\n\nAlong with CSS and JavaScript, HTML is fundamental to the development of interactive websites. It is the foundation of any modern web page and serves to describe content in a hierarchical and semantic manner.\n\nHTML5 is the latest version of HTML and has introduced new tags to improve accessibility and interactivity on web pages."
+    },
+    "go_to_course": "Go to ",
+    "go_course": " course"
+  },
+  "csharp_level1": {
+    "title": "C# - Level 1: Variables and Data Types",
+    "intro": "In this level, let's start learning about variables and data types in C#.",
+    "question_title": "What is the correct way to declare a variable in C#?",
+    "question_text": "In C#, you declare a variable by specifying the type and the name. Choose the correct way to declare a variable of type `double` with the value `25.3`:",
+    "options": {
+      "option1": "double 25.3 = number;",
+      "option2": "25.3 = number double;",
+      "option3": "double number = 25.3;"
+    },
+    "correct_message": "✅ Correct! That is how you declare an int variable",
+    "incorrect_message": "❌ Incorrect! That’s not correct. Try again.",
+    "next_button": "Next Level"
+  },
+  "csharp_level2": {
+    "title": "C# - Level 2: Operators and Expressions",
+    "intro": "Now let's learn about operators and expressions in C#.",
+    "question_title": "What will be the result of this C# expression?",
+    "code": "int a = 10;\nint b = 5;\nint result = a + b * 2;\nConsole.WriteLine(result);",
+    "question_text": "What will be the output of the above code? Choose the correct answer:",
+    "options": {
+      "option1": "20",
+      "option2": "30",
+      "option3": "25"
+    },
+    "correct_message": "✅ Correct! The result of a + b * 2 is 20 because multiplication has higher precedence than addition.",
+    "incorrect_message": "❌ Incorrect! That’s not correct. Try again.",
+    "next_button": "Next Level"
+  },
+  "csharp_level3": {
+    "title": "C# - Level 3: Control Structures",
+    "intro": "Let's dive into control structures: conditionals and loops.",
+    "question_title": "What will be the output of this C# code?",
+    "code": "int a = 1;\nwhile (a <= 3)\n    Console.WriteLine(a);\n    a++;",
+    "question_text": "What will be the output of the above code? Choose the correct answer:",
+    "options": {
+      "option1": "1 2 3",
+      "option2": "3 2 1",
+      "option3": "1 1 1"
+    },
+    "next_button": "Next Level"
+  },
+  "csharp_level4": {
+    "title": "C# - Level 4: Arrays and Lists",
+    "intro": "Let's explore arrays and lists in C#!",
+    "question_title": "What will be the output of this C# code?",
+    "code": "string[] arr = ( 10, 20, 30, 40, 50 );\narr[2] = 25;\nforeach (var item in arr)\n    Console.WriteLine(item);",
+    "options": {
+      "option1": "10 20 25 40 50",
+      "option2": "10 20 30 40 50",
+      "option3": "25 20 30 40 50"
+    },
+    "next_button": "Next Level"
+  },
+  "CSharpFinalLevel": {
+    "title": "C# - Final Level: Coding Challenge",
+    "description": "Write a C# program that reverses an array and prints the elements.",
+    "codeEntry": "Enter your code below:",
+    "hint": "Hint: Reverse the array and then print each element.",
+    "runCodeButton": "Run Code",
+    "feedback": "Feedback",
+    "hintButton": "Need a Hint?",
+    "hintMessage": "Hint message goes here.",
+    "congratulations": "🎉 Congratulations! Go to Home"
   }
 }

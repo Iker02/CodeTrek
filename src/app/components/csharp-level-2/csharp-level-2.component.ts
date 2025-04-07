@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-csharp-level-2',
@@ -12,14 +13,14 @@ export class CSharpLevel2Component {
   level: number = 2;
   feedbackMessage: string = '';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private translate: TranslateService ) {}
 
   checkAnswer(option: string) {
     // Correct Answer: 20 because multiplication has higher precedence than addition
     if (option === 'option1') {
-      this.feedbackMessage = '✅ Correct! The result of a + b * 2 is 20 because multiplication has higher precedence than addition.';
+      this.feedbackMessage = this.translate.instant('csharp_level2.correct_message');
     } else {
-      this.feedbackMessage = '❌ Incorrect! That’s not correct. Try again.';
+      this.feedbackMessage = this.translate.instant('csharp_level2.incorrect_message');
     }
   }
 

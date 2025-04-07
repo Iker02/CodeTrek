@@ -2,19 +2,18 @@
   class="flex flex-col items-center justify-center h-screen bg-gray-700 text-center p-8"
 >
   <h1 class="text-5xl font-extrabold text-white mb-4">
-    C# - Level 1: Variables and Data Types
+    {{'csharp_level1.title' | translate}}
   </h1>
   <p class="text-xl text-white mb-6">
-    In this level, let's start learning about variables and data types in C#.
+    {{'csharp_level1.intro' | translate}}
   </p>
 
   <div class="bg-white p-6 rounded-lg shadow-xl w-full max-w-xl mx-auto">
     <h2 class="text-3xl font-bold text-gray-800 mb-4">
-      What is the correct way to declare a variable in C#?
+      {{'csharp_level1.question_title' | translate}}
     </h2>
     <p class="text-lg text-gray-700 mb-4">
-      In C#, you declare a variable by specifying the type and the name. Choose
-      the correct way to declare a variable of type `double` with the value `25.3`:
+      {{'csharp_level1.question_text' | translate}}
     </p>
 
     <div class="flex flex-col gap-4 mb-6">
@@ -22,20 +21,20 @@
         (click)="checkAnswer('option1')"
         class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all"
       >
-        double 25.3 = number;
+        {{'csharp_level1.options.option1' | translate}}
       </button>
       <button
         (click)="checkAnswer('option2')"
         class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all"
       >
-        25.3 = number double;
-      </button>
+      {{'csharp_level1.options.option2' | translate}}
+    </button>
       <button
         (click)="checkAnswer('option3')"
         class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all"
       >
-        double number = 25.3;
-      </button>
+      {{'csharp_level1.options.option3' | translate}}
+    </button>
     </div>
 
     <p *ngIf="feedbackMessage" class="text-lg text-gray-700 mt-4">
@@ -47,7 +46,7 @@
       (click)="goToNextLevel()"
       class="mt-6 px-6 py-3 bg-green-600 text-white rounded-lg shadow-md hover:bg-green-700 transition-all"
     >
-      Next Level
+      {{ 'csharp_level1.next_button' | translate }}
     </button>
   </div>
 </div>

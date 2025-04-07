@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { TranslateService } from '@ngx-translate/core';
 
 interface Course {
   title: string;
-  description: string;
+  descriptionKey: string; 
   image: string;
 }
 
@@ -12,25 +12,25 @@ interface Course {
   selector: 'app-home',
   standalone: false,
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  constructor(private router: Router) {}
 
   allCourses: Course[] = [
-    { title: "Python", description: "Learn Python from scratch, covering syntax and basic concepts.", image: "../assets/lenguaje-python.jpg" },
-    { title: "CSharp", description: "Master the fundamentals of C# for software and game development.", image: "../assets/C.jpg" },
-    { title: "VisualBasic", description: "Get started with Visual Basic for simple Windows applications.", image: "../assets/visualBasic.jpg" },
-    { title: "SQL", description: "Understand databases and learn to write SQL queries efficiently.", image: "../assets/SQL.jpg" },
-    { title: "Kotlin", description: "Learn Kotlin, the modern language for Android development.", image: "../assets/Kotlin.png" },
-    { title: "JavaScript", description: "Discover the basics of JavaScript for web development.", image: "../assets/JS-picture.jpg" },
-    { title: "Java", description: "Explore Java programming, from OOP to application development.", image: "../assets/java-picture.jpg" },
-    { title: "HTML", description: "Learn the fundamentals of HTML to build web pages.", image: "../assets/html-picture.jpg" }
+    { title: "Python", descriptionKey: "homepage.courses.each_course.description_Python", image: "../assets/lenguaje-python.jpg" },
+    { title: "CSharp", descriptionKey: "homepage.courses.each_course.description_CSharp", image: "../assets/C.jpg" },
+    { title: "VisualBasic", descriptionKey: "homepage.courses.each_course.description_VisualBasic", image: "../assets/visualBasic.jpg" },
+    { title: "SQL", descriptionKey: "homepage.courses.each_course.description_SQL", image: "../assets/SQL.jpg" },
+    { title: "Kotlin", descriptionKey: "homepage.courses.each_course.description_Kotlin", image: "../assets/Kotlin.png" },
+    { title: "JavaScript", descriptionKey: "homepage.courses.each_course.description_JavaScript", image: "../assets/JS-picture.jpg" },
+    { title: "Java", descriptionKey: "homepage.courses.each_course.description_Java", image: "../assets/java-picture.jpg" },
+    { title: "HTML", descriptionKey: "homepage.courses.each_course.description_HTML", image: "../assets/html-picture.jpg" }
   ];
-  
 
   displayedCourses: Course[] = this.allCourses.slice(0, 5);
   allCoursesShown = false;
+
+  constructor(private router: Router, private translate: TranslateService) {}
 
   toggleCourses(): void {
     if (this.allCoursesShown) {
@@ -40,12 +40,15 @@ export class HomeComponent {
     }
     this.allCoursesShown = !this.allCoursesShown;
   }
-  
 
-  // Método para navegar a la página de detalles del curso
   goToCourseDetail(course: Course): void {
-    const formattedTitle = course.title.replace(/\s+/g, '-').toLowerCase(); // Formatear título para URL
+    const formattedTitle = course.title.replace(/\s+/g, '-').toLowerCase();
     this.router.navigate(['/course', formattedTitle]);
   }
-  
+
+  // Método para cambiar el idioma
+  cambiarIdioma(languageCode: string): void {
+    // Cambiar el idioma
+    this.translate.use(languageCode);
+  }
 }
