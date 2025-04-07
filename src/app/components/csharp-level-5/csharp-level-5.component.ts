@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-csharp-level-final',
@@ -15,7 +16,7 @@ export class CSharpLevel5Component {
   hintMessage: string = '';
   attempts: number = 0;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private translate: TranslateService ) {}
 
   checkCode() {
     // Limpiar los mensajes previos
@@ -29,9 +30,9 @@ export class CSharpLevel5Component {
     // Comprobar si el código ingresado es correcto
     if (this.userCode.includes('Array.Reverse(arr)') && this.userCode.includes('Console.WriteLine')) {
       this.isCorrect = true;
-      this.feedbackMessage = '🎉 Correct! You have successfully reversed the array.';
+      this.feedbackMessage = this.translate.instant('CSharpFinalLevel.correct_message');
     } else {
-      this.feedbackMessage = 'Oops! That’s not correct. Try again.';
+      this.feedbackMessage = this.translate.instant('CSharpFinalLevel.incorrect_message');
       if (this.attempts >= 2) {
         this.showHint = true;
       }

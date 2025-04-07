@@ -182,6 +182,8 @@
       "option2": "3 2 1",
       "option3": "1 1 1"
     },
+    "correct_message": "✅ Correct! The while loop prints the values of a: 1, 2, and 3.",
+    "incorrect_message": "❌ Incorrect! That’s not correct. Try again.",
     "next_button": "Next Level"
   },
   "csharp_level4": {
@@ -194,6 +196,8 @@
       "option2": "10 20 30 40 50",
       "option3": "25 20 30 40 50"
     },
+    "correct_message": "✅ Correct! The output is: 10 20 25 40 50.",
+    "incorrect_message": "❌ Incorrect! That’s not correct. Try again.",
     "next_button": "Next Level"
   },
   "CSharpFinalLevel": {
@@ -205,6 +209,8 @@
     "feedback": "Feedback",
     "hintButton": "Need a Hint?",
     "hintMessage": "Hint message goes here.",
-    "congratulations": "🎉 Congratulations! Go to Home"
+    "congratulations": "🎉 Congratulations! Go to Home",
+    "correct_message": "🎉 Correct! You have successfully reversed the array.",
+    "incorrect_message": "❌ Incorrect! That’s not correct. Try again."
   }
 }

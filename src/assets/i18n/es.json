@@ -181,8 +181,8 @@
       "option2": "3 2 1",
       "option3": "1 1 1"
     },
-    "correct_message": "✅ Correct! The result of a + b * 2 is 20 because multiplication has higher precedence than addition.",
-    "incorrect_message": "❌ Incorrect! That’s not correct. Try again.",
+    "correct_message": "✅ Correcto! El bucle while imprime como valor de a: 1, 2 y 3.",
+    "incorrect_message": "❌ Incorrecto! Inténtalo de nuevo.",
     "next_button": "Siguiente Nivel"
   },
   "csharp_level4": {
@@ -195,8 +195,8 @@
       "option2": "10 20 30 40 50",
       "option3": "25 20 30 40 50"
     },
-    "correct_message": "✅ Correct! The result of a + b * 2 is 20 because multiplication has higher precedence than addition.",
-    "incorrect_message": "❌ Incorrect! That’s not correct. Try again.",
+    "correct_message": "✅ Correcto! El resultado es 10 20 25 40 50.",
+    "incorrect_message": "❌ Incorrecto! Inténtalo de nuevo.",
     "next_button": "Siguiente Nivel"
   },
   "CSharpFinalLevel": {
@@ -209,7 +209,7 @@
     "hintButton": "¿Necesitas una Pista?",
     "hintMessage": "El mensaje de pista va aquí.",
     "congratulations": "🎉 ¡Felicidades! Ir al inicio",
-    "correct_message": "✅ Correct! The result of a + b * 2 is 20 because multiplication has higher precedence than addition.",
-    "incorrect_message": "❌ Incorrect! That’s not correct. Try again."
+    "correct_message": "🎉 Correcto! Tu código funciona.",
+    "incorrect_message": "❌ Incorrecto! Inténtalo de nuevo."
   }
 }

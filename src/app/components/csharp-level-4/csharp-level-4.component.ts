@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-csharp-level-4',
@@ -13,16 +14,16 @@ export class CSharpLevel4Component {
   level: number = 4;
   attempts: number = 0;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private translate: TranslateService ) {}
 
   // Verificar la respuesta del usuario
   checkAnswer(option: string): void {
     this.attempts++;
 
     if (option === 'option1') {
-      this.feedbackMessage = '✅ Correct! The output is: 3 10 30 40 50.';
+      this.feedbackMessage = this.translate.instant('csharp_level4.correct_message');
     } else {
-      this.feedbackMessage = '❌ Incorrect! That’s not correct. Try again.';
+      this.feedbackMessage = this.translate.instant('csharp_level4.incorrect_message');
     }
 
     // Si el usuario falla más de 2 veces, mostrar la pista
