@@ -32,6 +32,10 @@ export class AppComponent {
     this.router.navigate(['/catalogo']);
   }
 
+  navigateToChallenges() {
+    this.router.navigate(['/challenges']);
+  }
+
   navigateToHome() {
     this.router.navigate(['/']);
   }

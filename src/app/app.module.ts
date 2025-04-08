@@ -35,6 +35,7 @@ import { ProgrammingTutorialComponent } from './components/programming-tutorial/
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ChallengesComponent } from './components/challenges/challenges.component';
 
 // 🔄 Función para cargar los archivos de traducción
 export function HttpLoaderFactory(http: HttpClient) {
@@ -61,6 +62,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     CSharpLevel4Component,
     CSharpLevel5Component,
     ProgrammingTutorialComponent,
+    ChallengesComponent,
   ],
   imports: [
     BrowserModule,
