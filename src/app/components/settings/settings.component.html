@@ -1,0 +1,98 @@
+<div class="mx-auto mt-28 bg-gray-800 p-7 rounded-xl" [ngClass]="{
+    'w-[90%]': screenSize === 'sm' || screenSize === 'md',
+    'w-[70%]': screenSize === 'xl' || screenSize === '2xl'
+  }">
+    <h2 class="text-2xl font-semibold text-white mb-8">Settings</h2>
+  
+    <!-- Account Section -->
+    <div class="text-white mb-10 bg-gray-900 pr-10 pl-10 pb-2 pt-2 rounded-xl">
+      <h3 class="font-semibold mb-4 bg-gray-900 rounded-xl">Account</h3>
+      <div class="flex justify-between items-center mb-4 bg-gray-900">
+        <div>
+          <p class="text-sm text-gray-400  bg-gray-900">Email</p>
+          <p>patricia...</p>
+        </div>
+        <button class="bg-gray-700 text-white px-4 py-1 rounded">Change</button>
+      </div>
+  
+      <div class="flex justify-between items-center mb-4">
+        <p>Password</p>
+        <button class="bg-gray-700 text-white px-4 py-1 rounded">Change</button>
+      </div>
+  
+      <div class="flex justify-between items-center mb-4">
+        <p>2FA</p>
+        <label class="inline-flex items-center cursor-pointer">
+          <input type="checkbox" class="sr-only peer">
+          <div
+            class="w-11 h-6 bg-gray-600 rounded-full peer peer-focus:ring-2 peer-checked:bg-green-500 transition"></div>
+        </label>
+      </div>
+    </div>
+  
+    <!-- Profile Section -->
+    <div class="text-white mb-10 bg-gray-900 pr-10 pl-10 pb-2 pt-2 rounded-xl">
+      <h3 class="font-semibold mb-4">Profile</h3>
+      <div class="flex justify-between items-center mb-4">
+        <div>
+          <p class="text-sm text-gray-400">Name</p>
+          <p>Patricia Burns</p>
+        </div>
+        <button class="bg-gray-700 text-white px-4 py-1 rounded">Change</button>
+      </div>
+  
+      <div class="flex justify-between items-center mb-4">
+        <p>Personal domain</p>
+        <button class="bg-gray-700 text-white px-4 py-1 rounded">Claim domain</button>
+      </div>
+    </div>
+  
+    <!-- Public Profile -->
+    <div class="text-white mb-10 bg-gray-900 pr-10 pl-10 pb-5 pt-2 rounded-xl">
+      <h3 class="font-semibold mb-4">Choose pick</h3>
+      <div class="flex justify-between items-center mb-6">
+        <p>Show profile</p>
+        <label class="inline-flex items-center cursor-pointer">
+          <input type="checkbox" class="sr-only peer">
+          <div
+            class="w-11 h-6 bg-gray-600 rounded-full peer peer-focus:ring-2 peer-checked:bg-green-500 transition"></div>
+        </label>
+      </div>
+      <button
+      (click)="showPopup = true"
+      class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition">
+      Change pick
+    </button>
+  
+    <div class="flex justify-end">
+        <button class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700">
+          Save
+        </button>
+      </div>
+          </div>
+  </div>
+  
+  <!-- POP-UP MODAL -->
+<div *ngIf="showPopup" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+    <div class="bg-white text-black p-6 rounded-lg shadow-xl w-[90%] sm:w-[400px] text-center">
+      <h2 class="text-xl font-bold mb-4">Choose one of this picks for your profile</h2>
+      <div class="flex flex-wrap justify-center gap-4 mb-6">
+        <img
+          *ngFor="let i of profiles; let idx = index"
+          src="../assets/profile_icon.webp"
+          alt="Profile"
+          (click)="selectedProfile = idx"
+          [ngClass]="{
+            'border-4 border-blue-500': selectedProfile === idx,
+            'border border-gray-300': selectedProfile !== idx
+          }"
+          class="w-12 h-12 rounded-full cursor-pointer transition duration-200" />
+      </div>
+      
+      <button
+        (click)="showPopup = false"
+        class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+        Close
+      </button>
+    </div>
+  </div>

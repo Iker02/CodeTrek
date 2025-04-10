@@ -37,6 +37,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ChallengesComponent } from './components/challenges/challenges.component';
 import { DesafioComponent } from './components/desafio/desafio.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 // 🔄 Función para cargar los archivos de traducción
 export function HttpLoaderFactory(http: HttpClient) {
@@ -65,6 +66,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProgrammingTutorialComponent,
     ChallengesComponent,
     DesafioComponent,
+    SettingsComponent,
   ],
   imports: [
     BrowserModule,

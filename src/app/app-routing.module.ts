@@ -19,11 +19,13 @@ import { CSharpLevel4Component } from './components/csharp-level-4/csharp-level-
 import { CSharpLevel5Component } from './components/csharp-level-5/csharp-level-5.component';
 import { ProgrammingTutorialComponent } from './components/programming-tutorial/programming-tutorial.component';
 import { ChallengesComponent } from './components/challenges/challenges.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'settings', component: SettingsComponent },
   { path: 'catalogo', component: CatalogoComponent },
   { path: 'challenges', component: ChallengesComponent },
   { path: 'catalogo/programming-tutorial/:title', component: ProgrammingTutorialComponent },

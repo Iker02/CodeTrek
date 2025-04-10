@@ -40,6 +40,10 @@ export class AppComponent {
     this.router.navigate(['/']);
   }
 
+  navigateToSettings() {
+    this.router.navigate(['/settings']);
+  }
+
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }

@@ -116,6 +116,7 @@
           src="../assets/profile_icon.webp"
           alt="imagen de perfil"
           class="rounded-full h-10 w-10 bg-[#1980e6] ml-4"
+          (click)="navigateToSettings()"
         />
       </button>
     </header>
@@ -177,6 +178,8 @@
               src="../assets/profile_icon.webp"
               alt="imagen de perfil"
               class="rounded-full h-10 w-10 bg-[#1980e6]"
+              (click)="navigateToSettings()"
+            (click)="toggleMenu()"
             />
           </button>
         </div>
