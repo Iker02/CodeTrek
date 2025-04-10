@@ -1,0 +1,12 @@
+.card-gradient::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top left, rgba(255, 255, 255, 0.363), rgba(25, 128, 230, 0.2));
+    border-radius: 0.75rem; /* Igual que rounded-xl */
+    z-index: 0;
+  }
+  

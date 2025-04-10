@@ -1,0 +1,20 @@
+<div class="bg-gray-800 text-white p-6 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300 relative card-gradient overflow-hidden">
+    <!-- Foto redonda del creador -->
+    <div class="absolute -top-0 -left-4">
+      <img
+        src="../../../assets/profile_icon.webp"
+        alt="Creator Avatar"
+        class="w-12 h-12 rounded-full border-2 border-white shadow-md bg-[#1980e6] ml-4"
+      />
+    </div>
+  
+    <div class="pt-6 pl-8 relative z-10">
+      <h2 class="text-xl font-bold mb-2">{{ title }}</h2>
+      <p class="text-sm text-gray-300 mb-4">{{ description }}</p>
+      <div class="flex items-center justify-between">
+        <span class="text-sm bg-blue-600 px-3 py-1 rounded-full">{{ difficulty }}</span>
+        <span class="text-sm text-white-600">Solved by {{ solvedBy }} people</span>
+      </div>
+    </div>
+  </div>
+  
