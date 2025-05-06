@@ -1,0 +1,35 @@
+.layout-content-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 90vw; /* Por defecto, ocupa el 90% del ancho de la pantalla */
+    flex: 1; /* Permite que crezca dentro del contenedor padre */
+  }
+  
+  /* 🌍 Para pantallas de 640px o más (sm) */
+  @media (min-width: 640px) {
+    .layout-content-container {
+      min-width: 80vw; /* Reduce el ancho a 80% en pantallas más grandes */
+    }
+  }
+  
+  /* 🖥️ Para pantallas de 768px o más (md) */
+  @media (min-width: 768px) {
+    .layout-content-container {
+      min-width: 70vw; /* Reduce el ancho a 70% en tablets y superiores */
+    }
+  }
+  
+  /* 💻 Para pantallas de 1024px o más (lg) */
+  @media (min-width: 1024px) {
+    .layout-content-container {
+      min-width: 60vw; /* Reduce aún más en laptops y monitores estándar */
+    }
+  }
+  
+  /* 🖥️ Para pantallas de 1280px o más (xl) */
+  @media (min-width: 1280px) {
+    .layout-content-container {
+      max-width: 60vw;
+    }
+  }
+  

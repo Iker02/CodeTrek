@@ -1,0 +1,470 @@
+{
+  "login": {
+    "welcome_back": "¡Bienvenido de nuevo!",
+    "email_placeholder": "Dirección de correo electrónico",
+    "password_placeholder": "Contraseña",
+    "forget_password": "¿Olvidaste tu contraseña?",
+    "sign_in": "Iniciar sesión",
+    "dont_have_account": "¿No tienes una cuenta?",
+    "sign_up": "Regístrate",
+    "log_out": "Cerrar sesión"
+  },
+  "register": {
+    "create_account": "Crea una cuenta",
+    "full_name_placeholder": "Nombre completo",
+    "email_placeholder": "Dirección de correo electrónico",
+    "password_placeholder": "Contraseña",
+    "confirm_password_placeholder": "Confirmar contraseña",
+    "already_have_account": "¿Ya tienes una cuenta?",
+    "sign_in": "Iniciar sesión",
+    "register_button": "Registrarse"
+  },
+  "header": {
+    "home": "Inicio",
+    "catalog": "Catálogo",
+    "challenges": "Desafíos",
+    "signIn": "Iniciar sesión",
+    "selectLanguage": "Selecciona un idioma",
+    "defaultLanguage": "Inglés",
+    "profileAlt": "Imagen de perfil"
+  },
+  "menu": {
+    "close": "Cerrar",
+    "openMenu": "Abrir menú"
+  },
+  "branding": {
+    "appName": "CODETREK"
+  },
+  "buttons": {
+    "navigateHome": "Ir a Inicio",
+    "navigateCatalog": "Ir a Catálogo",
+    "navigateLogin": "Ir a Iniciar sesión"
+  },
+  "homepage": {
+    "hero": {
+      "title": "Aprende a programar con ejercicios prácticos en Python, JavaScript y más...",
+      "search_placeholder": "Comienza a escribir",
+      "search_button": "Buscar"
+    },
+    "features": {
+      "title": "Experiencia práctica de programación",
+      "description": "El entorno interactivo de CodeTrek facilita aprender nuevos lenguajes y conceptos. Comienza con nuestros cursos gratuitos para principiantes o profundiza en un curso de pago para una experiencia de aprendizaje más profunda.",
+      "items": {
+        "practice": {
+          "title": "Practica programación con desafíos guiados",
+          "description": "Cientos de desafíos de programación para que resuelvas"
+        },
+        "write": {
+          "title": "Escribe y ejecuta código en el navegador",
+          "description": "No se requiere configuración, solo comienza a escribir"
+        },
+        "feedback": {
+          "title": "Recibe retroalimentación instantánea sobre tu trabajo",
+          "description": "Nuestro conjunto de pruebas automatizadas verifica tu trabajo"
+        },
+        "save": {
+          "title": "Guarda tu progreso y vuelve más tarde",
+          "description": "Crea una cuenta para seguir tu progreso"
+        }
+      }
+    },
+    "courses": {
+      "title": "Cursos Destacados",
+      "see_more": "Ver más",
+      "see_less": "Ver menos",
+      "each_course": {
+        "description_Python": "Aprende Python desde cero, cubriendo sintaxis y conceptos básicos.",
+        "description_CSharp": "Domina los fundamentos de C# para el desarrollo de software y juegos.",
+        "description_VisualBasic": "Comienza con Visual Basic para aplicaciones sencillas en Windows.",
+        "description_SQL": "Entiende bases de datos y aprende a escribir consultas SQL de manera eficiente.",
+        "description_Kotlin": "Aprende Kotlin, el lenguaje moderno para el desarrollo de aplicaciones Android.",
+        "description_JavaScript": "Descubre los fundamentos de JavaScript para el desarrollo web.",
+        "description_Java": "Explora la programación en Java, desde POO hasta desarrollo de aplicaciones.",
+        "description_HTML": "Aprende los fundamentos de HTML para crear páginas web."
+      }
+    },
+    "challenges": {
+      "title": "Desafíos Principales",
+      "challenge_1": {
+        "title": "Fundamentos de Python",
+        "description": "Resuelve desafíos básicos de programación"
+      },
+      "challenge_2": {
+        "title": "Fundamentos de JavaScript",
+        "description": "Escribe funciones en JavaScript"
+      },
+      "challenge_3": {
+        "title": "Fundamentos de Desarrollo Web",
+        "description": "Practica usando HTML y CSS"
+      }
+    }
+  },
+  "learn_programming": {
+    "title": "Aprender programación",
+    "search_placeholder": "Buscar cursos, proyectos, recursos...",
+    "filters": {
+      "new": "Nuevo",
+      "trending": "Tendencias",
+      "top_rated": "Mejor valorados",
+      "free": "Gratis",
+      "premium": "Premium"
+    },
+    "courses": {
+      "python": "Python",
+      "javascript": "JavaScript",
+      "csharp": "CSharp",
+      "html": "HTML",
+      "sql": "SQL",
+      "kotlin": "Kotlin",
+      "java": "Java",
+      "visualbasic": "VisualBasic"
+    }
+  },
+  "course_page": {
+    "description": "Elige un nivel para comenzar a aprender:",
+    "level": "Nivel",
+    "unlock_skills": "Desbloquea nuevas habilidades en este emocionante nivel.",
+    "start_level": "Comenzar Nivel",
+    "back_to_courses": "Volver a los Cursos"
+  },
+  "course_details": {
+    "title": "Aprende",
+    "documentation": {
+      "python": "Python es un lenguaje de programación potente y fácil de aprender que se utiliza en desarrollo web, análisis de datos, inteligencia artificial, automatización y más. Su sintaxis es clara y concisa, lo que lo convierte en un lenguaje ideal tanto para principiantes como para profesionales. El amplio ecosistema de librerías y frameworks de Python permite un desarrollo rápido y escalable.",
+      "csharp": "C# es un lenguaje de programación desarrollado por Microsoft, ampliamente utilizado en el desarrollo de aplicaciones de escritorio, videojuegos con Unity y aplicaciones empresariales.\n\nSus principales características incluyen una sintaxis moderna, soporte para programación orientada a objetos e integración profunda con la plataforma .NET. C# es conocido por su rendimiento y robustez al construir aplicaciones a gran escala.\n\nEs el lenguaje principal para la creación de videojuegos en Unity, permitiendo el desarrollo de juegos 2D y 3D. También es común en el desarrollo de aplicaciones empresariales y móviles mediante Xamarin.",
+      "visualbasic": "Visual Basic es un lenguaje de programación desarrollado por Microsoft, diseñado para ser fácil de aprender y ampliamente usado en aplicaciones de escritorio y empresariales.\n\nGracias a su integración con el entorno de desarrollo Visual Studio, Visual Basic permite la creación de aplicaciones para Windows, bases de datos y automatización de procesos. Aunque no es tan popular como otros lenguajes, todavía se utiliza en muchos sistemas heredados y entornos corporativos.\n\nSus principales ventajas son la facilidad de uso, una sintaxis sencilla y la creación rápida de interfaces gráficas mediante formularios visuales.",
+      "sql": "SQL (Structured Query Language) es un lenguaje utilizado para gestionar bases de datos relacionales. Permite crear, leer, actualizar y eliminar datos (CRUD) de las bases de datos.\n\nSQL se usa ampliamente en aplicaciones que requieren almacenar y manipular grandes volúmenes de datos. Con SQL puedes realizar consultas complejas, unir tablas, agregar datos y filtrar información de forma eficiente.\n\nExisten varios sistemas gestores de bases de datos (DBMS) que implementan SQL, como MySQL, PostgreSQL, Microsoft SQL Server y Oracle Database.",
+      "kotlin": "Kotlin es un lenguaje de programación moderno y conciso, utilizado principalmente en el desarrollo de aplicaciones Android. Es totalmente interoperable con Java y permite escribir código más limpio y con menos errores.\n\nKotlin es conocido por su sintaxis moderna y segura, que reduce errores comunes como el NullPointerException. También soporta programación funcional y orientada a objetos, lo que lo convierte en un lenguaje versátil y potente.\n\nAdemás de Android, Kotlin también se utiliza para desarrollar aplicaciones web, servidores y multiplataforma mediante frameworks como Kotlin Multiplatform.",
+      "javascript": "JavaScript es el lenguaje de programación principal para el desarrollo web. Permite añadir interactividad a las páginas, manejar eventos y realizar peticiones asíncronas al servidor en tiempo real.\n\nJunto con HTML y CSS, JavaScript es la base del desarrollo web moderno. Con la llegada de Node.js, también ha ganado popularidad en el desarrollo del lado del servidor.\n\nHoy en día, JavaScript es el lenguaje más utilizado para crear aplicaciones web interactivas y es ampliamente usado en frameworks como React, Angular y Vue.js.",
+      "java": "Java es un lenguaje de programación orientado a objetos, ampliamente utilizado en aplicaciones empresariales, móviles y sistemas backend.\n\nEs conocido por su robustez, portabilidad y compatibilidad entre plataformas. Java permite escribir código una vez y ejecutarlo en cualquier lugar, lo que lo convierte en una excelente opción para sistemas distribuidos y aplicaciones a gran escala.\n\nJava se usa mucho en el desarrollo de apps Android y entornos empresariales. Frameworks como Spring y Hibernate lo han consolidado como una opción confiable en la industria del software.",
+      "html": "HTML (HyperText Markup Language) es el lenguaje estándar de marcado usado para estructurar el contenido de páginas web. Define los elementos que componen una página, como encabezados, párrafos, enlaces y listas.\n\nJunto con CSS y JavaScript, HTML es fundamental en el desarrollo de sitios web interactivos. Es la base de cualquier página web moderna y sirve para describir el contenido de manera jerárquica y semántica.\n\nHTML5 es la versión más reciente y ha introducido nuevas etiquetas para mejorar la accesibilidad y la interactividad en la web."
+    },
+    "go_to_course": "Ir al curso de ",
+    "go_course": " "
+  },
+  "csharp_level1": {
+    "title": "C# - Nivel 1: Variables y Tipos de Datos",
+    "intro": "En este nivel, comenzaremos a aprender sobre variables y tipos de datos en C#.",
+    "question_title": "¿Cuál es la forma correcta de declarar una variable en C#?",
+    "question_text": "En C#, declaras una variable especificando el tipo y el nombre. Elige la forma correcta de declarar una variable de tipo `double` con el valor `25.3`:",
+    "options": {
+      "option1": "double 25.3 = number;",
+      "option2": "25.3 = number double;",
+      "option3": "double number = 25.3;"
+    },
+    "correct_message": "✅ Correcto! Así se declara una variable en C#.",
+    "incorrect_message": "❌ Incorrecto! Inténtalo de nuevo.",
+    "next_button": "Siguiente Nivel"
+  },
+  "csharp_level2": {
+    "title": "C# - Nivel 2: Operadores y Expresiones",
+    "intro": "Ahora aprendamos sobre operadores y expresiones en C#.",
+    "question_title": "¿Cuál será el resultado de esta expresión en C#?",
+    "code": "int a = 10;\nint b = 5;\nint result = a + b * 2;\nConsole.WriteLine(result);",
+    "question_text": "¿Cuál será la salida del código anterior? Elige la respuesta correcta:",
+    "options": {
+      "option1": "20",
+      "option2": "30",
+      "option3": "25"
+    },
+    "correct_message": "✅ Correcto! El resultado de a + b * 2 es 20 porque la multiplicación se realiza primero.",
+    "incorrect_message": "❌ Incorrecto! Inténtalo de nuevo.",
+    "next_button": "Siguiente Nivel"
+  },
+  "csharp_level3": {
+    "title": "C# - Nivel 3: Estructuras de Control",
+    "intro": "Vamos a profundizar en las estructuras de control: condicionales y bucles.",
+    "question_title": "¿Cuál será la salida de este código en C#?",
+    "code": "int a = 1;\nwhile (a <= 3)\n    Console.WriteLine(a);\n    a++;",
+    "question_text": "¿Cuál será la salida del código anterior? Elige la respuesta correcta:",
+    "options": {
+      "option1": "1 2 3",
+      "option2": "3 2 1",
+      "option3": "1 1 1"
+    },
+    "correct_message": "✅ Correcto! El bucle while imprime como valor de a: 1, 2 y 3.",
+    "incorrect_message": "❌ Incorrecto! Inténtalo de nuevo.",
+    "next_button": "Siguiente Nivel"
+  },
+  "csharp_level4": {
+    "title": "C# - Nivel 4: Arreglos y Listas",
+    "intro": "¡Exploremos los arreglos y listas en C#!",
+    "question_title": "¿Cuál será la salida de este código en C#?",
+    "code": "string[] arr = ( 10, 20, 30, 40, 50 );\narr[2] = 25;\nforeach (var item in arr)\n    Console.WriteLine(item);",
+    "options": {
+      "option1": "10 20 25 40 50",
+      "option2": "10 20 30 40 50",
+      "option3": "25 20 30 40 50"
+    },
+    "correct_message": "✅ Correcto! El resultado es 10 20 25 40 50.",
+    "incorrect_message": "❌ Incorrecto! Inténtalo de nuevo.",
+    "next_button": "Siguiente Nivel"
+  },
+  "CSharpFinalLevel": {
+    "title": "C# - Nivel Final: Desafío de Codificación",
+    "description": "Escribe un programa en C# que invierta un arreglo e imprima los elementos.",
+    "codeEntry": "Ingresa tu código abajo:",
+    "hint": "Pista: Invierte el arreglo y luego imprime cada elemento.",
+    "runCodeButton": "Ejecutar Código",
+    "feedback": "Comentarios",
+    "hintButton": "¿Necesitas una Pista?",
+    "hintMessage": "El mensaje de pista va aquí.",
+    "congratulations": "🎉 ¡Felicidades! Ir al inicio",
+    "correct_message": "🎉 Correcto! Tu código funciona.",
+    "incorrect_message": "❌ Incorrecto! Inténtalo de nuevo."
+  },
+  "python_level1": {
+    "title": "Python - Nivel 1: Introducción",
+    "intro": "¡Comencemos a aprender sobre variables en Python!",
+    "question_title": "¿Cuál es la forma correcta de declarar una variable en Python?",
+    "question_text": "En Python, declaras una variable asignando un valor a un nombre. ¿Cuál de las siguientes es la forma correcta de declarar una variable `age` con el valor `25`?",
+    "options": {
+      "option1": "age = 25",
+      "option2": "25 = age",
+      "option3": "int age = 25"
+    },
+    "correct_message": "✅ ¡Correcto! Esa es la forma adecuada de declarar una variable en Python.",
+    "incorrect_message": "❌ ¡Incorrecto! Esa no es la respuesta correcta. Inténtalo de nuevo.",
+    "next_button": "Siguiente Nivel"
+  },
+  "python_level2": {
+    "title": "Python - Nivel 2: Operaciones Matemáticas",
+    "intro": "¡Bienvenido al Nivel 2 de Python! Vamos a trabajar con operaciones matemáticas.",
+    "question": "¿Cuál es el resultado de la siguiente operación en Python?",
+    "code": "8 * (4 + 2) - 6 / 2",
+    "placeholder": "Tu respuesta",
+    "check_button": "Comprobar respuesta",
+    "correct_message": "✅ ¡Correcto! 8 * (4 + 2) - 6 / 2 es igual a 45.0.",
+    "incorrect_message": "❌ ¡Incorrecto! Intenta de nuevo.",
+    "next_button": "Siguiente Nivel"
+  },
+  "python_level3": {
+    "title": "Python - Nivel 3: Operadores Lógicos",
+    "intro": "¡Vamos a poner a prueba tu conocimiento sobre operadores lógicos!",
+    "question_title": "¿Cuál será el resultado de esta expresión en Python?",
+    "code": "a = True\nb = False\nc = True\nprint((a or b) and not (b and c))",
+    "options": {
+      "option1": "Verdadero",
+      "option2": "Falso",
+      "option3": "Ninguno"
+    },
+    "correct_message": "✅ ¡Correcto! El resultado es Verdadero porque (a o b) es True y (b y c) es False, por lo tanto not (b y c) es True, y True and True es True.",
+    "incorrect_message": "❌ ¡Incorrecto! Revisa la precedencia de los operadores lógicos e inténtalo de nuevo.",
+    "next_button": "Siguiente Nivel"
+  },
+  "python_level4": {
+    "title": "Python - Nivel 4: Listas y Tuplas",
+    "intro": "¡Pongamos a prueba tu conocimiento de listas y tuplas en Python!",
+    "question_title": "¿Cuál será la salida de este código Python?",
+    "code": "my_list = [10, 20, 30, 40, 50] \nmy_list.append(60) \nmy_list.remove(20) \nprint(my_list[1:4])",
+    "options": {
+      "option1": "[30, 40, 50]",
+      "option2": "[10, 30, 40]",
+      "option3": "[30, 40, 50, 60]"
+    },
+    "correct_message": "¡Correcto! El resultado es [30, 40, 50] porque se añadió 60 a la lista, se eliminó 20 y se imprimieron los elementos del índice 1 al 3.",
+    "incorrect_message": "❌ ¡Incorrecto! Revisa las operaciones con listas y vuelve a intentarlo.",
+    "next_button": "Siguiente Nivel",
+    "tuple_question_title": "¿Cuál de las siguientes afirmaciones sobre las tuplas es cierta?",
+    "tuple_question_description": "Elige la respuesta correcta sobre las tuplas en Python.",
+    "tuple_options": {
+      "tuple_option_1": "Las tuplas son mutables, al igual que las listas.",
+      "tuple_option_2": "Las tuplas son inmutables, lo que significa que sus valores no pueden cambiar.",
+      "tuple_option_3": "Las tuplas no permiten duplicados."
+    },
+    "tuple_correct_message": "✅ ¡Correcto! Las tuplas son inmutables, lo que significa que sus valores no pueden cambiar.",
+    "tuple_incorrect_message": "❌ ¡Incorrecto! Revisa las propiedades de las tuplas y vuelve a intentarlo."
+  },
+  "final_level": {
+    "title": "Python - Nivel Final: Reto de Programación",
+    "intro": "Escribe una función en Python que devuelva el cuadrado de un número.",
+    "code_prompt": "Ingresa tu código a continuación:",
+    "placeholder": "def square(n):\n    # Tu código aquí",
+    "run_button": "Ejecutar Código",
+    "congratulations_button": "🎉 ¡Felicidades! Ir al Inicio",
+    "correct_message": "🎉 Correcto! Has escrito correctamente la función",
+    "incorrect_message": "❌ Error! No es correcto, inténtalo otra vez."
+  },
+  "final_level_hint": {
+    "hint_button": "¿Necesitas una pista?",
+    "hint_message": "Usa el operador de exponente ** o multiplica el número por sí mismo."
+  },
+  "vb_level1": {
+    "title": "Primeros pasos en Visual Basic",
+    "intro": "¡Comencemos con algo muy sencillo sobre Visual Basic!",
+    "question_title": "Pregunta",
+    "question_text": "¿Cómo se declara una variable en Visual Basic?",
+    "options": {
+      "option1": "int x = 10;",
+      "option2": "var x = 10;",
+      "option3": "Dim x As Integer = 10"
+    },
+    "next_button": "Siguiente Nivel"
+  },
+  "vb_level2": {
+    "title": "Condicionales en Visual Basic",
+    "intro": "Veamos cómo se estructura un condicional If en Visual Basic.",
+    "question_title": "Pregunta",
+    "question_text": "¿Cuál es la forma correcta de escribir una sentencia If en Visual Basic?",
+    "options": {
+      "option1": "if (x > 10) { // código }",
+      "option2": "if x > 10 then // código",
+      "option3": "If x > 10 Then ' código End If"
+    },
+    "next_button": "Siguiente Nivel"
+  },
+  "vb_level3": {
+    "title": "Procedimientos y Funciones",
+    "intro": "Aprende la diferencia entre Subrutinas y Funciones en Visual Basic.",
+    "question_title": "Pregunta",
+    "question_text": "¿Cuál es la principal diferencia entre una Subrutina (Sub) y una Función (Function) en Visual Basic?",
+    "options": {
+      "option1": "Ambas devuelven un valor.",
+      "option2": "La Función devuelve un valor, la Subrutina no.",
+      "option3": "La Subrutina devuelve un valor, la Función no."
+    },
+    "next_button": "Siguiente Nivel"
+  },
+  "vb_level4": {
+    "title": "Manejo de Errores en Visual Basic",
+    "intro": "Aprende cómo capturar errores usando Try...Catch y cómo finalizar con Finally.",
+    "question_title": "Pregunta",
+    "question_text": "¿Cuál es la estructura correcta para manejar errores en Visual Basic?",
+    "options": {
+      "option1": "Try...Then...Catch",
+      "option2": "Try...Catch...End",
+      "option3": "Try...Catch...Finally"
+    },
+    "next_button": "Siguiente Nivel"
+  },
+  "vb_level5": {
+    "title": "Nivel Avanzado: Archivos, Arrays y Eventos",
+    "intro": "Demuestra tus habilidades escribiendo el código necesario para manipular archivos en Visual Basic.",
+    "task_title": "Tarea",
+    "task_text": "Escribe el código necesario en Visual Basic para crear un archivo de texto y escribir 'Hola Mundo' dentro.",
+    "placeholder": "Escribe tu código aquí...",
+    "check_button": "Verificar Código",
+    "next_button": "Ir a cursos",
+    "hint_button": "¿Quieres una pista?",
+    "hint_message": "Recuerda: usa 'StreamWriter' para crear un archivo, 'WriteLine' para escribir y 'Close' para cerrar el archivo."
+  },
+  "learn_programming2": {
+    "title": "Aprende a programar",
+    "search_placeholder": "Buscar por lenguaje...",
+    "filters": {
+      "new": "Nuevos",
+      "trending": "Tendencia",
+      "top_rated": "Mejor valorados",
+      "free": "Gratis",
+      "premium": "Premium"
+    },
+    "no_results": "Lo sentimos, no hay ningún curso con ese nombre."
+  },
+  "settings": {
+    "title": "Configuraciones",
+    "account": {
+      "title": "Cuenta",
+      "email_label": "Correo electrónico",
+      "password_label": "Contraseña",
+      "password_placeholder": "••••••••",
+      "password_change_button": "Cambiar",
+      "two_factor_auth": "2FA"
+    },
+    "profile": {
+      "title": "Perfil",
+      "name_label": "Nombre",
+      "personal_domain": "Dominio personal",
+      "claim_domain_button": "Reclamar dominio"
+    },
+    "public_profile": {
+      "title": "Elegir foto",
+      "show_profile": "Mostrar perfil",
+      "change_pick_button": "Cambiar foto"
+    },
+    "change_password_modal": {
+      "title": "Cambiar Contraseña",
+      "current_password_placeholder": "Contraseña actual",
+      "new_password_placeholder": "Nueva contraseña",
+      "confirm_new_password_placeholder": "Confirmar nueva contraseña",
+      "save_button": "Guardar",
+      "cancel_button": "Cancelar"
+    },
+    "avatar_picker_modal": {
+      "title": "Elige una de estas imágenes para tu perfil",
+      "close_button": "Cerrar"
+    }
+  },
+  "add_challenge_button": "Añadir desafío",
+  "select_difficulty": {
+    "label": "Dificultad",
+    "options": {
+      "easy": "Fácil",
+      "intermediate": "Intermedia",
+      "advanced": "Avanzada"
+    }
+  },
+  "new_challenge_popup": {
+    "title": "Nuevo desafío",
+    "fields": {
+      "title": "Título",
+      "description": "Descripción",
+      "difficulty": "Dificultad",
+      "language": "Lenguaje"
+    },
+    "save_button": "Guardar",
+    "cancel_button": "Cancelar"
+  },
+  "challenge_options": {
+    "label": "Opciones",
+    "placeholder": "Opción {{ i + 1 }}",
+    "correct_option_label": "Correcta"
+  },
+  "challenge_details_popup": {
+    "close_button": "❌",
+    "select_correct_answer": "// Selecciona la respuesta correcta"
+  },
+  "challenge_card": {
+    "solved_by": "Resuelto por {{ solvedBy }} personas"
+  },
+  "error_page": {
+    "title": "404",
+    "subtitle": "Página no encontrada",
+    "description": "Lo sentimos, la ruta que estás buscando no existe o fue movida. Intenta regresar al inicio o contacta soporte.",
+    "button": "Volver al inicio"
+  },
+  "settings2": {
+    "account": {
+      "title": "Configuración de la cuenta",
+      "email_label": "Correo Electrónico",
+      "email_change_button": "Cambiar Correo",
+      "password_label": "Contraseña",
+      "password_placeholder": "**********",
+      "password_change_button": "Cambiar Contraseña",
+      "two_factor_auth": "Autenticación en dos pasos"
+    },
+    "email_change_modal": {
+      "title": "Cambiar Correo Electrónico",
+      "label": "Nuevo Correo",
+      "placeholder": "Ingresa tu nuevo correo electrónico",
+      "save_button": "Guardar",
+      "cancel_button": "Cancelar"
+    }
+  },
+  "settings3": {
+    "profile": {
+      "title": "Perfil",
+      "name_label": "Nombre Completo",
+      "current_name_label": "Nombre Actual",
+      "new_name_placeholder": "Ingresa tu nuevo nombre",
+      "change_name_button": "Cambiar Nombre",
+      "cancel_button": "Cancelar",
+      "personal_domain": "Dominio Personal",
+      "claim_domain_button": "Reclamar Dominio"
+    },
+    "public_profile": {
+      "title": "Perfil Público",
+      "show_profile": "Mostrar Perfil",
+      "change_pick_button": "Cambiar Foto de Perfil"
+    }
+  }
+}

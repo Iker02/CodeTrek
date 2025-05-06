@@ -1,0 +1,68 @@
+<body class="bg-gray-900 text-white">
+  <main
+    class="w-[90vw] mx-auto pt-8 pb-8 mt-14 sm:w-[90vw] md:w-[90vw] xl:w-3/5 2xl:w-3/5"
+  >
+    <h1 class="text-3xl font-bold mb-4">
+      {{ "learn_programming.title" | translate }}
+    </h1>
+
+    <!-- Botones de filtros -->
+    <div class="flex flex-wrap gap-4 mb-4">
+      <button class="px-4 py-2 bg-gray-700 rounded-xl">
+        {{ "learn_programming.filters.new" | translate }}
+      </button>
+      <button class="px-4 py-2 bg-gray-700 rounded-xl">
+        {{ "learn_programming.filters.trending" | translate }}
+      </button>
+      <button class="px-4 py-2 bg-gray-700 rounded-xl">
+        {{ "learn_programming.filters.top_rated" | translate }}
+      </button>
+      <button class="px-4 py-2 bg-gray-700 rounded-xl">
+        {{ "learn_programming.filters.free" | translate }}
+      </button>
+      <button class="px-4 py-2 bg-gray-700 rounded-xl">
+        {{ "learn_programming.filters.premium" | translate }}
+      </button>
+    </div>
+
+    <!-- Campo de búsqueda -->
+    <div class="relative mb-4">
+      <input
+        class="w-full px-4 py-2 rounded-xl bg-gray-700 text-white focus:outline-none"
+        [(ngModel)]="searchTerm"
+        placeholder="{{ 'learn_programming.search_placeholder' | translate }}"
+        type="text"
+      />
+      <i class="fas fa-search absolute right-4 top-3 text-gray-400"></i>
+    </div>
+
+    <!-- Lista de lenguajes filtrados -->
+    <div *ngIf="filteredLanguages.length > 0; else noResults">
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+      >
+        <button
+          *ngFor="let lang of filteredLanguages"
+          (click)="onLanguageSelect(lang.name)"
+        >
+          <div class="bg-gray-800 rounded-xl p-4">
+            <img
+              [alt]="lang.name + ' programming illustration'"
+              class="w-full object-cover rounded-xl mb-2"
+              height="200"
+              [src]="lang.image"
+              width="200"
+            />
+            <h2 class="text-lg font-bold">{{ lang.name }}</h2>
+          </div>
+        </button>
+      </div>
+    </div>
+    <!-- Mensaje si no hay resultados -->
+    <ng-template #noResults>
+      <p class="text-center text-gray-400 mt-8 text-lg">
+        {{ "learn_programming2.no_results" | translate }}
+      </p>
+    </ng-template>
+  </main>
+</body>

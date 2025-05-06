@@ -1,0 +1,56 @@
+<div
+  class="flex flex-col items-center justify-center min-h-screen bg-gray-700 text-center p-8 mt-14"
+>
+  <h1 class="text-5xl font-extrabold text-white mb-4">
+    {{'vb_level5.title' | translate}}
+  </h1>
+  <p class="text-xl text-white mb-6">
+    {{'vb_level5.intro' | translate}}
+  </p>
+
+  <div class="bg-white p-6 rounded-lg shadow-xl w-full max-w-2xl mx-auto">
+    <h2 class="text-3xl font-bold text-gray-800 mb-4">
+      {{'vb_level5.task_title' | translate}}
+    </h2>
+    <p class="text-lg text-gray-700 mb-4">
+      {{'vb_level5.task_text' | translate}}
+    </p>
+
+    <textarea
+      [(ngModel)]="userCode"
+      placeholder="{{'vb_level5.placeholder' | translate}}"
+      class="w-full h-60 p-4 border border-gray-300 rounded-lg mb-4 font-mono text-sm"
+    ></textarea>
+
+    <button
+      (click)="checkCode()"
+      class="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all"
+    >
+      {{'vb_level5.check_button' | translate}}
+    </button>
+
+    <p *ngIf="feedbackMessage" class="text-lg text-gray-700 mt-4">
+      {{ feedbackMessage }}
+    </p>
+
+    <button
+      *ngIf="showHintButton"
+      (click)="showHint()"
+      class="mt-4 px-6 py-3 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-all"
+    >
+      {{ 'vb_level5.hint_button' | translate }}
+    </button>
+
+    <p *ngIf="showHintMessage" class="text-md text-yellow-700 mt-4">
+      {{ 'vb_level5.hint_message' | translate }}
+    </p>
+
+    <button
+      *ngIf="isCodeCorrect"
+      (click)="goToNextLevel()"
+      class="mt-6 px-6 py-3 bg-green-600 text-white rounded-lg shadow-md hover:bg-green-700 transition-all"
+    >
+      {{ 'vb_level5.next_button' | translate }}
+    </button>
+  </div>
+</div>

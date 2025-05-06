@@ -1,0 +1,37 @@
+<div class="flex flex-col items-center justify-center h-screen text-center">
+  <h1 class="text-4xl font-bold text-white">
+    {{ 'python_level2.title' | translate }}
+  </h1>
+
+  <p class="text-lg text-gray-300 mt-4">
+    {{ 'python_level2.intro' | translate }}
+  </p>
+
+  <p class="text-white mt-4">
+    {{ 'python_level2.question' | translate }} <br>
+    <code>{{ 'python_level2.code' | translate }}</code>
+  </p>
+
+  <input 
+    type="number" 
+    [(ngModel)]="answer" 
+    [placeholder]="'python_level2.placeholder' | translate"
+    class="mt-4 px-4 py-2 rounded-lg" 
+    style="width: 200px;"
+  />
+
+  <button 
+    (click)="checkAnswer()" 
+    class="mt-4 px-4 py-2 bg-green-600 text-white rounded-lg">
+    {{ 'python_level2.check_button' | translate }}
+  </button>
+
+  <p class="mt-4 text-white">{{ feedbackMessage }}</p>
+
+  <button 
+    *ngIf="feedbackMessage.includes('Correct')" 
+    (click)="goToNextLevel()" 
+    class="mt-6 px-4 py-2 bg-blue-600 text-white rounded-lg">
+    {{ 'python_level2.next_button' | translate }}
+  </button>
+</div>

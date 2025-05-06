@@ -1,0 +1,288 @@
+<!-- SETTINGS CONTAINER -->
+<div
+  class="mx-auto mt-28 bg-gray-800 p-7 rounded-xl"
+  [ngClass]="{
+    'w-[90%]': screenSize === 'sm' || screenSize === 'md',
+    'w-[70%]': screenSize === 'xl' || screenSize === '2xl'
+  }"
+>
+  <h2 class="text-2xl font-semibold text-white mb-8">
+    {{ "settings.title" | translate }}
+  </h2>
+
+  <!-- Account Section -->
+  <div class="text-white bg-gray-900 rounded-xl">
+    <div class="text-white mb-10 bg-gray-900 pr-10 pl-10 pb-2 pt-2 rounded-xl">
+      <h3 class="font-semibold mb-4">
+        {{ "settings2.account.title" | translate }}
+      </h3>
+
+      <!-- Sección de Correo Electrónico -->
+      <div class="flex justify-between items-center mb-4">
+        <div>
+          <p class="text-sm text-gray-400">
+            {{ "settings2.account.email_label" | translate }}
+          </p>
+          <p>{{ userEmail }}</p>
+        </div>
+        <button
+          (click)="openEmailModal()"
+          class="bg-gray-700 text-white px-4 py-1 rounded"
+        >
+          {{ "settings2.account.email_change_button" | translate }}
+        </button>
+      </div>
+
+      <!-- Sección de Contraseña -->
+      <div class="flex justify-between items-center mb-4">
+        <div>
+          <p class="text-sm text-gray-400">
+            {{ "settings.account.password_label" | translate }}
+          </p>
+          <p>{{ "settings.account.password_placeholder" | translate }}</p>
+        </div>
+        <button
+          (click)="showPasswordModal = true"
+          class="bg-gray-700 text-white px-4 py-1 rounded"
+        >
+          {{ "settings.account.password_change_button" | translate }}
+        </button>
+      </div>
+
+      <!-- Sección de Autenticación de Dos Factores -->
+      <div class="flex justify-between items-center mb-4">
+        <p>{{ "settings.account.two_factor_auth" | translate }}</p>
+        <label class="inline-flex items-center cursor-pointer">
+          <input type="checkbox" class="sr-only peer" />
+          <div
+            class="w-11 h-6 bg-gray-600 rounded-full peer peer-focus:ring-2 peer-checked:bg-green-500 transition"
+          ></div>
+        </label>
+      </div>
+    </div>
+
+    <!-- Modal para Cambiar Correo Electrónico -->
+    <div
+      *ngIf="showEmailModal"
+      class="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50"
+    >
+      <div class="bg-white p-6 rounded-xl max-w-sm w-full">
+        <h2 class="text-black text-xl font-semibold mb-4">
+          {{ "settings2.email_change_modal.title" | translate }}
+        </h2>
+        <label for="nuevoCorreo" class="text-black block text-sm mb-2">{{
+          "settings2.email_change_modal.label" | translate
+        }}</label>
+        <input
+          id="nuevoCorreo"
+          [(ngModel)]="nuevoCorreo"
+          type="email"
+          class="text-black w-full px-4 py-2 mb-4 border rounded-lg"
+          placeholder="{{
+            'settings2.email_change_modal.placeholder' | translate
+          }}"
+        />
+        <div class="flex justify-end">
+          <button
+            (click)="cambiarCorreo()"
+            class="bg-blue-500 text-white px-4 py-2 rounded mr-2"
+          >
+            {{ "settings2.email_change_modal.save_button" | translate }}
+          </button>
+          <button
+            (click)="showEmailModal = false"
+            class="bg-gray-500 text-white px-4 py-2 rounded"
+          >
+            {{ "settings2.email_change_modal.cancel_button" | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile Section -->
+  <div class="text-white mb-10 bg-gray-900 pr-10 pl-10 pb-2 pt-2 rounded-xl">
+    <h3 class="font-semibold mb-4">
+      {{ "settings.profile.title" | translate }}
+    </h3>
+
+    <!-- Profile Name Section -->
+    <div class="flex justify-between items-center mb-4">
+      <div>
+        <p class="text-sm text-gray-400">
+          {{ "settings.profile.name_label" | translate }}
+        </p>
+        <p>{{ nombreCompleto }}</p>
+      </div>
+      <button
+        (click)="openNameModal()"
+        class="bg-gray-700 text-white px-4 py-1 rounded"
+      >
+        {{ "settings3.profile.change_name_button" | translate }}
+      </button>
+    </div>
+
+    <!-- Personal Domain Section -->
+    <div class="flex justify-between items-center mb-4">
+      <p>{{ "settings.profile.personal_domain" | translate }}</p>
+      <button class="bg-gray-700 text-white px-4 py-1 rounded">
+        {{ "settings.profile.claim_domain_button" | translate }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Public Profile Section -->
+  <div class="text-white mb-10 bg-gray-900 pr-10 pl-10 pb-5 pt-2 rounded-xl">
+    <h3 class="font-semibold mb-4">
+      {{ "settings.public_profile.title" | translate }}
+    </h3>
+    <div class="flex justify-between items-center mb-6">
+      <p>{{ "settings.public_profile.show_profile" | translate }}</p>
+      <label class="inline-flex items-center cursor-pointer">
+        <input
+          #toggle
+          type="checkbox"
+          class="sr-only peer"
+          (change)="onToggleChange($event)"
+        />
+        <div
+          class="w-11 h-6 bg-gray-600 rounded-full peer peer-focus:ring-2 peer-checked:bg-green-500 transition"
+        ></div>
+      </label>
+    </div>
+    <button
+      (click)="showPopup = true"
+      class="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 transition"
+    >
+      {{ "settings.public_profile.change_pick_button" | translate }}
+    </button>
+  </div>
+
+  <!-- Popup Modal for Changing Name -->
+  <div
+    *ngIf="showNameModal"
+    class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 text-black"
+  >
+    <div class="bg-white text-white p-6 rounded-lg w-96">
+      <h3 class="text-xl font-semibold mb-4 text-black">
+        {{ "settings3.profile.name_label" | translate }}
+      </h3>
+
+      <div class="mb-4">
+        <p class="text-sm text-black font-semibold">
+          {{ "settings3.profile.current_name_label" | translate }}
+        </p>
+        <p class="text-gray-600">{{ nombreCompleto }}</p>
+      </div>
+
+      <input
+        [(ngModel)]="nuevoNombre"
+        placeholder="{{ 'settings3.profile.new_name_placeholder' | translate }}"
+        class="bg-white text-white px-4 py-1 rounded mb-4 w-full"
+      />
+      <button
+        (click)="cambiarNombre()"
+        class="bg-blue-600 text-white px-4 py-1 rounded w-full"
+      >
+        {{ "settings3.profile.change_name_button" | translate }}
+      </button>
+
+      <button
+        (click)="showNameModal = false"
+        class="bg-gray-600 text-white px-4 py-1 rounded w-full mt-2"
+      >
+        {{ "settings3.profile.cancel_button" | translate }}
+      </button>
+    </div>
+  </div>
+
+  <!-- CHANGE PASSWORD MODAL -->
+  <div
+    *ngIf="showPasswordModal"
+    class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+  >
+    <div
+      class="bg-white text-black p-6 rounded-lg shadow-xl w-[90%] sm:w-[400px] text-center"
+    >
+      <h2 class="text-xl font-bold mb-4">
+        {{ "settings.change_password_modal.title" | translate }}
+      </h2>
+
+      <input
+        type="password"
+        [(ngModel)]="currentPassword"
+        placeholder="{{
+          'settings.change_password_modal.current_password_placeholder'
+            | translate
+        }}"
+        class="w-full mb-3 p-2 border rounded"
+      />
+      <input
+        type="password"
+        [(ngModel)]="newPassword"
+        placeholder="{{
+          'settings.change_password_modal.new_password_placeholder' | translate
+        }}"
+        class="w-full mb-3 p-2 border rounded"
+      />
+      <input
+        type="password"
+        [(ngModel)]="confirmNewPassword"
+        placeholder="{{
+          'settings.change_password_modal.confirm_new_password_placeholder'
+            | translate
+        }}"
+        class="w-full mb-4 p-2 border rounded"
+      />
+
+      <div class="flex justify-center gap-4">
+        <button
+          (click)="changePassword()"
+          class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+        >
+          {{ "settings.change_password_modal.save_button" | translate }}
+        </button>
+        <button
+          (click)="showPasswordModal = false"
+          class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 transition"
+        >
+          {{ "settings.change_password_modal.cancel_button" | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- AVATAR PICKER POPUP -->
+  <div
+    *ngIf="showPopup"
+    class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+  >
+    <div
+      class="bg-white text-black p-6 rounded-lg shadow-xl w-[90%] sm:w-[400px] text-center"
+    >
+      <h2 class="text-xl font-bold mb-4">
+        {{ "settings.avatar_picker_modal.title" | translate }}
+      </h2>
+      <div class="flex flex-wrap justify-center gap-4 mb-6">
+        <img
+          *ngFor="let url of profilePictures; let idx = index"
+          [src]="url"
+          alt="Profile"
+          (click)="selectProfile(url, idx)"
+          [ngClass]="{
+            'border-4 border-blue-500': selectedProfile === idx,
+            'border border-gray-300': selectedProfile !== idx
+          }"
+          class="w-12 h-12 rounded-full cursor-pointer transition duration-200"
+        />
+      </div>
+
+      <button
+        (click)="closePopup(toggle)"
+        class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+      >
+        {{ "settings.avatar_picker_modal.close_button" | translate }}
+      </button>
+    </div>
+  </div>
+</div>

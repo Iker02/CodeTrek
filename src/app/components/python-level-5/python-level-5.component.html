@@ -1,0 +1,61 @@
+<div class="flex flex-col items-center justify-center min-h-screen text-center p-8">
+  <h1 class="text-5xl font-extrabold text-white mb-4">
+    {{ 'final_level.title' | translate }}
+  </h1>
+  <p class="text-xl text-white mb-6">
+    {{ 'final_level.intro' | translate }}
+  </p>
+
+  <div class="bg-white p-6 rounded-lg shadow-xl w-full max-w-xl mx-auto">
+    <h2 class="text-2xl font-bold text-gray-800 mb-4">
+      {{ 'final_level.code_prompt' | translate }}
+    </h2>
+
+    <textarea
+      [(ngModel)]="userCode"
+      class="w-full p-3 border border-gray-300 rounded-lg text-gray-800 font-mono"
+      rows="5"
+      [placeholder]="'final_level.placeholder' | translate"
+    ></textarea>
+
+    <button
+      (click)="checkCode()"
+      class="mt-4 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all"
+    >
+      {{ 'final_level.run_button' | translate }}
+    </button>
+
+    <p
+      *ngIf="feedbackMessage"
+      [ngClass]="{ 'text-green-600': isCorrect, 'text-red-600': !isCorrect }"
+      class="text-lg mt-4"
+    >
+      {{ feedbackMessage }}
+    </p>
+
+    <!-- Contenedor de los botones de pista y home -->
+    <div *ngIf="isCorrect || showHint" class="mt-6 flex flex-col items-center gap-4">
+      <!-- Botón de pista -->
+      <button
+        *ngIf="showHint"
+        (click)="showHintMessage()"
+        class="px-6 py-3 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-all"
+      >
+        {{ 'final_level_hint.hint_button' | translate }}
+      </button>
+
+      <p *ngIf="hintMessage" class="text-lg text-gray-700 mt-4 italic">
+        {{ hintMessage }}
+      </p>
+
+      <!-- Botón de Finalización -->
+      <button
+        *ngIf="isCorrect"
+        (click)="goHome()"
+        class="px-6 py-3 bg-green-600 text-white rounded-lg shadow-md hover:bg-green-700 transition-all"
+      >
+        {{ 'final_level.congratulations_button' | translate }}
+      </button>
+    </div>
+  </div>
+</div>

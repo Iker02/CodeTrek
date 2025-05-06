@@ -1,0 +1,251 @@
+<div class="w-full flex justify-center mt-20">
+  <div class="w-full max-w-6xl px-4 xl:w-[60%]">
+    <!-- Botón para mostrar el popup de nuevo desafío -->
+    <div class="flex justify-center py-4 w-full">
+      <button
+        (click)="togglePopup()"
+        class="w-full max-w-md inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800"
+      >
+        <span
+          class="w-full text-center px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-transparent group-hover:dark:bg-transparent"
+        >
+          {{ "add_challenge_button" | translate }}
+        </span>
+      </button>
+    </div>
+
+    <div class="flex justify-center mb-6 w-full">
+      <div
+        class="w-full max-w-md inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-gray-900 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-500 focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800"
+      >
+        <select
+          [(ngModel)]="selectedDifficulty"
+          class="w-full bg-white dark:bg-gray-900 text-center px-5 py-2.5 rounded-md appearance-none focus:outline-none focus:ring-0 text-sm text-gray-900 dark:text-white"
+        >
+          <option value="">{{ "select_difficulty.label" | translate }}</option>
+          <option value="Easy">
+            {{ "select_difficulty.options.easy" | translate }}
+          </option>
+          <option value="Intermediate">
+            {{ "select_difficulty.options.intermediate" | translate }}
+          </option>
+          <option value="Advanced">
+            {{ "select_difficulty.options.advanced" | translate }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Popup de nuevo desafío -->
+    <div
+      *ngIf="showPopup"
+      class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+    >
+      <div
+        class="bg-white text-black rounded-xl p-6 w-[90%] max-w-md shadow-lg max-h-[80vh] overflow-y-auto"
+        style="height: auto; max-height: 80vh; overflow-y: auto"
+      >
+        <h2 class="text-xl font-bold mb-4">
+          {{ "new_challenge_popup.title" | translate }}
+        </h2>
+
+        <label class="block mb-1">
+          <span class="text-sm font-medium"
+            >{{ "new_challenge_popup.fields.title" | translate }}:</span
+          >
+          <input
+            type="text"
+            [(ngModel)]="newChallenge.title"
+            class="w-full p-2 border rounded-md"
+          />
+        </label>
+
+        <label class="block mb-3">
+          <span class="text-sm font-medium"
+            >{{ "new_challenge_popup.fields.description" | translate }}:</span
+          >
+          <textarea
+            [(ngModel)]="newChallenge.description"
+            class="w-full mt-1 p-2 border rounded-md"
+          ></textarea>
+        </label>
+
+        <label class="block mb-4">
+          <span class="text-sm font-medium"
+            >{{ "new_challenge_popup.fields.difficulty" | translate }}:</span
+          >
+          <select
+            [(ngModel)]="newChallenge.difficulty"
+            class="w-full mt-1 p-2 border rounded-md"
+          >
+            <option value="Easy">
+              {{ "select_difficulty.options.easy" | translate }}
+            </option>
+            <option value="Intermediate">
+              {{ "select_difficulty.options.intermediate" | translate }}
+            </option>
+            <option value="Advanced">
+              {{ "select_difficulty.options.advanced" | translate }}
+            </option>
+          </select>
+        </label>
+
+        <!-- Selector de Lenguaje -->
+        <label class="block mb-4">
+          <span class="text-sm font-medium"
+            >{{ "new_challenge_popup.fields.language" | translate }}:</span
+          >
+          <select
+            [(ngModel)]="newChallenge.language"
+            class="w-full mt-1 p-2 border rounded-md"
+          >
+            <option value="javascript">JavaScript</option>
+            <option value="python">Python</option>
+            <option value="java">Java</option>
+            <option value="csharp">C#</option>
+            <option value="html">HTML</option>
+            <option value="sql">SQL</option>
+            <option value="kotlin">Kotlin</option>
+            <option value="vb">Visual Basic</option>
+          </select>
+        </label>
+
+        <div class="mb-3">
+          <span class="text-sm font-medium"
+            >{{ "challenge_options.label" | translate }}:</span
+          >
+          <div
+            *ngFor="
+              let opt of newChallenge.options;
+              let i = index;
+              trackBy: trackByIndex
+            "
+            class="flex gap-2 mt-2"
+          >
+            <input
+              type="text"
+              [ngModel]="opt"
+              (ngModelChange)="updateOption(i, $event)"
+              class="w-full p-2 border rounded-md"
+              placeholder="{{
+                'challenge_options.placeholder' | translate : { i: i }
+              }}"
+            />
+
+            <input
+              type="radio"
+              name="correctOption"
+              [value]="i"
+              [(ngModel)]="newChallenge.correctIndex"
+              title="{{ 'challenge_options.correct_option_label' | translate }}"
+            />
+          </div>
+        </div>
+
+        <div class="flex justify-between mt-4">
+          <button
+            (click)="saveChallenge()"
+            class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+          >
+            {{ "new_challenge_popup.save_button" | translate }}
+          </button>
+          <button
+            (click)="togglePopup()"
+            class="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500"
+          >
+            {{ "new_challenge_popup.cancel_button" | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Popup con opciones del desafío -->
+    <div
+      *ngIf="selectedChallenge"
+      class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-50 px-4"
+    >
+      <div
+        class="bg-[#1e1e1e] text-white p-6 rounded-xl max-w-md w-full font-mono shadow-xl relative overflow-y-scroll no-scrollbar"
+        style="max-height: 80vh"
+      >
+        <button
+          (click)="selectedChallenge = null"
+          class="absolute top-2 right-2 text-white hover:text-gray-400 text-3xl lg:text-lg"
+        >
+          {{ "challenge_details_popup.close_button" | translate }}
+        </button>
+
+        <h2 class="text-2xl font-bold mb-4">{{ selectedChallenge.title }}</h2>
+        <p class="mb-4 text-sm text-gray-300">
+          {{ selectedChallenge.description }}
+        </p>
+        <p class="text-green-400 mb-2">
+          {{ "challenge_details_popup.select_correct_answer" | translate }}
+        </p>
+
+        <div class="space-y-2">
+          <button
+            *ngFor="let opt of selectedChallenge.options; let i = index"
+            [style.animationDelay]="i * 0.2 + 's'"
+            (click)="validateAnswer(selectedChallenge, i)"
+            [ngClass]="{
+              'bg-green-700':
+                userAnswers[selectedChallenge.id] === i &&
+                i === selectedChallenge.correctIndex,
+              'bg-red-700':
+                userAnswers[selectedChallenge.id] === i &&
+                i !== selectedChallenge.correctIndex,
+              'bg-gray-800': userAnswers[selectedChallenge.id] !== i
+            }"
+            class="console-line block w-full text-left px-4 py-2 rounded text-white transition-all border border-gray-600 break-words overflow-x-hidden"
+          >
+            <span class="text-yellow-300">
+              <code
+                [innerHTML]="
+                  formatCode(opt) | highlight : selectedChallenge.language
+                "
+              ></code>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tarjetas de desafíos -->
+    <div
+      class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 pb-10"
+    >
+      <div
+        *ngFor="
+          let challenge of challengesFromDB
+            | difficultyFilter : selectedDifficulty
+        "
+        class="bg-gray-800 text-white rounded-xl p-4 shadow-md hover:scale-[1.02] transition-transform cursor-pointer"
+        (click)="selectedChallenge = challenge"
+      >
+        <div class="flex items-center mb-4">
+          <img
+            [src]="
+              challenge.profileImageUrl || '../../../assets/profile_icon.webp'
+            "
+            alt="Creator Avatar"
+            class="w-10 h-10 rounded-full border-2 border-white shadow-md mr-3"
+          />
+          <h2 class="text-lg font-semibold">{{ challenge.title }}</h2>
+        </div>
+        <p class="text-gray-300 text-sm mb-3 line-clamp-2">{{ challenge.description }}</p>
+
+        <div class="flex justify-between items-center text-xs text-gray-300">
+          <span
+            class="bg-blue-600 px-2 py-1 rounded-full text-white font-medium"
+          >
+            {{ challenge.difficulty }}
+          </span>
+          <span class="ml-2">
+            {{ 'challenge_card.solved_by' | translate : { solvedBy: challenge.solvedBy || 0 } }}
+          </span>          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

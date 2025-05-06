@@ -1,0 +1,472 @@
+{
+  "login": {
+    "welcome_back": "Welcome Back!",
+    "email_placeholder": "Email address",
+    "password_placeholder": "Password",
+    "forget_password": "Forget Password?",
+    "sign_in": "Sign In",
+    "dont_have_account": "Don't have an account?",
+    "sign_up": "Sign up",
+    "log_out": "Log out"
+  },
+  "register": {
+    "create_account": "Create an Account",
+    "full_name_placeholder": "Full Name",
+    "email_placeholder": "Email address",
+    "password_placeholder": "Password",
+    "confirm_password_placeholder": "Confirm Password",
+    "already_have_account": "Already have an account?",
+    "sign_in": "Sign in",
+    "register_button": "Register"
+  },
+
+  "header": {
+    "home": "Home",
+    "catalog": "Catalog",
+    "challenges": "Challenges",
+    "signIn": "Sign In",
+    "selectLanguage": "Select a language",
+    "defaultLanguage": "English",
+    "profileAlt": "Profile picture"
+  },
+  "menu": {
+    "close": "Close",
+    "openMenu": "Open menu"
+  },
+  "branding": {
+    "appName": "CODETREK"
+  },
+  "buttons": {
+    "navigateHome": "Go to Home",
+    "navigateCatalog": "Go to Catalog",
+    "navigateLogin": "Go to Login"
+  },
+  "homepage": {
+    "hero": {
+      "title": "Learn to code with hands-on exercises in Python, JavaScript, and more...",
+      "search_placeholder": "Start typing",
+      "search_button": "Search"
+    },
+    "features": {
+      "title": "Hands-on coding experience",
+      "description": "CodeTrek's interactive coding environment makes it easy to learn new languages and concepts. Get started with our free beginner courses or dive into a paid course for a more in-depth learning experience.",
+      "items": {
+        "practice": {
+          "title": "Practice coding with guided challenges",
+          "description": "Hundreds of coding challenges for you to solve"
+        },
+        "write": {
+          "title": "Write and run code in the browser",
+          "description": "No setup required—just start typing"
+        },
+        "feedback": {
+          "title": "Get instant feedback on your work",
+          "description": "Our automated test suite checks your work"
+        },
+        "save": {
+          "title": "Save your progress and come back later",
+          "description": "Create an account to track your progress"
+        }
+      }
+    },
+    "courses": {
+      "title": "Featured Courses",
+      "see_more": "See more",
+      "see_less": "See less",
+      "each_course": {
+        "description_Python": "Learn Python from scratch, covering syntax and basic concepts.",
+        "description_CSharp": "Master the fundamentals of C# for software and game development.",
+        "description_VisualBasic": "Get started with Visual Basic for simple Windows applications.",
+        "description_SQL": "Understand databases and learn to write SQL queries efficiently.",
+        "description_Kotlin": "Learn Kotlin, the modern language for Android development.",
+        "description_JavaScript": "Discover the basics of JavaScript for web development.",
+        "description_Java": "Explore Java programming, from OOP to application development.",
+        "description_HTML": "Learn the fundamentals of HTML to build web pages."
+      }
+    },
+    "challenges": {
+      "title": "Top Challenges",
+      "challenge_1": {
+        "title": "Python Basics",
+        "description": "Solve basic programming challenges"
+      },
+      "challenge_2": {
+        "title": "JavaScript Basics",
+        "description": "Write JavaScript functions"
+      },
+      "challenge_3": {
+        "title": "Web Development Basics",
+        "description": "Practice using HTML and CSS"
+      }
+    }
+  },
+  "learn_programming": {
+    "title": "Learn programming",
+    "search_placeholder": "Search courses, projects, resources...",
+    "filters": {
+      "new": "New",
+      "trending": "Trending",
+      "top_rated": "Top Rated",
+      "free": "Free",
+      "premium": "Premium"
+    },
+    "courses": {
+      "python": "Python",
+      "javascript": "JavaScript",
+      "csharp": "CSharp",
+      "html": "HTML",
+      "sql": "SQL",
+      "kotlin": "Kotlin",
+      "java": "Java",
+      "visualbasic": "VisualBasic"
+    }
+  },
+  "course_page": {
+    "description": "Choose a level to start learning:",
+    "level": "Level",
+    "unlock_skills": "Unlock new skills in this exciting level.",
+    "start_level": "Start Level",
+    "back_to_courses": "Back to Courses"
+  },
+  "course_details": {
+    "title": "Learn",
+    "documentation": {
+      "python": "Python is a powerful, easy-to-learn programming language used in web development, data analysis, artificial intelligence, automation, and more. Its syntax is clear and concise, making it an ideal language for both beginners and professionals. Python’s extensive ecosystem of libraries and frameworks allows for rapid development and scalability.",
+      "csharp": "C# is a programming language developed by Microsoft, widely used in desktop application development, video games with Unity, and enterprise applications.\n\nIts main features include modern syntax, support for object-oriented programming, and deep integration with the .NET platform. C# is known for its performance and robustness in building large-scale applications.\n\nIt is the primary language for creating video games in Unity, enabling the development of 2D and 3D games. It is also common in enterprise application development and mobile app development via Xamarin.",
+      "visualbasic": "Visual Basic is a programming language developed by Microsoft, designed to be easy to learn and widely used in desktop and enterprise applications.\n\nThrough its integration with the Visual Studio development environment, Visual Basic allows for the creation of Windows applications, databases, and process automation. Although not as popular as other languages, it is still used in many legacy systems and enterprise environments.\n\nIts key features are ease of use, simple syntax, and rapid creation of graphical interfaces through the use of visual forms.",
+      "sql": "SQL (Structured Query Language) is a language used to manage relational databases. It allows you to create, read, update, and delete data (CRUD) from databases.\n\nSQL is widely used in applications that require storage and manipulation of large amounts of data. With SQL, you can perform complex queries, join tables, aggregate data, and filter efficiently.\n\nThere are several database management systems (DBMS) that implement SQL, such as MySQL, PostgreSQL, Microsoft SQL Server, and Oracle Database.",
+      "kotlin": "Kotlin is a modern and concise programming language, primarily used in Android app development. It is fully interoperable with Java and allows for cleaner code with fewer errors.\n\nKotlin is known for its modern, safe syntax that reduces common errors like NullPointerException. It also supports functional and object-oriented programming, making it a versatile and powerful language.\n\nIn addition to Android, Kotlin is also used to develop web apps, server apps, and cross-platform applications using frameworks like Kotlin Multiplatform.",
+      "javascript": "JavaScript is the primary programming language for web development. It allows you to add interactivity to web pages, handle events, and make asynchronous requests to the server, all in real-time.\n\nAlong with HTML and CSS, JavaScript is the backbone of modern web development. With the advent of Node.js, JavaScript has also gained popularity in server-side development.\n\nToday, JavaScript is the most widely used language for developing interactive web applications and is widely used in frameworks like React, Angular, and Vue.js.",
+      "java": "Java is an object-oriented programming language widely used for enterprise applications, mobile apps, and backend systems.\n\nIt is known for its robustness, portability, and compatibility with various platforms. Java allows you to write code once and run it anywhere, making it a great option for distributed systems and large-scale applications.\n\nJava is widely used in Android app development and in enterprise server environments. Frameworks like Spring and Hibernate have solidified it as a reliable choice in the software industry.",
+      "html": "HTML (HyperText Markup Language) is the standard markup language used to structure web page content. It defines the elements that make up a web page, such as headers, paragraphs, links, and lists.\n\nAlong with CSS and JavaScript, HTML is fundamental to the development of interactive websites. It is the foundation of any modern web page and serves to describe content in a hierarchical and semantic manner.\n\nHTML5 is the latest version of HTML and has introduced new tags to improve accessibility and interactivity on web pages."
+    },
+    "go_to_course": "Go to ",
+    "go_course": " course"
+  },
+  "csharp_level1": {
+    "title": "C# - Level 1: Variables and Data Types",
+    "intro": "In this level, let's start learning about variables and data types in C#.",
+    "question_title": "What is the correct way to declare a variable in C#?",
+    "question_text": "In C#, you declare a variable by specifying the type and the name. Choose the correct way to declare a variable of type `double` with the value `25.3`:",
+    "options": {
+      "option1": "double 25.3 = number;",
+      "option2": "25.3 = number double;",
+      "option3": "double number = 25.3;"
+    },
+    "correct_message": "✅ Correct! That is how you declare an int variable",
+    "incorrect_message": "❌ Incorrect! That’s not correct. Try again.",
+    "next_button": "Next Level"
+  },
+  "csharp_level2": {
+    "title": "C# - Level 2: Operators and Expressions",
+    "intro": "Now let's learn about operators and expressions in C#.",
+    "question_title": "What will be the result of this C# expression?",
+    "code": "int a = 10;\nint b = 5;\nint result = a + b * 2;\nConsole.WriteLine(result);",
+    "question_text": "What will be the output of the above code? Choose the correct answer:",
+    "options": {
+      "option1": "20",
+      "option2": "30",
+      "option3": "25"
+    },
+    "correct_message": "✅ Correct! The result of a + b * 2 is 20 because multiplication has higher precedence than addition.",
+    "incorrect_message": "❌ Incorrect! That’s not correct. Try again.",
+    "next_button": "Next Level"
+  },
+  "csharp_level3": {
+    "title": "C# - Level 3: Control Structures",
+    "intro": "Let's dive into control structures: conditionals and loops.",
+    "question_title": "What will be the output of this C# code?",
+    "code": "int a = 1;\nwhile (a <= 3)\n    Console.WriteLine(a);\n    a++;",
+    "question_text": "What will be the output of the above code? Choose the correct answer:",
+    "options": {
+      "option1": "1 2 3",
+      "option2": "3 2 1",
+      "option3": "1 1 1"
+    },
+    "correct_message": "✅ Correct! The while loop prints the values of a: 1, 2, and 3.",
+    "incorrect_message": "❌ Incorrect! That’s not correct. Try again.",
+    "next_button": "Next Level"
+  },
+  "csharp_level4": {
+    "title": "C# - Level 4: Arrays and Lists",
+    "intro": "Let's explore arrays and lists in C#!",
+    "question_title": "What will be the output of this C# code?",
+    "code": "string[] arr = ( 10, 20, 30, 40, 50 );\narr[2] = 25;\nforeach (var item in arr)\n    Console.WriteLine(item);",
+    "options": {
+      "option1": "10 20 25 40 50",
+      "option2": "10 20 30 40 50",
+      "option3": "25 20 30 40 50"
+    },
+    "correct_message": "✅ Correct! The output is: 10 20 25 40 50.",
+    "incorrect_message": "❌ Incorrect! That’s not correct. Try again.",
+    "next_button": "Next Level"
+  },
+  "CSharpFinalLevel": {
+    "title": "C# - Final Level: Coding Challenge",
+    "description": "Write a C# program that reverses an array and prints the elements.",
+    "codeEntry": "Enter your code below:",
+    "hint": "Hint: Reverse the array and then print each element.",
+    "runCodeButton": "Run Code",
+    "feedback": "Feedback",
+    "hintButton": "Need a Hint?",
+    "hintMessage": "Hint message goes here.",
+    "congratulations": "🎉 Congratulations! Go to Home",
+    "correct_message": "🎉 Correct! You have successfully reversed the array.",
+    "incorrect_message": "❌ Incorrect! That’s not correct. Try again."
+  },
+  "python_level1": {
+    "title": "Python - Level 1: Introduction",
+    "intro": "Let's start learning about variables in Python!",
+    "question_title": "What is the correct way to declare a variable in Python?",
+    "question_text": "In Python, you declare a variable by assigning a value to a name. Which of the following is the correct way to declare a variable `age` with the value `25`?",
+    "options": {
+      "option1": "age = 25",
+      "option2": "25 = age",
+      "option3": "int age = 25"
+    },
+    "correct_message": "✅ Correct! `age = 25` is the correct way to declare a variable in Python.",
+    "incorrect_message": "❌ Incorrect! That’s not correct. Try again.",
+    "next_button": "Next Level"
+  },
+  "python_level2": {
+    "title": "Python - Level 2: Math Operations",
+    "intro": "Welcome to Level 2 of Python! Let's work with math operations.",
+    "question": "What is the result of the following operation in Python?",
+    "code": "8 * (4 + 2) - 6 / 2",
+    "placeholder": "Your answer",
+    "check_button": "Check Answer",
+    "correct_message": "✅ Correct! 8 * (4 + 2) - 6 / 2 equals 45.0.",
+    "incorrect_message": "❌ Incorrect! Try again.",
+    "next_button": "Next Level"
+  },
+  "python_level3": {
+    "title": "Python - Level 3: Logical Operators",
+    "intro": "Let's test your knowledge of logical operators!",
+    "question_title": "What will be the output of this Python expression?",
+    "code": "a = True\nb = False\nc = True\nprint((a or b) and not (b and c))",
+    "options": {
+      "option1": "True",
+      "option2": "False",
+      "option3": "None"
+    },
+    "correct_message": "✅ Correct! The result is True because (a or b) is True and (b and c) is False, so not (b and c) is True, and True and True is True.",
+    "incorrect_message": "❌ Incorrect! Review the logical operator precedence and try again.",
+    "next_button": "Next Level"
+  },
+  "python_level4": {
+    "title": "Python - Level 4: Lists & Tuples",
+    "intro": "Let's test your knowledge of lists and tuples in Python!",
+    "question_title": "What will be the output of this Python code?",
+    "code": "my_list = [10, 20, 30, 40, 50] \nmy_list.append(60) \nmy_list.remove(20) \nprint(my_list[1:4])",
+    "options": {
+      "option1": "[30, 40, 50]",
+      "option2": "[10, 30, 40]",
+      "option3": "[30, 40, 50, 60]"
+    },
+    "correct_message": "Correct! The result is [30, 40, 50] because 60 was appended to the list, 20 was removed, and we printed the elements from index 1 to 3.",
+    "incorrect_message": "❌ Incorrect! Review the list operations and try again.",
+    "next_button": "Next Level",
+    "tuple_question_title": "Which statement about tuples is true?",
+    "tuple_question_description": "Choose the correct answer about tuples in Python.",
+    "tuple_options": {
+      "tuple_option_1": "Tuples are mutable, just like lists.",
+      "tuple_option_2": "Tuples are immutable, meaning their values cannot be changed.",
+      "tuple_option_3": "Tuples do not allow duplicates."
+    },
+    "tuple_correct_message": "✅ Correct! Tuples are immutable, meaning their values cannot be changed.",
+    "tuple_incorrect_message": "❌ Incorrect! Review the properties of tuples and try again."
+  },
+  "final_level": {
+    "title": "Python - Final Level: Coding Challenge",
+    "intro": "Write a Python function that returns the square of a number.",
+    "code_prompt": "Enter your code below:",
+    "placeholder": "def square(n):\n    # Your code here",
+    "run_button": "Run Code",
+    "congratulations_button": "🎉 Congratulations! Go to Home",
+    "correct_message": "🎉 Correct! You have successfully written the function.",
+    "incorrect_message": "❌ Incorrect! That’s not correct. Try again."
+  },
+  "final_level_hint": {
+    "hint_button": "Need a Hint?",
+    "hint_message": "Use the exponent operator ** or multiply the number by itself."
+  },
+  "vb_level1": {
+    "title": "First Steps in Visual Basic",
+    "intro": "Let's start with something very simple about Visual Basic!",
+    "question_title": "Question",
+    "question_text": "How do you declare a variable in Visual Basic?",
+    "options": {
+      "option1": "int x = 10;",
+      "option2": "var x = 10;",
+      "option3": "Dim x As Integer = 10"
+    },
+    "next_button": "Next Level"
+  },
+  "vb_level2": {
+    "title": "Conditionals in Visual Basic",
+    "intro": "Let's see how to structure an If statement in Visual Basic.",
+    "question_title": "Question",
+    "question_text": "What is the correct way to write an If statement in Visual Basic?",
+    "options": {
+      "option1": "if (x > 10) { // code }",
+      "option2": "if x > 10 then // code",
+      "option3": "If x > 10 Then ' code End If"
+    },
+    "next_button": "Next Level"
+  },
+  "vb_level3": {
+    "title": "Procedures and Functions",
+    "intro": "Learn the difference between Subroutines and Functions in Visual Basic.",
+    "question_title": "Question",
+    "question_text": "What is the main difference between a Subroutine (Sub) and a Function in Visual Basic?",
+    "options": {
+      "option1": "Both return a value.",
+      "option2": "The Function returns a value, the Subroutine does not.",
+      "option3": "The Subroutine returns a value, the Function does not."
+    },
+    "next_button": "Next Level"
+  },
+  "vb_level4": {
+    "title": "Error Handling in Visual Basic",
+    "intro": "Learn how to catch errors using Try...Catch and finalize actions with Finally.",
+    "question_title": "Question",
+    "question_text": "What is the correct structure for handling errors in Visual Basic?",
+    "options": {
+      "option1": "Try...Then...Catch",
+      "option2": "Try...Catch...End",
+      "option3": "Try...Catch...Finally"
+    },
+    "next_button": "Next Level"
+  },
+  "vb_level5": {
+    "title": "Advanced Level: Files, Arrays, and Events",
+    "intro": "Show your skills by writing the necessary code to handle files in Visual Basic.",
+    "task_title": "Task",
+    "task_text": "Write the Visual Basic code to create a text file and write 'Hello World' inside.",
+    "placeholder": "Write your code here...",
+    "check_button": "Check Code",
+    "next_button": "Go to courses",
+    "hint_button": "Need a hint?",
+    "hint_message": "Remember: use 'StreamWriter' to create the file, 'WriteLine' to write text, and 'Close' to properly close the file."
+  },
+
+  "learn_programming2": {
+    "title": "Learn Programming",
+    "search_placeholder": "Search by language...",
+    "filters": {
+      "new": "New",
+      "trending": "Trending",
+      "top_rated": "Top Rated",
+      "free": "Free",
+      "premium": "Premium"
+    },
+    "no_results": "Sorry, there are no courses with that name."
+  },
+  "settings": {
+    "title": "Settings",
+    "account": {
+      "title": "Account",
+      "email_label": "Email",
+      "password_label": "Password",
+      "password_placeholder": "••••••••",
+      "password_change_button": "Change",
+      "two_factor_auth": "2FA"
+    },
+    "profile": {
+      "title": "Profile",
+      "name_label": "Name",
+      "personal_domain": "Personal domain",
+      "claim_domain_button": "Claim domain"
+    },
+    "public_profile": {
+      "title": "Choose pick",
+      "show_profile": "Show profile",
+      "change_pick_button": "Change pick"
+    },
+    "change_password_modal": {
+      "title": "Change Password",
+      "current_password_placeholder": "Current Password",
+      "new_password_placeholder": "New Password",
+      "confirm_new_password_placeholder": "Confirm New Password",
+      "save_button": "Save",
+      "cancel_button": "Cancel"
+    },
+    "avatar_picker_modal": {
+      "title": "Choose one of this picks for your profile",
+      "close_button": "Close"
+    }
+  },
+  "add_challenge_button": "Add challenge",
+  "select_difficulty": {
+    "label": "Difficulty",
+    "options": {
+      "easy": "Easy",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    }
+  },
+  "new_challenge_popup": {
+    "title": "New challenge",
+    "fields": {
+      "title": "Title",
+      "description": "Description",
+      "difficulty": "Difficulty",
+      "language": "Language"
+    },
+    "save_button": "Save",
+    "cancel_button": "Cancel"
+  },
+  "challenge_options": {
+    "label": "Options",
+    "placeholder": "Option ",
+    "correct_option_label": "Correct"
+  },
+  "challenge_details_popup": {
+    "close_button": "❌",
+    "select_correct_answer": "// Select the correct answer"
+  },
+  "challenge_card": {
+    "solved_by": "Solved by {{ solvedBy }} people"
+  },
+  "error_page": {
+    "title": "404",
+    "subtitle": "Page Not Found",
+    "description": "Sorry, the page you're looking for doesn't exist or has been moved. Try going back to the homepage or contact support.",
+    "button": "Back to Home"
+  },
+  "settings2": {
+    "account": {
+      "title": "Account Settings",
+      "email_label": "Email Address",
+      "email_change_button": "Change Email",
+      "password_label": "Password",
+      "password_placeholder": "**********",
+      "password_change_button": "Change Password",
+      "two_factor_auth": "Two Factor Authentication"
+    },
+    "email_change_modal": {
+      "title": "Change Email Address",
+      "label": "New Email",
+      "placeholder": "Enter your new email address",
+      "save_button": "Save",
+      "cancel_button": "Cancel"
+    }
+  },
+  "settings3": {
+    "profile": {
+      "title": "Profile",
+      "name_label": "Full Name",
+      "current_name_label": "Current Name",
+      "new_name_placeholder": "Enter your new name",
+      "change_name_button": "Change Name",
+      "cancel_button": "Cancel",
+      "personal_domain": "Personal Domain",
+      "claim_domain_button": "Claim Domain"
+    },
+    "public_profile": {
+      "title": "Public Profile",
+      "show_profile": "Show Profile",
+      "change_pick_button": "Change Profile Picture"
+    }
+  }
+}

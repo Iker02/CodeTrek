@@ -1,0 +1,286 @@
+<div class="px-40 flex flex-1 justify-center py-5 mt-20 bg-gray-900">
+  <div class="layout-content-container flex flex-col min-w-[90vw] flex-1">
+    <div class="@container">
+      <div class="@[480px]:p-4">
+        <div
+          class="flex min-h-[300px] sm:min-h-[400px] md:min-h-[480px] flex-col gap-4 sm:gap-6 md:gap-8 bg-cover bg-center bg-no-repeat items-start justify-end px-4 pb-6 sm:px-4 md:px-7 rounded-xl"
+          style="background-image: url('assets/wallpaper-pixel.jpg')"
+        >
+          <h1
+            class="text-[#E0E0E0] text-lg sm:text-2xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-[-0.033em]"
+            style="
+              font-family: Press Start 2P;
+              -webkit-text-stroke: 3px black;
+              text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+            "
+            sm:style="
+        -webkit-text-stroke: 1px black;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+       "
+            md:style="
+          -webkit-text-stroke: 1px black;
+          text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+        "
+          >
+            {{ "homepage.hero.title" | translate }}
+          </h1>
+
+          <!-- Search Bar -->
+          <!-- TODO hacer el filtro de la barra de búsqueda y cuando el usuario dé al botón de buscar le redirija a la parte de abajo de los cursos
+            y se muestren los cursos que contengan la palabra buscada "pyt - python" -->
+          <label
+            class="flex flex-col min-w-40 h-12 sm:h-14 w-full max-w-[480px]"
+          >
+            <div class="flex w-full items-center rounded-xl relative">
+              <!-- Ícono de lupa -->
+              <svg
+                class="absolute left-3 text-[#9dabb8] w-5 h-5 pointer-events-none"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21 21l-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z"
+                />
+              </svg>
+
+              <input
+                [(ngModel)]="searchText"
+                placeholder="{{
+                  'homepage.hero.search_placeholder' | translate
+                }}"
+                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-white focus:outline-0 focus:ring-0 border border-[#3c4753] bg-[#1c2126] focus:border-[#3c4753] h-full placeholder:text-[#9dabb8] px-[40px] rounded-r-none border-r-0 border-l-0 text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal"
+              />
+
+              <div
+                class="flex items-center justify-center rounded-r-xl border-l-0 border border-[#3c4753] bg-[#1c2126]"
+              >
+                <button
+                  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#1980e6] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
+                  (click)="search()"
+                >
+                  <span class="truncate">{{
+                    "homepage.hero.search_button" | translate
+                  }}</span>
+                </button>
+              </div>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col gap-10 px-4 py-10 @container">
+      <div class="flex flex-col gap-4">
+        <h1
+          class="text-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]"
+        >
+          {{ "homepage.features.title" | translate }}
+        </h1>
+        <p
+          class="text-white text-base font-normal leading-normal max-w-[720px]"
+        >
+          {{ "homepage.features.description" | translate }}
+        </p>
+      </div>
+      <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3">
+        <div class="flex flex-col gap-3 pb-3">
+          <div
+            class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+            style="
+              background-image: url('https://cdn.usegalileo.ai/sdxl10/843f362b-6a06-4475-aa66-c09b69b4bec0.png');
+            "
+          ></div>
+          <div>
+            <p class="text-white text-base font-medium leading-normal">
+              {{ "homepage.features.items.practice.title" | translate }}
+            </p>
+            <p class="text-[#9dabb8] text-sm font-normal leading-normal">
+              {{ "homepage.features.items.practice.description" | translate }}
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col gap-3 pb-3">
+          <div
+            class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+            style="
+              background-image: url('https://cdn.usegalileo.ai/sdxl10/5f3cc7a9-4e08-4935-b5bd-f4c6e2c723c6.png');
+            "
+          ></div>
+          <div>
+            <p class="text-white text-base font-medium leading-normal">
+              {{ "homepage.features.items.write.title" | translate }}
+            </p>
+            <p class="text-[#9dabb8] text-sm font-normal leading-normal">
+              {{ "homepage.features.items.write.description" | translate }}
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col gap-3 pb-3">
+          <div
+            class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+            style="
+              background-image: url('https://cdn.usegalileo.ai/sdxl10/6c0fa266-753f-4b27-97ea-27d141770a8b.png');
+            "
+          ></div>
+          <div>
+            <p class="text-white text-base font-medium leading-normal">
+              {{ "homepage.features.items.feedback.title" | translate }}
+            </p>
+            <p class="text-[#9dabb8] text-sm font-normal leading-normal">
+              {{ "homepage.features.items.feedback.description" | translate }}
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col gap-3 pb-3">
+          <div
+            class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+            style="
+              background-image: url('https://cdn.usegalileo.ai/sdxl10/fca65568-fb61-4d90-9a9d-b928f7995d76.png');
+            "
+          ></div>
+          <div>
+            <p class="text-white text-base font-medium leading-normal">
+              {{ "homepage.features.items.save.title" | translate }}
+            </p>
+            <p class="text-[#9dabb8] text-sm font-normal leading-normal">
+              {{ "homepage.features.items.save.description" | translate }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h2
+      class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5"
+    >
+      {{ "homepage.courses.title" | translate }}
+    </h2>
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-3 p-4"
+    >
+      <div
+        *ngFor="let course of displayedCourses"
+        class="flex flex-col gap-3 pb-3 cursor-pointer"
+        (click)="goToCourseDetail(course)"
+      >
+        <div
+          class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+          [style.backgroundImage]="'url(' + course.image + ')'"
+        ></div>
+        <div>
+          <p class="text-white text-base font-medium leading-normal">
+            {{ course.title }}
+          </p>
+          <p class="text-[#9dabb8] text-sm font-normal leading-normal">
+            {{ course.descriptionKey | translate }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botón "Ver más / Ver menos" abajo a la izquierda -->
+    <div class="bottom-4 left-4">
+      <button
+        (click)="toggleCourses()"
+        class="px-4 py-2 bg-blue-600 text-white rounded-lg"
+      >
+        <p>
+          {{
+            allCoursesShown
+              ? ("homepage.courses.see_less" | translate)
+              : ("homepage.courses.see_more" | translate)
+          }}
+        </p>
+      </button>
+    </div>
+
+    <h2
+      class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5 bg-grey-700"
+    >
+      {{ "homepage.challenges.title" | translate }}
+    </h2>
+    <div
+      class="flex items-center gap-4 bg-grey-700 px-4 min-h-[72px] py-2 justify-between"
+    >
+      <div class="flex items-center gap-4">
+        <div
+          class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14"
+          style="
+            background-image: url('https://cdn.usegalileo.ai/sdxl10/8d593dc1-b516-4c72-8fe3-e5062e72c1a8.png');
+          "
+        ></div>
+        <div class="flex flex-col justify-center">
+          <p
+            class="text-white text-base font-medium leading-normal line-clamp-1"
+          >
+            {{ "homepage.challenges.challenge_1.title" | translate }}
+          </p>
+          <p
+            class="text-[#9dabb8] text-sm font-normal leading-normal line-clamp-2"
+          >
+            {{ "homepage.challenges.challenge_1.description" | translate }}
+          </p>
+        </div>
+      </div>
+      <div class="shrink-0">
+        <p class="text-white text-base font-normal leading-normal">3/14</p>
+      </div>
+    </div>
+    <div
+      class="flex items-center gap-4 bg-grey-700 px-4 min-h-[72px] py-2 justify-between"
+    >
+      <div class="flex items-center gap-4">
+        <div
+          class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14"
+          style="
+            background-image: url('https://cdn.usegalileo.ai/sdxl10/219465ed-12c6-45cc-8f32-9d7a498d5034.png');
+          "
+        ></div>
+        <div class="flex flex-col justify-center">
+          <p
+            class="text-white text-base font-medium leading-normal line-clamp-1"
+          >
+            {{ "homepage.challenges.challenge_2.title" | translate }}
+          </p>
+          <p
+            class="text-[#9dabb8] text-sm font-normal leading-normal line-clamp-2"
+          >
+            {{ "homepage.challenges.challenge_2.description" | translate }}
+          </p>
+        </div>
+      </div>
+      <div class="shrink-0">
+        <p class="text-white text-base font-normal leading-normal">2/12</p>
+      </div>
+    </div>
+    <div
+      class="flex items-center gap-4 bg-grey-700 px-4 min-h-[72px] py-2 justify-between"
+    >
+      <div class="flex items-center gap-4">
+        <div
+          class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14"
+          style="
+            background-image: url('https://cdn.usegalileo.ai/sdxl10/dcff8e1f-c6bb-4f8f-b7ff-2560961f238a.png');
+          "
+        ></div>
+        <div class="flex flex-col justify-center">
+          <p
+            class="text-white text-base font-medium leading-normal line-clamp-1"
+          >
+            {{ "homepage.challenges.challenge_3.title" | translate }}
+          </p>
+          <p
+            class="text-[#9dabb8] text-sm font-normal leading-normal line-clamp-2"
+          >
+            {{ "homepage.challenges.challenge_3.description" | translate }}
+          </p>
+        </div>
+      </div>
+      <div class="shrink-0">
+        <p class="text-white text-base font-normal leading-normal">4/16</p>
+      </div>
+    </div>
+  </div>
+</div>
