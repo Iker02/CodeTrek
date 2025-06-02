@@ -26,6 +26,11 @@ import { VbLevel3Component } from './components/vb-level-3/vb-level-3.component'
 import { VbLevel4Component } from './components/vb-level-4/vb-level-4.component';
 import { VbLevel5Component } from './components/vb-level-5/vb-level-5.component';
 import { ErrorComponent } from './error/error.component';
+import { SqlLevel1Component } from './components/sql-level-1/sql-level-1.component';
+import { SqlLevel2Component } from './components/sql-level-2/sql-level-2.component';
+import { SqlLevel3Component } from './components/sql-level-3/sql-level-3.component';
+import { SqlLevel4Component } from './components/sql-level-4/sql-level-4.component';
+import { SqlLevel5Component } from './components/sql-level-5/sql-level-5.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -51,6 +56,11 @@ const routes: Routes = [
   { path: 'course/visualbasic/level/3', component: VbLevel3Component },
   { path: 'course/visualbasic/level/4', component: VbLevel4Component },
   { path: 'course/visualbasic/level/5', component: VbLevel5Component },
+  { path: 'course/sql/level/1', component: SqlLevel1Component },
+  { path: 'course/sql/level/2', component: SqlLevel2Component },
+  { path: 'course/sql/level/3', component: SqlLevel3Component },
+  { path: 'course/sql/level/4', component: SqlLevel4Component },
+  { path: 'course/sql/level/5', component: SqlLevel5Component },
   { path: '**', component: ErrorComponent },
 ];
 

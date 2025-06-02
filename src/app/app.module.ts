@@ -45,6 +45,11 @@ import { VbLevel5Component } from './components/vb-level-5/vb-level-5.component'
 import { HighlightPipe } from './pipes/highlight.pipe';
 import { DifficultyFilterPipe } from './pipes/difficulty-filter.pipe';
 import { ErrorComponent } from './error/error.component';
+import { SqlLevel1Component } from './components/sql-level-1/sql-level-1.component';
+import { SqlLevel2Component } from './components/sql-level-2/sql-level-2.component';
+import { SqlLevel3Component } from './components/sql-level-3/sql-level-3.component';
+import { SqlLevel4Component } from './components/sql-level-4/sql-level-4.component';
+import { SqlLevel5Component } from './components/sql-level-5/sql-level-5.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -81,6 +86,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     HighlightPipe,
     DifficultyFilterPipe,
     ErrorComponent,
+    SqlLevel1Component,
+    SqlLevel2Component,
+    SqlLevel3Component,
+    SqlLevel4Component,
+    SqlLevel5Component,
   ],
   imports: [
     BrowserModule,

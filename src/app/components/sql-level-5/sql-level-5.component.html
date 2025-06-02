@@ -1,0 +1,70 @@
+<div class="flex flex-col items-center justify-center min-h-screen text-center p-8 bg-gray-800 text-white">
+  <h1 class="text-5xl font-extrabold mb-4">
+    SQL - Nivel 5
+  </h1>
+  <p class="text-xl mb-6">
+    Tu objetivo es insertar un nuevo empleado en la tabla utilizando SQL.
+  </p>
+
+  <div class="bg-white p-6 rounded-lg shadow-xl w-full max-w-xl mx-auto text-black">
+    <h2 class="text-2xl font-bold mb-4">
+      Inserta un nuevo empleado con los siguientes datos:
+    </h2>
+
+    <ul class="mb-4 list-disc pl-5 text-gray-800">
+      <li><strong>ID:</strong> 11</li>
+      <li><strong>Nombre:</strong> "Natalia"</li>
+      <li><strong>Cargo:</strong> "Diseñador"</li>
+      <li><strong>Salario:</strong> 2800</li>
+    </ul>
+
+    <p class="text-gray-800 mb-4">
+      Tabla: <code>Empleados</code><br>
+      Columnas: <code>(id, nombre, cargo, salario)</code>
+    </p>
+
+    <textarea
+      [(ngModel)]="userCode"
+      class="w-full p-3 border border-gray-300 rounded-lg text-gray-800 font-mono"
+      rows="5"
+      placeholder="Escribe aquí tu consulta SQL..."
+    ></textarea>
+
+    <button
+      (click)="checkCode()"
+      class="mt-4 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all"
+    >
+      Ejecutar
+    </button>
+
+    <p
+      *ngIf="feedbackMessage"
+      [ngClass]="{ 'text-green-600': isCorrect, 'text-red-600': !isCorrect }"
+      class="text-lg mt-4"
+    >
+      {{ feedbackMessage }}
+    </p>
+
+    <div *ngIf="isCorrect || showHint" class="mt-6 flex flex-col items-center gap-4">
+      <button
+        *ngIf="showHint"
+        (click)="showHintMessage()"
+        class="px-6 py-3 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-all"
+      >
+        Ver pista
+      </button>
+
+      <p *ngIf="hintMessage" class="text-lg text-gray-700 mt-4 italic">
+        {{ hintMessage }}
+      </p>
+
+      <button
+        *ngIf="isCorrect"
+        (click)="goHome()"
+        class="px-6 py-3 bg-green-600 text-white rounded-lg shadow-md hover:bg-green-700 transition-all"
+      >
+        Finalizar
+      </button>
+    </div>
+  </div>
+</div>

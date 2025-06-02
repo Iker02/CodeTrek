@@ -1,0 +1,58 @@
+<div class="flex flex-col items-center justify-center min-h-screen bg-gray-800 text-center p-8">
+  <h1 class="text-4xl font-bold text-white">
+    SQL - Nivel 4
+  </h1>
+
+  <p class="text-lg text-gray-300 mt-4">
+    Observa la tabla <strong>Empleados</strong> con sus respectivos salarios. Deberás aplicar ordenamiento para obtener el resultado correcto.
+  </p>
+
+  <div class="overflow-x-auto mt-6 mb-6 w-full max-w-4xl">
+    <table class="min-w-full table-auto border border-gray-600 text-white">
+      <thead class="bg-gray-700">
+        <tr>
+          <th class="px-4 py-2 border border-gray-600">ID</th>
+          <th class="px-4 py-2 border border-gray-600">Nombre</th>
+          <th class="px-4 py-2 border border-gray-600">Cargo</th>
+          <th class="px-4 py-2 border border-gray-600">Salario</th>
+        </tr>
+      </thead>
+      <tbody class="bg-gray-900">
+        <tr *ngFor="let empleado of empleados">
+          <td class="px-4 py-2 border border-gray-700">{{ empleado.id }}</td>
+          <td class="px-4 py-2 border border-gray-700">{{ empleado.nombre }}</td>
+          <td class="px-4 py-2 border border-gray-700">{{ empleado.cargo }}</td>
+          <td class="px-4 py-2 border border-gray-700">{{ empleado.salario }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="text-white mt-4">
+    ¿Cuál es el nombre del empleado con el salario más alto? <br>
+    <code>SELECT nombre FROM Empleados ORDER BY salario DESC LIMIT 1;</code>
+  </p>
+
+  <input 
+    type="text" 
+    [(ngModel)]="answer" 
+    placeholder="Escribe el nombre"
+    class="mt-4 px-4 py-2 rounded-lg text-center"
+    style="width: 250px;"
+  />
+
+  <button 
+    (click)="checkAnswer()" 
+    class="mt-4 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all">
+    Comprobar
+  </button>
+
+  <p class="mt-4 text-white">{{ feedbackMessage }}</p>
+
+  <button 
+    *ngIf="feedbackMessage.includes('Correcto')" 
+    (click)="goToNextLevel()" 
+    class="mt-6 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all">
+    Continuar al siguiente nivel
+  </button>
+</div>
