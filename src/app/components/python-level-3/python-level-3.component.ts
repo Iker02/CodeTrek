@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { Auth } from '@angular/fire/auth';
+import { CodetrekServiceService } from '../../services/codetrek-service.service';
 
 @Component({
   selector: 'app-python-level-3',
@@ -13,11 +15,26 @@ export class PythonLevel3Component {
   level: number = 3;
   feedbackMessage: string = '';
 
-  constructor(private router: Router, private translate: TranslateService) {}
+  constructor(
+    private router: Router,
+    private translate: TranslateService,
+    private codetrekService: CodetrekServiceService,
+    private auth: Auth
+  ) {}
 
-  checkAnswer(option: string) {
+  async checkAnswer(option: string) {
     if (option === 'option1') {
       this.feedbackMessage = this.translate.instant('python_level3.correct_message');
+
+      const user = this.auth.currentUser;
+      if (user) {
+        try {
+          await this.codetrekService.updateCourseProgress(user.uid, this.courseTitle, this.level);
+        } catch (error) {
+          console.error('Error al guardar el progreso:', error);
+        }
+      }
+
     } else {
       this.feedbackMessage = this.translate.instant('python_level2.incorrect_message');
     }

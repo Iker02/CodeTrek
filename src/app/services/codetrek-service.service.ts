@@ -175,6 +175,36 @@ export class CodetrekServiceService {
     }
   }
 
+  async updateCourseProgress(
+    uid: string,
+    courseName: string,
+    level: number
+  ): Promise<void> {
+    try {
+      const usersRef = collection(this.firestore, 'users');
+      const q = query(usersRef, where('uid', '==', uid));
+      const querySnapshot = await getDocs(q);
+
+      if (querySnapshot.empty) {
+        throw new Error('No se encontró el documento del usuario');
+      }
+
+      const userDoc = querySnapshot.docs[0];
+      const userDocRef = doc(this.firestore, 'users', userDoc.id);
+
+      const progressKey = `progress.${courseName}`;
+      const progressValue = `${level}/5`;
+
+      await updateDoc(userDocRef, {
+        [progressKey]: progressValue,
+      });
+
+      console.log(`Progreso actualizado: ${courseName} → ${progressValue}`);
+    } catch (error) {
+      console.error('Error al actualizar el progreso del curso:', error);
+    }
+  }
+
   async updateUserProfileImage(uid: string, imageUrl: string) {
     try {
       const usersRef = collection(this.firestore, 'users');

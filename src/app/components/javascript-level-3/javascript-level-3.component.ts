@@ -1,17 +1,23 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Auth } from '@angular/fire/auth';
+import { CodetrekServiceService } from '../../services/codetrek-service.service';
 
 @Component({
   selector: 'app-javascript-level-3',
   standalone: false,
   templateUrl: './javascript-level-3.component.html',
-  styleUrl: './javascript-level-3.component.css',
+  styleUrls: ['./javascript-level-3.component.css'], 
 })
 export class JavascriptLevel3Component {
   userAnswer: string = '';
   feedbackMessage: string = '';
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private codetrekService: CodetrekServiceService,
+    private auth: Auth
+  ) {}
 
   checkAnswer() {
     const correctAnswer = 'Impar';
@@ -23,7 +29,20 @@ export class JavascriptLevel3Component {
     }
   }
 
-  goToNextLevel() {
+  async goToNextLevel() {
+    const user = this.auth.currentUser;
+    if (user) {
+      try {
+        // Guardar progreso: nivel 3 de 5 para javascript
+        await this.codetrekService.updateCourseProgress(user.uid, 'javascript', 3);
+      } catch (error) {
+        console.error('Error guardando progreso:', error);
+      }
+    } else {
+      console.warn('Usuario no autenticado, no se puede guardar progreso');
+    }
+
+    // Navegar al siguiente nivel
     this.router.navigate(['course/javascript/level/4']);
   }
 }

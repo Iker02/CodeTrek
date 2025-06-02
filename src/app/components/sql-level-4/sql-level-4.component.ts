@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Auth } from '@angular/fire/auth';
+import { CodetrekServiceService } from '../../services/codetrek-service.service';
 
 @Component({
   selector: 'app-sql-level-4',
@@ -24,12 +26,25 @@ export class SqlLevel4Component {
     { id: 10, nombre: 'Tomás', cargo: 'Ingeniero', salario: 3000 },
   ];
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private codetrekService: CodetrekServiceService,
+    private auth: Auth
+  ) {}
 
-  checkAnswer(): void {
+  async checkAnswer(): Promise<void> {
     const correctAnswer = 'Marta';
     if (this.answer.trim().toLowerCase() === correctAnswer.toLowerCase()) {
       this.feedbackMessage = '¡Correcto! Marta tiene el salario más alto.';
+
+      const user = this.auth.currentUser;
+      if (user) {
+        try {
+          await this.codetrekService.updateCourseProgress(user.uid, 'sql', 4);
+        } catch (error) {
+          console.error('Error al guardar el progreso:', error);
+        }
+      }
     } else {
       this.feedbackMessage = 'Incorrecto. Intenta nuevamente.';
     }

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Auth } from '@angular/fire/auth';
+import { CodetrekServiceService } from '../../services/codetrek-service.service';
 
 @Component({
   selector: 'app-sql-level-5',
@@ -15,17 +17,29 @@ export class SqlLevel5Component {
   failedAttempts: number = 0;
   showHint: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private codetrekService: CodetrekServiceService,
+    private auth: Auth
+  ) {}
 
-  checkCode() {
+  async checkCode() {
     const normalized = this.userCode.trim().replace(/\s+/g, ' ').toLowerCase();
 
     const correctQuery = `insert into empleados (id, nombre, cargo, salario) values (11, 'natalia', 'diseñador', 2800)`;
 
     if (normalized === correctQuery) {
       this.isCorrect = true;
-      this.feedbackMessage =
-        '¡Correcto! Has insertado el registro correctamente.';
+      this.feedbackMessage = '¡Correcto! Has insertado el registro correctamente.';
+
+      const user = this.auth.currentUser;
+      if (user) {
+        try {
+          await this.codetrekService.updateCourseProgress(user.uid, 'sql', 5);
+        } catch (error) {
+          console.error('Error al guardar el progreso:', error);
+        }
+      }
     } else {
       this.isCorrect = false;
       this.feedbackMessage = 'La consulta no es correcta. Intenta nuevamente.';

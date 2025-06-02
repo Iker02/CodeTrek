@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { Auth } from '@angular/fire/auth';
+import { CodetrekServiceService } from '../../services/codetrek-service.service';
 
 @Component({
   selector: 'app-python-level-5',
@@ -16,14 +18,28 @@ export class PythonLevel5Component {
   failedAttempts: number = 0;
   showHint: boolean = false;
 
-  constructor(private router: Router, private translate: TranslateService) {}
+  constructor(
+    private router: Router,
+    private translate: TranslateService,
+    private codetrekService: CodetrekServiceService,
+    private auth: Auth
+  ) {}
 
-  checkCode() {
-    const correctCode = /def square\s*\(\s*n\s*\)\s*:\s*return\s*n\s*\*\s*n/g;
+  async checkCode() {
+    const correctCode = /def\s+square\s*\(\s*n\s*\)\s*:\s*return\s+n\s*\*\s*n/;
 
     if (correctCode.test(this.userCode.trim())) {
       this.isCorrect = true;
       this.feedbackMessage = this.translate.instant('final_level.correct_message');
+
+      const user = this.auth.currentUser;
+      if (user) {
+        try {
+          await this.codetrekService.updateCourseProgress(user.uid, 'python', 5);
+        } catch (error) {
+          console.error('Error guardando el progreso:', error);
+        }
+      }
     } else {
       this.isCorrect = false;
       this.feedbackMessage = this.translate.instant('final_level.incorrect_message');

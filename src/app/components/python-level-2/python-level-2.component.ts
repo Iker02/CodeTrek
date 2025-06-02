@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { Auth } from '@angular/fire/auth';
+import { CodetrekServiceService } from '../../services/codetrek-service.service';
 
 @Component({
   selector: 'app-python-level-2',
@@ -13,22 +15,33 @@ export class PythonLevel2Component {
   level: number = 2;
   feedbackMessage: string = '';
   answer: number | null = null;
-  correctAnswer: number = 45; // Respuesta correcta de la operación
+  correctAnswer: number = 45;
 
-  constructor(private router: Router, private translate: TranslateService) {}
+  constructor(
+    private router: Router,
+    private translate: TranslateService,
+    private codetrekService: CodetrekServiceService,
+    private auth: Auth
+  ) {}
 
-  checkAnswer() {
-    // Verificamos si la respuesta del usuario es correcta
-    if (this.answer == 45) {
+  async checkAnswer() {
+    if (this.answer === this.correctAnswer) {
       this.feedbackMessage = this.translate.instant('python_level2.correct_message');
+
+      const user = this.auth.currentUser;
+      if (user) {
+        try {
+          await this.codetrekService.updateCourseProgress(user.uid, this.courseTitle, this.level);
+        } catch (error) {
+          console.error('Error guardando progreso:', error);
+        }
+      }
     } else {
       this.feedbackMessage = this.translate.instant('python_level2.incorrect_message');
     }
-    
   }
 
   goToNextLevel() {
     this.router.navigate([`/course/${this.courseTitle}/level/3`]);
   }
 }
-

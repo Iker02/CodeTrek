@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { CodetrekServiceService } from '../../services/codetrek-service.service';
+import { Auth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-csharp-level-4',
@@ -14,8 +16,12 @@ export class CSharpLevel4Component {
   level: number = 4;
   attempts: number = 0;
 
-  constructor(private router: Router, private translate: TranslateService ) {}
-
+  constructor(
+    private router: Router,
+    private translate: TranslateService,
+    private codetrekService: CodetrekServiceService,
+    private auth: Auth
+  ) {}
   // Verificar la respuesta del usuario
   checkAnswer(option: string): void {
     this.attempts++;
@@ -33,7 +39,27 @@ export class CSharpLevel4Component {
   }
 
   // Navegar al siguiente nivel cuando la respuesta es correcta
-  goToNextLevel(): void {
-    this.router.navigate([`/course/${this.courseTitle}/level/5`]);
+async goToNextLevel() {
+    const user = this.auth.currentUser;
+
+    if (user) {
+      try {
+        await this.codetrekService.updateCourseProgress(
+          user.uid,
+          this.courseTitle,
+          this.level
+        );
+        this.router.navigate([
+          `/course/${this.courseTitle}/level/${this.level + 1}`,
+        ]);
+      } catch (error) {
+        console.error(
+          'Error al guardar el progreso antes de avanzar de nivel:',
+          error
+        );
+      }
+    } else {
+      console.warn('Usuario no autenticado');
+    }
   }
 }

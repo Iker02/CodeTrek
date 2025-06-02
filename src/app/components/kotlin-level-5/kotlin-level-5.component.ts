@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Auth } from '@angular/fire/auth';
+import { CodetrekServiceService } from '../../services/codetrek-service.service';
 
 @Component({
   selector: 'app-kotlin-level-5',
   standalone: false,
   templateUrl: './kotlin-level-5.component.html',
-  styleUrl: './kotlin-level-5.component.css',
+  styleUrls: ['./kotlin-level-5.component.css'],
 })
 export class KotlinLevel5Component {
   userCode: string = '';
@@ -15,15 +17,28 @@ export class KotlinLevel5Component {
   failedAttempts: number = 0;
   showHint: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private codetrekService: CodetrekServiceService,
+    private auth: Auth
+  ) {}
 
-  checkCode() {
+  async checkCode() {
     const regex =
       /fun\s+square\s*\(\s*n\s*:\s*Int\s*\)\s*:\s*Int\s*{\s*return\s+n\s*\*\s*n\s*;?\s*}/;
 
     if (regex.test(this.userCode.trim())) {
       this.isCorrect = true;
       this.feedbackMessage = '¡Correcto! La función está bien definida.';
+
+      const user = this.auth.currentUser;
+      if (user) {
+        try {
+          await this.codetrekService.updateCourseProgress(user.uid, 'kotlin', 5);
+        } catch (error) {
+          console.error('Error guardando progreso:', error);
+        }
+      }
     } else {
       this.isCorrect = false;
       this.feedbackMessage =
