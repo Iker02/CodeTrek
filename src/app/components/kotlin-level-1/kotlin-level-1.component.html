@@ -1,0 +1,49 @@
+<div
+  class="flex flex-col items-center justify-center min-h-screen bg-gray-700 text-center p-8 mt-14"
+>
+  <h1 class="text-5xl font-extrabold text-white mb-4">
+    Kotlin - Nivel 1
+  </h1>
+  <p class="text-xl text-white mb-6">
+    Bienvenido al primer nivel de Kotlin. ¿Sabes cómo se define una función simple?
+  </p>
+
+  <div class="bg-white p-6 rounded-lg shadow-xl w-full max-w-xl mx-auto">
+    <h2 class="text-3xl font-bold text-gray-800 mb-4">
+      ¿Cuál de las siguientes opciones define correctamente una función en Kotlin que suma dos números?
+    </h2>
+
+    <div class="flex flex-col gap-4 mb-6">
+      <button
+        (click)="checkAnswer('option1')"
+        class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-purple-700 transition-all"
+      >
+        fun sum(a: Int, b: Int): Int = a + b
+      </button>
+      <button
+        (click)="checkAnswer('option2')"
+        class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-purple-700 transition-all"
+      >
+        def sum(a, b): return a + b
+      </button>
+      <button
+        (click)="checkAnswer('option3')"
+        class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-purple-700 transition-all"
+      >
+        function sum(a, b) ( return a + b )
+      </button>
+    </div>
+
+    <p *ngIf="feedbackMessage" class="text-lg text-gray-700 mt-4">
+      {{ feedbackMessage }}
+    </p>
+
+    <button
+      *ngIf="feedbackMessage.includes('¡Correcto!')"
+      (click)="goToNextLevel()"
+      class="mt-6 px-6 py-3 bg-green-600 text-white rounded-lg shadow-md hover:bg-green-700 transition-all"
+    >
+      Siguiente nivel
+    </button>
+  </div>
+</div>

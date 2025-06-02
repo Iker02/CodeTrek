@@ -1,0 +1,58 @@
+<div class="flex flex-col items-center justify-center min-h-screen bg-gray-700 text-center p-8">
+  <h1 class="text-5xl font-extrabold text-white mb-4">
+    Kotlin - Nivel 5
+  </h1>
+  <p class="text-xl text-white mb-6">
+    Escribe una función en Kotlin que reciba un número entero y retorne su cuadrado.
+  </p>
+
+  <div class="bg-white p-6 rounded-lg shadow-xl w-full max-w-xl mx-auto">
+    <h2 class="text-2xl font-bold text-gray-800 mb-4">
+      Introduce el código de la función:
+    </h2>
+
+    <textarea
+      [(ngModel)]="userCode"
+      class="w-full p-3 border border-gray-300 rounded-lg text-gray-800 font-mono"
+      rows="6"
+      placeholder="fun square(n: Int): Int { ... }"
+    ></textarea>
+
+    <button
+      (click)="checkCode()"
+      class="mt-4 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all"
+    >
+      Comprobar código
+    </button>
+
+    <p
+      *ngIf="feedbackMessage"
+      [ngClass]="{ 'text-green-600': isCorrect, 'text-red-600': !isCorrect }"
+      class="text-lg mt-4"
+    >
+      {{ feedbackMessage }}
+    </p>
+
+    <div *ngIf="isCorrect || showHint" class="mt-6 flex flex-col items-center gap-4">
+      <button
+        *ngIf="showHint"
+        (click)="showHintMessage()"
+        class="px-6 py-3 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-all"
+      >
+        Mostrar pista
+      </button>
+
+      <p *ngIf="hintMessage" class="text-lg text-gray-700 mt-4 italic">
+        {{ hintMessage }}
+      </p>
+
+      <button
+        *ngIf="isCorrect"
+        (click)="goHome()"
+        class="px-6 py-3 bg-green-600 text-white rounded-lg shadow-md hover:bg-green-700 transition-all"
+      >
+        Volver al inicio
+      </button>
+    </div>
+  </div>
+</div>

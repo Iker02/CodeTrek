@@ -1,0 +1,52 @@
+<div class="flex flex-col items-center justify-center min-h-screen bg-gray-700 text-center p-8 mt-14">
+  <h1 class="text-4xl font-bold text-white">
+    Kotlin - Nivel 4
+  </h1>
+
+  <p class="text-lg text-gray-300 mt-4">
+    Observa el siguiente código Kotlin:
+  </p>
+
+  <p class="text-white mt-4 font-mono bg-gray-800 p-4 rounded-lg max-w-xl mx-auto">
+    fun triple(n: Int): Int (<br>
+    &nbsp;&nbsp;return n * 3<br>
+    )
+  </p>
+
+  <p class="text-white mt-4 max-w-xl mx-auto">
+    Introduce un número y el resultado esperado al llamar a la función <code>triple</code> con ese número.
+  </p>
+
+  <input
+    type="number"
+    [(ngModel)]="inputNumber"
+    placeholder="Número de entrada (n)"
+    class="mt-4 px-4 py-2 rounded-lg"
+    style="width: 200px;"
+  />
+
+  <input
+    type="number"
+    [(ngModel)]="inputResult"
+    placeholder="Resultado esperado (triple(n))"
+    class="mt-4 px-4 py-2 rounded-lg"
+    style="width: 200px;"
+  />
+
+  <button
+    (click)="checkAnswer()"
+    class="mt-4 px-4 py-2 bg-green-600 text-white rounded-lg"
+  >
+    Comprobar respuesta
+  </button>
+
+  <p class="mt-4 text-white">{{ feedbackMessage }}</p>
+
+  <button
+    *ngIf="feedbackMessage.includes('¡Correcto!')"
+    (click)="goToNextLevel()"
+    class="mt-6 px-4 py-2 bg-blue-600 text-white rounded-lg"
+  >
+    Siguiente nivel
+  </button>
+</div>

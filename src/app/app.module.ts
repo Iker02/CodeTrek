@@ -50,6 +50,11 @@ import { SqlLevel2Component } from './components/sql-level-2/sql-level-2.compone
 import { SqlLevel3Component } from './components/sql-level-3/sql-level-3.component';
 import { SqlLevel4Component } from './components/sql-level-4/sql-level-4.component';
 import { SqlLevel5Component } from './components/sql-level-5/sql-level-5.component';
+import { KotlinLevel1Component } from './components/kotlin-level-1/kotlin-level-1.component';
+import { KotlinLevel2Component } from './components/kotlin-level-2/kotlin-level-2.component';
+import { KotlinLevel3Component } from './components/kotlin-level-3/kotlin-level-3.component';
+import { KotlinLevel4Component } from './components/kotlin-level-4/kotlin-level-4.component';
+import { KotlinLevel5Component } from './components/kotlin-level-5/kotlin-level-5.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -91,6 +96,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     SqlLevel3Component,
     SqlLevel4Component,
     SqlLevel5Component,
+    KotlinLevel1Component,
+    KotlinLevel2Component,
+    KotlinLevel3Component,
+    KotlinLevel4Component,
+    KotlinLevel5Component,
   ],
   imports: [
     BrowserModule,
