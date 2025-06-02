@@ -60,6 +60,16 @@ import { JavascriptLevel2Component } from './components/javascript-level-2/javas
 import { JavascriptLevel3Component } from './components/javascript-level-3/javascript-level-3.component';
 import { JavascriptLevel4Component } from './components/javascript-level-4/javascript-level-4.component';
 import { JavascriptLevel5Component } from './components/javascript-level-5/javascript-level-5.component';
+import { JavaLevel1Component } from './components/java-level-1/java-level-1.component';
+import { JavaLevel2Component } from './components/java-level-2/java-level-2.component';
+import { JavaLevel3Component } from './components/java-level-3/java-level-3.component';
+import { JavaLevel4Component } from './components/java-level-4/java-level-4.component';
+import { JavaLevel5Component } from './components/java-level-5/java-level-5.component';
+import { HtmlLevel1Component } from './components/html-level-1/html-level-1.component';
+import { HtmlLevel2Component } from './components/html-level-2/html-level-2.component';
+import { HtmlLevel3Component } from './components/html-level-3/html-level-3.component';
+import { HtmlLevel4Component } from './components/html-level-4/html-level-4.component';
+import { HtmlLevel5Component } from './components/html-level-5/html-level-5.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -111,6 +121,16 @@ export function HttpLoaderFactory(http: HttpClient) {
     JavascriptLevel3Component,
     JavascriptLevel4Component,
     JavascriptLevel5Component,
+    JavaLevel1Component,
+    JavaLevel2Component,
+    JavaLevel3Component,
+    JavaLevel4Component,
+    JavaLevel5Component,
+    HtmlLevel1Component,
+    HtmlLevel2Component,
+    HtmlLevel3Component,
+    HtmlLevel4Component,
+    HtmlLevel5Component,
   ],
   imports: [
     BrowserModule,

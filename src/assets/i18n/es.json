@@ -466,5 +466,8 @@
       "show_profile": "Mostrar Perfil",
       "change_pick_button": "Cambiar Foto de Perfil"
     }
+  },
+    "futura_implementacion":{
+    "title": "Este nivel estará disponible pronto"
   }
 }

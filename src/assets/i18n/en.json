@@ -468,5 +468,8 @@
       "show_profile": "Show Profile",
       "change_pick_button": "Change Profile Picture"
     }
+  },
+  "futura_implementacion":{
+    "title": "This level will be available soon!"
   }
 }
