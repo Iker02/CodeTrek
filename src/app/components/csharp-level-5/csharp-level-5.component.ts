@@ -51,6 +51,7 @@ export class CSharpLevel5Component {
     if (user) {
       try {
         await this.codetrekService.updateCourseProgress(user.uid, 'csharp', 5);
+        await this.codetrekService.addPointsToUser(user.uid, 5); 
       } catch (error) {
         console.error('Error guardando progreso final:', error);
       }

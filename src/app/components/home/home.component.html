@@ -225,9 +225,12 @@
         </div>
       </div>
       <div class="shrink-0">
-        <p class="text-white text-base font-normal leading-normal">3/14</p>
+        <p class="text-white text-base font-normal leading-normal">
+          {{ progress["progress.python"] || "0/5" }}
+        </p>
       </div>
     </div>
+
     <div
       class="flex items-center gap-4 bg-grey-700 px-4 min-h-[72px] py-2 justify-between"
     >
@@ -252,9 +255,12 @@
         </div>
       </div>
       <div class="shrink-0">
-        <p class="text-white text-base font-normal leading-normal">2/12</p>
+        <p class="text-white text-base font-normal leading-normal">
+          {{ progress["csharp"] || "0/5" }}
+        </p>
       </div>
     </div>
+
     <div
       class="flex items-center gap-4 bg-grey-700 px-4 min-h-[72px] py-2 justify-between"
     >
@@ -279,7 +285,9 @@
         </div>
       </div>
       <div class="shrink-0">
-        <p class="text-white text-base font-normal leading-normal">4/16</p>
+        <p class="text-white text-base font-normal leading-normal">
+          {{ progress["visualbasic"] || "0/5" }}
+        </p>
       </div>
     </div>
   </div>

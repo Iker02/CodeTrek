@@ -17,6 +17,7 @@ export class AppComponent {
   profileImageUrl: string = '../assets/profile_icon.webp';
   isMenuOpen = false;
   isLoggedIn = false;
+  points: number = 0;
   dropdownOpen = false;
   selectedLanguage: { flag: string } | null = null;
   currentRoute: string = '';
@@ -71,6 +72,13 @@ export class AppComponent {
     // Imagen de perfil
     this.codetrekService.profileImageUrl$.subscribe((url) => {
       this.profileImageUrl = url;
+    });
+
+    this.auth.onAuthStateChanged(async user => {
+      this.isLoggedIn = !!user;
+      if (user) {
+        this.points = await this.codetrekService.getUserPoints(user.uid);
+      }
     });
   }
 

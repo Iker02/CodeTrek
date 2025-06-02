@@ -49,6 +49,7 @@ async goToNextLevel() {
           this.courseTitle,
           this.level
         );
+        await this.codetrekService.addPointsToUser(user.uid, 5); 
         this.router.navigate([
           `/course/${this.courseTitle}/level/${this.level + 1}`,
         ]);

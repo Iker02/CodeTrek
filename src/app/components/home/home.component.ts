@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { Auth } from '@angular/fire/auth';
+import { CodetrekServiceService } from '../../services/codetrek-service.service';
 
 interface Course {
   title: string;
@@ -14,14 +16,9 @@ interface Course {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
   searchText = '';
-
-  search() {
-    const encoded = encodeURIComponent(this.searchText.trim());
-    this.router.navigate(['/catalogo'], { queryParams: { search: encoded } });
-  }
 
   allCourses: Course[] = [
     { title: "Python", descriptionKey: "homepage.courses.each_course.description_Python", image: "../assets/lenguaje-python.jpg" },
@@ -37,7 +34,55 @@ export class HomeComponent {
   displayedCourses: Course[] = this.allCourses.slice(0, 5);
   allCoursesShown = false;
 
-  constructor(private router: Router, private translate: TranslateService) {}
+  // Progreso de cursos (nivel completado / total niveles)
+  progress: { [key: string]: string } = {};
+
+  totalLevels = 5;
+
+  constructor(
+    private router: Router, 
+    private translate: TranslateService,
+    private codetrekService: CodetrekServiceService,
+    private auth: Auth
+  ) {}
+
+  ngOnInit() {
+    this.loadProgress();
+  }
+
+  async loadProgress() {
+    const user = this.auth.currentUser;
+    if (user) {
+      try {
+        const data = await this.codetrekService.getUserProgress(user.uid);
+        // Por cada curso, si hay progreso asignarlo, si no poner "0/5"
+        this.allCourses.forEach(course => {
+          // normalizamos el título para key en minúscula sin espacios
+          const key = course.title.toLowerCase();
+          const levelDone = data && data[key] ? data[key] : 0;
+          this.progress[key] = `${levelDone}/${this.totalLevels}`;
+        });
+      } catch (error) {
+        console.error('Error loading progress:', error);
+        // En caso de error inicializar todo a 0/5
+        this.allCourses.forEach(course => {
+          const key = course.title.toLowerCase();
+          this.progress[key] = `0/${this.totalLevels}`;
+        });
+      }
+    } else {
+      // Si no hay usuario logueado, progreso por defecto a 0/5
+      this.allCourses.forEach(course => {
+        const key = course.title.toLowerCase();
+        this.progress[key] = `0/${this.totalLevels}`;
+      });
+    }
+  }
+
+  search() {
+    const encoded = encodeURIComponent(this.searchText.trim());
+    this.router.navigate(['/catalogo'], { queryParams: { search: encoded } });
+  }
 
   toggleCourses(): void {
     if (this.allCoursesShown) {
@@ -53,9 +98,7 @@ export class HomeComponent {
     this.router.navigate(['/course', formattedTitle]);
   }
 
-  // Método para cambiar el idioma
   cambiarIdioma(languageCode: string): void {
-    // Cambiar el idioma
     this.translate.use(languageCode);
   }
 }

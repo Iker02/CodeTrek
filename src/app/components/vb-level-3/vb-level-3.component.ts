@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Auth } from '@angular/fire/auth';
+import { CodetrekServiceService } from '../../services/codetrek-service.service';
 
 @Component({
   selector: 'app-vb-level-3',
@@ -12,11 +14,24 @@ export class VbLevel3Component {
   courseTitle: string = 'visualbasic';
   level: number = 3;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private codetrekService: CodetrekServiceService,
+    private auth: Auth
+  ) {}
 
-  checkAnswer(option: string) {
+  async checkAnswer(option: string) {
     if (option === 'option2') {
       this.feedbackMessage = 'Correct! Functions return a value, while Subroutines do not.';
+      const user = this.auth.currentUser;
+      if (user) {
+        try {
+          await this.codetrekService.updateCourseProgress(user.uid, this.courseTitle, this.level);
+          await this.codetrekService.addPointsToUser(user.uid, 5); 
+        } catch (error) {
+          console.error('Error saving progress:', error);
+        }
+      }
     } else {
       this.feedbackMessage = 'Incorrect. Try again!';
     }

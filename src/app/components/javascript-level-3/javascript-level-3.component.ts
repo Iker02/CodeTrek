@@ -35,6 +35,7 @@ export class JavascriptLevel3Component {
       try {
         // Guardar progreso: nivel 3 de 5 para javascript
         await this.codetrekService.updateCourseProgress(user.uid, 'javascript', 3);
+        await this.codetrekService.addPointsToUser(user.uid, 5); 
       } catch (error) {
         console.error('Error guardando progreso:', error);
       }

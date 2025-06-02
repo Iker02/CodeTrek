@@ -30,6 +30,7 @@ export class PythonLevel1Component {
       if (user) {
         try {
           await this.codetrekService.updateCourseProgress(user.uid, this.courseTitle, this.level);
+          await this.codetrekService.addPointsToUser(user.uid, 5); 
         } catch (error) {
           console.error('Error guardando progreso:', error);
         }

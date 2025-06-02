@@ -55,6 +55,7 @@ export class JavascriptLevel4Component {
     if (user) {
       try {
         await this.codetrekService.updateCourseProgress(user.uid, 'javascript', 4);
+        await this.codetrekService.addPointsToUser(user.uid, 5); 
       } catch (error) {
         console.error('Error guardando progreso:', error);
       }

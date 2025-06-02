@@ -41,6 +41,7 @@ export class KotlinLevel4Component {
       if (user) {
         try {
           await this.codetrekService.updateCourseProgress(user.uid, 'kotlin', 4);
+          await this.codetrekService.addPointsToUser(user.uid, 5); 
         } catch (error) {
           console.error('Error guardando progreso:', error);
         }

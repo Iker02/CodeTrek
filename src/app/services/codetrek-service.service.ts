@@ -15,6 +15,7 @@ import {
   Firestore,
   getDoc,
   getDocs,
+  increment,
   query,
   setDoc,
   updateDoc,
@@ -202,6 +203,56 @@ export class CodetrekServiceService {
       console.log(`Progreso actualizado: ${courseName} → ${progressValue}`);
     } catch (error) {
       console.error('Error al actualizar el progreso del curso:', error);
+    }
+  }
+
+  async getUserProgress(uid: string): Promise<any> {
+    const docRef = doc(this.firestore, 'progress', uid);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      return docSnap.data();
+    } else {
+      return {};
+    }
+  }
+
+  async addPointsToUser(uid: string, pointsToAdd: number): Promise<void> {
+    try {
+      const usersRef = collection(this.firestore, 'users');
+      const q = query(usersRef, where('uid', '==', uid));
+      const querySnapshot = await getDocs(q);
+
+      if (querySnapshot.empty) {
+        throw new Error('No se encontró el documento del usuario');
+      }
+
+      const userDoc = querySnapshot.docs[0];
+      const userDocRef = doc(this.firestore, 'users', userDoc.id);
+
+      await updateDoc(userDocRef, {
+        points: increment(pointsToAdd),
+      });
+
+      console.log(`Puntos añadidos: +${pointsToAdd} a usuario ${uid}`);
+    } catch (error) {
+      console.error('Error al añadir puntos al usuario:', error);
+    }
+  }
+
+  async getUserPoints(uid: string): Promise<number> {
+    try {
+      const userDocRef = doc(this.firestore, 'users', uid);
+      const userDocSnap = await getDoc(userDocRef);
+
+      if (userDocSnap.exists()) {
+        const data = userDocSnap.data();
+        return data['points'] || 0;
+      } else {
+        return 0;
+      }
+    } catch (error) {
+      console.error('Error getting user points:', error);
+      return 0;
     }
   }
 

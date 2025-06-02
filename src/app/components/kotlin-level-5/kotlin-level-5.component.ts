@@ -35,6 +35,7 @@ export class KotlinLevel5Component {
       if (user) {
         try {
           await this.codetrekService.updateCourseProgress(user.uid, 'kotlin', 5);
+          await this.codetrekService.addPointsToUser(user.uid, 5); 
         } catch (error) {
           console.error('Error guardando progreso:', error);
         }

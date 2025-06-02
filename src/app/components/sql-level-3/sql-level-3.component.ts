@@ -41,6 +41,7 @@ export class SqlLevel3Component {
       if (user) {
         try {
           await this.codetrekService.updateCourseProgress(user.uid, 'sql', 3);
+          await this.codetrekService.addPointsToUser(user.uid, 5); 
         } catch (error) {
           console.error('Error al guardar el progreso:', error);
         }
