@@ -36,6 +36,11 @@ import { KotlinLevel2Component } from './components/kotlin-level-2/kotlin-level-
 import { KotlinLevel3Component } from './components/kotlin-level-3/kotlin-level-3.component';
 import { KotlinLevel4Component } from './components/kotlin-level-4/kotlin-level-4.component';
 import { KotlinLevel5Component } from './components/kotlin-level-5/kotlin-level-5.component';
+import { JavascriptLevel1Component } from './components/javascript-level-1/javascript-level-1.component';
+import { JavascriptLevel2Component } from './components/javascript-level-2/javascript-level-2.component';
+import { JavascriptLevel3Component } from './components/javascript-level-3/javascript-level-3.component';
+import { JavascriptLevel4Component } from './components/javascript-level-4/javascript-level-4.component';
+import { JavascriptLevel5Component } from './components/javascript-level-5/javascript-level-5.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -71,6 +76,11 @@ const routes: Routes = [
   { path: 'course/kotlin/level/3', component: KotlinLevel3Component },
   { path: 'course/kotlin/level/4', component: KotlinLevel4Component },
   { path: 'course/kotlin/level/5', component: KotlinLevel5Component },
+  { path: 'course/javascript/level/1', component: JavascriptLevel1Component },
+  { path: 'course/javascript/level/2', component: JavascriptLevel2Component },
+  { path: 'course/javascript/level/3', component: JavascriptLevel3Component },
+  { path: 'course/javascript/level/4', component: JavascriptLevel4Component },
+  { path: 'course/javascript/level/5', component: JavascriptLevel5Component },
   { path: '**', component: ErrorComponent },
 ];
 

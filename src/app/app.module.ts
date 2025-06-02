@@ -55,6 +55,11 @@ import { KotlinLevel2Component } from './components/kotlin-level-2/kotlin-level-
 import { KotlinLevel3Component } from './components/kotlin-level-3/kotlin-level-3.component';
 import { KotlinLevel4Component } from './components/kotlin-level-4/kotlin-level-4.component';
 import { KotlinLevel5Component } from './components/kotlin-level-5/kotlin-level-5.component';
+import { JavascriptLevel1Component } from './components/javascript-level-1/javascript-level-1.component';
+import { JavascriptLevel2Component } from './components/javascript-level-2/javascript-level-2.component';
+import { JavascriptLevel3Component } from './components/javascript-level-3/javascript-level-3.component';
+import { JavascriptLevel4Component } from './components/javascript-level-4/javascript-level-4.component';
+import { JavascriptLevel5Component } from './components/javascript-level-5/javascript-level-5.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -101,6 +106,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     KotlinLevel3Component,
     KotlinLevel4Component,
     KotlinLevel5Component,
+    JavascriptLevel1Component,
+    JavascriptLevel2Component,
+    JavascriptLevel3Component,
+    JavascriptLevel4Component,
+    JavascriptLevel5Component,
   ],
   imports: [
     BrowserModule,
