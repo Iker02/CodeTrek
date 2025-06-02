@@ -31,7 +31,6 @@ import { CSharpLevel4Component } from './components/csharp-level-4/csharp-level-
 import { CSharpLevel5Component } from './components/csharp-level-5/csharp-level-5.component';
 import { ProgrammingTutorialComponent } from './components/programming-tutorial/programming-tutorial.component';
 
-// 🔹 Importaciones de ngx-translate
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -47,7 +46,6 @@ import { HighlightPipe } from './pipes/highlight.pipe';
 import { DifficultyFilterPipe } from './pipes/difficulty-filter.pipe';
 import { ErrorComponent } from './error/error.component';
 
-// 🔄 Función para cargar los archivos de traducción
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -88,7 +86,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule, // Necesario para las peticiones HTTP
+    HttpClientModule, 
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
