@@ -1,4 +1,6 @@
-<main class="w-[90vw] mx-auto pt-8 pb-8 mt-14 sm:w-[90vw] md:w-[90vw] xl:w-3/5 2xl:w-3/5">
+<main
+  class="w-[90vw] mx-auto pt-8 pb-8 mt-14 sm:w-[90vw] md:w-[90vw] xl:w-3/5 2xl:w-3/5"
+>
   <iframe
     class="w-full h-96 rounded-lg shadow-lg"
     [src]="safeUrl"
@@ -8,14 +10,21 @@
   ></iframe>
 
   <section class="mt-10">
-    <h1 class="text-3xl font-bold mb-4 text-white">{{'course_details.title' | translate}} {{ language }}</h1>
-    <p class="text-white text-lg leading-relaxed">{{ documentation | translate }}</p>
+    <h1 class="text-3xl font-bold mb-4 text-white">
+      {{ "course_details.title" | translate }} {{ language }}
+    </h1>
+    <p class="text-white text-lg leading-relaxed">
+      {{ documentation | translate }}
+    </p>
   </section>
 
   <div
-    class="mt-10 flex flex-col items-center bg-blue-600 flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-20 px-4 bg-[#1980e6] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+    class="mt-10 flex flex-col items-center bg-blue-600 min-w-[84px] max-w-[480px] cursor-pointer justify-center overflow-hidden rounded-xl h-20 px-4 bg-[#1980e6] text-white text-sm font-bold leading-normal tracking-[0.015em]"
     (click)="navigateToCourse(language)"
   >
-    <h5 class="text-2xl font-bold mt-4 mb-4">{{'course_details.go_to_course' | translate}}{{language}} {{'course_details.go_course' | translate}}</h5>
+    <h5 class="text-2xl font-bold mt-4 mb-4">
+      {{ "course_details.go_to_course" | translate }}{{ language }}
+      {{ "course_details.go_course" | translate }}
+    </h5>
   </div>
 </main>

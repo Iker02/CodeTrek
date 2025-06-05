@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { CodetrekServiceService } from './services/codetrek-service.service';
 import { Auth, onAuthStateChanged } from '@angular/fire/auth';
-import { doc, getDoc, getFirestore } from '@angular/fire/firestore';
+import { doc, getDoc, getFirestore, onSnapshot } from '@angular/fire/firestore';
 import { setDoc } from '@angular/fire/firestore';
 
 @Component({
@@ -17,6 +17,7 @@ export class AppComponent {
   profileImageUrl: string = '../assets/profile_icon.webp';
   isMenuOpen = false;
   isLoggedIn = false;
+  private pointsUnsubscribe: (() => void) | undefined; // para limpiar la suscripción
   points: number = 0;
   dropdownOpen = false;
   selectedLanguage: { flag: string } | null = null;
@@ -58,27 +59,31 @@ export class AppComponent {
       this.isLoggedIn = !!user;
 
       if (user) {
+        // Idioma
         const language = await this.codetrekService.getLanguageByUID(user.uid);
-
         const languageCode = language || 'en';
         localStorage.setItem('language', languageCode);
         this.translate.use(languageCode);
 
         this.selectedLanguage =
           this.languages.find((lang) => lang.code === languageCode) || null;
+
+        // Escuchar puntos en tiempo real
+        const pointsResult = await this.codetrekService.getUserPoints(
+          user.uid,
+          (points) => {
+            this.points = points;
+          }
+        );
+        this.pointsUnsubscribe = pointsResult.unsubscribe;
+      } else {
+        this.points = 0;
       }
     });
 
     // Imagen de perfil
     this.codetrekService.profileImageUrl$.subscribe((url) => {
       this.profileImageUrl = url;
-    });
-
-    this.auth.onAuthStateChanged(async (user) => {
-      this.isLoggedIn = !!user;
-      if (user) {
-        this.points = await this.codetrekService.getUserPoints(user.uid);
-      }
     });
   }
 

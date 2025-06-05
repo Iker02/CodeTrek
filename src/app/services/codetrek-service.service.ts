@@ -16,6 +16,7 @@ import {
   getDoc,
   getDocs,
   increment,
+  onSnapshot,
   query,
   setDoc,
   updateDoc,
@@ -239,20 +240,42 @@ export class CodetrekServiceService {
     }
   }
 
-  async getUserPoints(uid: string): Promise<number> {
+  async getUserPoints(
+    uid: string,
+    onChangeCallback?: (points: number) => void
+  ): Promise<{ points: number; unsubscribe?: () => void }> {
     try {
-      const userDocRef = doc(this.firestore, 'users', uid);
-      const userDocSnap = await getDoc(userDocRef);
+      const usersRef = collection(this.firestore, 'users');
+      const q = query(usersRef, where('uid', '==', uid));
+      const querySnapshot = await getDocs(q);
 
-      if (userDocSnap.exists()) {
-        const data = userDocSnap.data();
-        return data['points'] || 0;
-      } else {
-        return 0;
+      if (!querySnapshot.empty) {
+        const userDocSnapshot = querySnapshot.docs[0];
+        const userData = userDocSnapshot.data();
+        const points = userData['points'] ?? 0;
+
+        // Si se pasa un callback, establecer onSnapshot
+        if (onChangeCallback) {
+          const userDocRef = doc(this.firestore, 'users', userDocSnapshot.id);
+          const unsubscribe = onSnapshot(userDocRef, (docSnap) => {
+            if (docSnap.exists()) {
+              const data = docSnap.data();
+              onChangeCallback(data['points'] ?? 0);
+            } else {
+              onChangeCallback(0);
+            }
+          });
+
+          return { points, unsubscribe };
+        }
+
+        return { points };
       }
+
+      return { points: 0 };
     } catch (error) {
-      console.error('Error getting user points:', error);
-      return 0;
+      console.error('Error obteniendo los puntos:', error);
+      return { points: 0 };
     }
   }
 
