@@ -28,13 +28,18 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class CodetrekServiceService {
+  // BehaviorSubject para almacenar y emitir la URL de la imagen de perfil seleccionada
   private profileImageUrlSubject = new BehaviorSubject<string>(
+    // Inicializa con el valor guardado en localStorage o con una imagen por defecto
     localStorage.getItem('selectedProfileUrl') || '../assets/profile_icon.webp'
   );
+  // Observable público para que otros componentes se suscriban a los cambios en la imagen de perfil
   profileImageUrl$ = this.profileImageUrlSubject.asObservable();
+
+  // Establece Firestore y Auth para trabajar con BBDD y autenticación
   constructor(private firestore: Firestore, private auth: Auth) {}
 
-  // Crear usuario en Firebase Authentication y guardar datos en Firestore
+  // Registrar usuario en Auth y guardar datos en Firestore
   async registerUser(
     fullName: string,
     email: string,
@@ -42,6 +47,7 @@ export class CodetrekServiceService {
     language: string
   ) {
     try {
+      // Crea el usuario con email y contraseña en Auth
       const userCredential = await createUserWithEmailAndPassword(
         this.auth,
         email,
@@ -49,13 +55,15 @@ export class CodetrekServiceService {
       );
       const user = userCredential.user;
 
+      // Referencia a la colección 'users' en Firestore
       const usersCollection = collection(this.firestore, 'users');
+      // Añade un nuevo documento con los datos del usuario recién creado
       await addDoc(usersCollection, {
         uid: user.uid,
         fullName,
         email,
         createdAt: new Date(),
-        profileImageUrl: '../assets/profile_icon.webp',
+        profileImageUrl: '../assets/profile_icon.webp', // imagen por defecto
         language,
       });
 
@@ -66,40 +74,45 @@ export class CodetrekServiceService {
     }
   }
 
+  // Método para saber si hay un usuario autenticado actualmente
   isLoggedIn(): boolean {
-    return !!this.auth.currentUser;
+    return !!this.auth.currentUser; // True si hay usuario, false si no
   }
 
+  // Obtener el perfil de un usuario dado su UID como observable para escuchar cambios en tiempo real
   getUserProfile(uid: string): Observable<any> {
     const userDocRef = doc(this.firestore, 'users', uid);
     return docData(userDocRef, { idField: 'id' });
   }
 
+  // Obtener el nombre completo de un usuario dado su UID
   async getFullNameByUID(uid: string): Promise<string | null> {
     try {
       const usersRef = collection(this.firestore, 'users');
+      // Consulta para buscar el documento donde uid coincida
       const q = query(usersRef, where('uid', '==', uid));
       const querySnapshot = await getDocs(q);
 
       if (!querySnapshot.empty) {
         const userData = querySnapshot.docs[0].data();
-        return userData['fullName'] || null;
+        return userData['fullName'] || null; // Devuelve el nombre completo del usuario
       }
 
-      return null;
+      return null; // No encontró usuario
     } catch (error) {
       console.error('Error obteniendo fullName:', error);
       return null;
     }
   }
 
+  // Actualiza el nombre que se muestra del usuario tanto en Firestore como en Firebase Auth
   async updateDisplayName(newName: string): Promise<void> {
     const user = this.auth.currentUser;
     if (!user) throw new Error('No user logged in');
 
     const uid = user.uid;
 
-    // Buscar documento por campo 'uid'
+    // Buscar documento en Firestore con uid igual al actual
     const usersRef = collection(this.firestore, 'users');
     const q = query(usersRef, where('uid', '==', uid));
     const querySnapshot = await getDocs(q);
@@ -111,15 +124,16 @@ export class CodetrekServiceService {
     const userDoc = querySnapshot.docs[0];
     const userDocRef = userDoc.ref;
 
-    // Actualizar en Firestore
+    // Actualiza el campo fullName en Firestore
     await updateDoc(userDocRef, { fullName: newName });
     console.log('Nombre actualizado en Firestore');
 
-    // Actualizar en Firebase Auth
+    // Actualiza el displayName en Firebase Authentication
     await updateProfile(user, { displayName: newName });
     console.log('Nombre actualizado en Firebase Auth');
   }
 
+  // Cambia el correo electrónico del usuario
   async updateEmail(newEmail: string): Promise<void> {
     const user = this.auth.currentUser;
 
@@ -128,7 +142,7 @@ export class CodetrekServiceService {
     }
 
     if (!user.emailVerified) {
-      // Si el correo no está verificado, se envía el correo de verificación
+      // Si el correo no está verificado
       await sendEmailVerification(user);
       throw new Error(
         'Correo electrónico no verificado. Por favor verifica tu correo antes de cambiarlo.'
@@ -136,10 +150,10 @@ export class CodetrekServiceService {
     }
 
     try {
-      // Actualizar en Firebase Auth
+      // Actualiza el email en Firebase Authentication
       await updateEmail(user, newEmail);
 
-      // Si también guardas el correo en Firestore
+      // Actualiza también el email en Firestore
       const usersRef = collection(this.firestore, 'users');
       const q = query(usersRef, where('uid', '==', user.uid));
       const querySnapshot = await getDocs(q);
@@ -151,7 +165,6 @@ export class CodetrekServiceService {
       const userDoc = querySnapshot.docs[0];
       const userDocRef = doc(this.firestore, 'users', userDoc.id);
 
-      // Actualizar el correo en Firestore
       await updateDoc(userDocRef, { email: newEmail });
     } catch (error) {
       console.error('Error al actualizar el correo electrónico:', error);
@@ -159,6 +172,7 @@ export class CodetrekServiceService {
     }
   }
 
+  // Obtener el idioma preferido del usuario dado su UID
   async getLanguageByUID(uid: string): Promise<string | null> {
     try {
       const usersRef = collection(this.firestore, 'users');
@@ -177,6 +191,7 @@ export class CodetrekServiceService {
     }
   }
 
+  // Actualiza el progreso de un curso para un usuario
   async updateCourseProgress(
     uid: string,
     courseName: string,
@@ -194,6 +209,7 @@ export class CodetrekServiceService {
       const userDoc = querySnapshot.docs[0];
       const userDocRef = doc(this.firestore, 'users', userDoc.id);
 
+      // Crea la clave dinámica para progreso dentro del documento
       const progressKey = `progress.${courseName}`;
       const progressValue = `${level}/5`;
 
@@ -207,16 +223,18 @@ export class CodetrekServiceService {
     }
   }
 
+  // Obtener el progreso del usuario
   async getUserProgress(uid: string): Promise<any> {
     const docRef = doc(this.firestore, 'progress', uid);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       return docSnap.data();
     } else {
-      return {};
+      return {}; // Si no existe progreso, devulve objeto vacío
     }
   }
 
+  // Añadir puntos al usuario
   async addPointsToUser(uid: string, pointsToAdd: number): Promise<void> {
     try {
       const usersRef = collection(this.firestore, 'users');
@@ -230,6 +248,7 @@ export class CodetrekServiceService {
       const userDoc = querySnapshot.docs[0];
       const userDocRef = doc(this.firestore, 'users', userDoc.id);
 
+      // Aumenta el campo 'points' en Firestore
       await updateDoc(userDocRef, {
         points: increment(pointsToAdd),
       });
@@ -240,6 +259,7 @@ export class CodetrekServiceService {
     }
   }
 
+  // Obtener puntos del usuario
   async getUserPoints(
     uid: string,
     onChangeCallback?: (points: number) => void
@@ -254,7 +274,6 @@ export class CodetrekServiceService {
         const userData = userDocSnapshot.data();
         const points = userData['points'] ?? 0;
 
-        // Si se pasa un callback, establecer onSnapshot
         if (onChangeCallback) {
           const userDocRef = doc(this.firestore, 'users', userDocSnapshot.id);
           const unsubscribe = onSnapshot(userDocRef, (docSnap) => {
@@ -279,6 +298,7 @@ export class CodetrekServiceService {
     }
   }
 
+  // Actualizar imagen de perfil
   async updateUserProfileImage(uid: string, imageUrl: string) {
     try {
       const usersRef = collection(this.firestore, 'users');
@@ -292,7 +312,7 @@ export class CodetrekServiceService {
         });
       });
 
-      this.setProfileImageUrl(imageUrl); // actualiza también en el observable
+      this.setProfileImageUrl(imageUrl);
     } catch (error) {
       console.error('Error actualizando imagen de perfil:', error);
     }
