@@ -74,7 +74,7 @@ export class AppComponent {
       this.profileImageUrl = url;
     });
 
-    this.auth.onAuthStateChanged(async user => {
+    this.auth.onAuthStateChanged(async (user) => {
       this.isLoggedIn = !!user;
       if (user) {
         this.points = await this.codetrekService.getUserPoints(user.uid);
