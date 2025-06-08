@@ -3,7 +3,7 @@
 /* Ajustar el estilo de los operadores para que no aparezcan como resaltados */
 .token.operator,
 .token.punctuation {
-  color: #1E90FF !important; /* Azul (puedes cambiar el código de color a tu preferencia) */
+  color: #1E90FF !important;
   background: none !important; /* Eliminar fondo */
 }
 
@@ -12,24 +12,23 @@ body {
     overflow-x: hidden;  /* Oculta el scroll horizontal */
     overflow-y: auto;    /* Muestra el scroll vertical si es necesario */
   
-    /* Para forzar el color del fondo en el cuerpo si quieres contraste */
-    background-color: #121212;  /* Opcional: fondo oscuro */
+    background-color: #121212;
   }
   
-  /* Scrollbar personalizado para navegadores Webkit (Chrome, Edge, Safari) */
+  /* Scrollbar personalizado para navegadores Webkit */
   body::-webkit-scrollbar {
     width: 0px; /* Ancho de la barra */
   }
   
   body::-webkit-scrollbar-track {
-    background: #1e1e1e; /* Color de fondo de la pista */
+    background: #1e1e1e;
     border-radius: 5px;
   }
   
   body::-webkit-scrollbar-thumb {
     background-color: #008cff; /* Color de la barra */
     border-radius: 10px;
-    border: 2px solid #1e1e1e; /* Espaciado con fondo */
+    border: 2px solid #1e1e1e;
   }
   
 

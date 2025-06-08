@@ -26,8 +26,6 @@
           </h1>
 
           <!-- Search Bar -->
-          <!-- TODO hacer el filtro de la barra de búsqueda y cuando el usuario dé al botón de buscar le redirija a la parte de abajo de los cursos
-            y se muestren los cursos que contengan la palabra buscada "pyt - python" -->
           <label
             class="flex flex-col min-w-40 h-12 sm:h-14 w-full max-w-[480px]"
           >
@@ -47,6 +45,7 @@
                 />
               </svg>
 
+              <!-- Caja de texto -->
               <input
                 [(ngModel)]="searchText"
                 placeholder="{{
@@ -55,6 +54,7 @@
                 class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-white focus:outline-0 focus:ring-0 border border-[#3c4753] bg-[#1c2126] focus:border-[#3c4753] h-full placeholder:text-[#9dabb8] px-[40px] rounded-r-none border-r-0 border-l-0 text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal"
               />
 
+              <!-- Botón de búsqueda -->
               <div
                 class="flex items-center justify-center rounded-r-xl border-l-0 border border-[#3c4753] bg-[#1c2126]"
               >
@@ -72,6 +72,8 @@
         </div>
       </div>
     </div>
+    
+    <!-- Cajitas sobre CodeTrek -->
     <div class="flex flex-col gap-10 px-4 py-10 @container">
       <div class="flex flex-col gap-4">
         <h1
@@ -157,6 +159,8 @@
     >
       {{ "homepage.courses.title" | translate }}
     </h2>
+    
+    <!-- Cursos -->
     <div
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-3 p-4"
     >
@@ -180,7 +184,7 @@
       </div>
     </div>
 
-    <!-- Botón "Ver más / Ver menos" abajo a la izquierda -->
+    <!-- Botón "Ver más/Ver menos" -->
     <div class="bottom-4 left-4">
       <button
         (click)="toggleCourses()"
@@ -196,6 +200,7 @@
       </button>
     </div>
 
+    <!-- Principales cursos -->
     <h2
       class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5 bg-grey-700"
     >

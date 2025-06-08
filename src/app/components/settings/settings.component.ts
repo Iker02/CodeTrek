@@ -65,6 +65,7 @@ export class SettingsComponent implements OnInit {
     this.showEmailModal = true;
   }
 
+  // Añadir imagenes de perfil a Firestore
   async addProfilePicturesToFirestore() {
     const urls = [
       'https://i.pinimg.com/736x/4a/4e/2b/4a4e2b8a7a3924d99a3fda592b7cbca4.jpg',
@@ -98,7 +99,9 @@ export class SettingsComponent implements OnInit {
     console.log('✅ Todas las imágenes fueron agregadas a Firestore');
   }
 
+  // Método cambiar contraseña
   async changePassword() {
+    // Se necesita la contraseña actual, la nueva y confirmarla
     if (
       !this.currentPassword ||
       !this.newPassword ||
@@ -125,6 +128,7 @@ export class SettingsComponent implements OnInit {
         this.currentPassword
       );
 
+      // Cambiar credenciales en el Auth
       try {
         await reauthenticateWithCredential(user, credentials);
         await updatePassword(user, this.newPassword);
@@ -137,6 +141,7 @@ export class SettingsComponent implements OnInit {
     }
   }
 
+  // Actualizar avatar
   updateAvatar(toggle?: HTMLInputElement) {
     this.showPopup = false;
 
@@ -148,13 +153,13 @@ export class SettingsComponent implements OnInit {
       const currentUser = this.auth.currentUser;
 
       if (currentUser) {
-        // Actualizamos el avatar del usuario en Firestore
+        // Actualizar el avatar del usuario en Firestore
         this.codetrekService.updateUserProfileImage(
           currentUser.uid,
           selectedUrl
         );
 
-        // También actualizamos la imagen globalmente en la aplicación
+        // Actualizar la imagen en la aplicación
         this.codetrekService.setProfileImageUrl(selectedUrl);
         localStorage.setItem('profileImageUrl', selectedUrl);
       }
@@ -233,8 +238,8 @@ export class SettingsComponent implements OnInit {
         this.codetrekService
           .updateEmail(nuevoCorreo)
           .then(() => {
-            this.correoActual = nuevoCorreo; // Asumiendo que tienes una variable local
-            this.nuevoCorreo = ''; // Limpia el input
+            this.correoActual = nuevoCorreo;
+            this.nuevoCorreo = '';
             Swal.fire('Success', 'Email updated successfully ✉️', 'success');
           })
           .catch((error) => {
@@ -327,7 +332,6 @@ export class SettingsComponent implements OnInit {
       // Actualizar globalmente
       this.codetrekService.setProfileImageUrl(defaultImage);
 
-      // (Opcional) también en localStorage si lo estás usando
       localStorage.setItem('profileImageUrl', defaultImage);
     }
   }

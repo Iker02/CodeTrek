@@ -8,7 +8,7 @@ import { CodetrekServiceService } from '../../services/codetrek-service.service'
   selector: 'app-python-level-1',
   standalone: false,
   templateUrl: './python-level-1.component.html',
-  styleUrls: ['./python-level-1.component.css']
+  styleUrls: ['./python-level-1.component.css'],
 })
 export class PythonLevel1Component {
   courseTitle: string = 'python';
@@ -22,24 +22,35 @@ export class PythonLevel1Component {
     private auth: Auth
   ) {}
 
+  // Comprobar respuesta
   async checkAnswer(option: string) {
     if (option === 'option1') {
-      this.feedbackMessage = this.translate.instant('python_level1.correct_message');
+      this.feedbackMessage = this.translate.instant(
+        'python_level1.correct_message'
+      );
 
+      // Guardar en BBDD en el usuario correspondiente el progreso del curso y añadir puntos
       const user = this.auth.currentUser;
       if (user) {
         try {
-          await this.codetrekService.updateCourseProgress(user.uid, this.courseTitle, this.level);
-          await this.codetrekService.addPointsToUser(user.uid, 5); 
+          await this.codetrekService.updateCourseProgress(
+            user.uid,
+            this.courseTitle,
+            this.level
+          );
+          await this.codetrekService.addPointsToUser(user.uid, 5);
         } catch (error) {
           console.error('Error guardando progreso:', error);
         }
       }
     } else {
-      this.feedbackMessage = this.translate.instant('python_level1.incorrect_message');
+      this.feedbackMessage = this.translate.instant(
+        'python_level1.incorrect_message'
+      );
     }
   }
 
+  // Navegar al siguiente nivel
   goToNextLevel() {
     this.router.navigate([`/course/${this.courseTitle}/level/2`]);
   }

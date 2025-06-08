@@ -7,6 +7,7 @@
           {{ "login.welcome_back" | translate }}
         </h1>
         <div class="space-y-4">
+          <!-- Caja de texto email -->
           <input
             type="email"
             placeholder="{{'login.email_placeholder' | translate}}"
@@ -15,6 +16,7 @@
             [(ngModel)]="email"
             name="{{'login.email' | translate}}"
           />
+          <!-- Caja de texto contraseña -->
           <input
             type="password"
             placeholder="{{'login.password_placeholder' | translate}}"
@@ -28,6 +30,7 @@
           <span class="ml-2 cursor-pointer text-[10px] text-[#228CE0] hover:underline">{{'login.forget_password' | translate}}</span>
         </div>
         <div class="mb-4 flex justify-center">
+          <!-- Boton login -->
           <button
             class="h-10 w-full cursor-pointer rounded-md bg-gradient-to-br from-[#1980e6] to-[#3269FF] text-white shadow-md shadow-blue-950"
             (click)="login()"
@@ -37,6 +40,8 @@
         </div>
         <div class="text-center text-[#969696]">
           {{ "login.dont_have_account" | translate }}
+          
+          <!-- Botón registro -->
           <button
             class="cursor-pointer text-[#7337FF] hover:underline bg-transparent border-none"
             (click)="navigateToRegister()"

@@ -1,6 +1,6 @@
 <div class="w-full flex justify-center mt-20">
   <div class="w-full max-w-6xl px-4 xl:w-[60%]">
-    <!-- Prueba de botón para mostrar el popup de nuevo desafío -->
+    <!-- Botón de añadir reto -->
     <div class="flex justify-center py-4 w-full">
       <button
         (click)="togglePopup()"
@@ -14,6 +14,7 @@
       </button>
     </div>
 
+    <!-- Desplegable dificultad para filtrado de retos -->
     <div class="flex justify-center mb-6 w-full">
       <div
         class="w-full max-w-md inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-gray-900 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-500 focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800"
@@ -36,7 +37,7 @@
       </div>
     </div>
 
-    <!-- Popup de nuevo desafío -->
+    <!-- Popup para añadir nuevo desafío -->
     <div
       *ngIf="showPopup"
       class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
@@ -122,6 +123,7 @@
             "
             class="flex gap-2 mt-2"
           >
+          <!-- Introducir opciones -->
             <input
               type="text"
               [ngModel]="opt"
@@ -132,6 +134,7 @@
               }}"
             />
 
+            <!-- Marcadp de respuesta correcta -->
             <input
               type="radio"
               name="correctOption"
@@ -141,7 +144,7 @@
             />
           </div>
         </div>
-
+        <!-- Guardar reto -->
         <div class="flex justify-between mt-4">
           <button
             (click)="saveChallenge()"
@@ -159,7 +162,7 @@
       </div>
     </div>
 
-    <!-- Popup con opciones del desafío -->
+    <!-- Popup con opciones del desafío seleccionado -->
     <div
       *ngIf="selectedChallenge"
       class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-50 px-4"
@@ -175,14 +178,17 @@
           {{ "challenge_details_popup.close_button" | translate }}
         </button>
 
+        <!-- Título del desafío -->
         <h2 class="text-2xl font-bold mb-4">{{ selectedChallenge.title }}</h2>
+        <!-- Descripción del desafío -->
         <p class="mb-4 text-sm text-gray-300">
           {{ selectedChallenge.description }}
         </p>
         <p class="text-green-400 mb-2">
           {{ "challenge_details_popup.select_correct_answer" | translate }}
         </p>
-
+        
+        <!-- Lista de opciones de respuesta -->
         <div class="space-y-2">
           <button
             *ngFor="let opt of selectedChallenge.options; let i = index"
@@ -241,6 +247,7 @@
           >
             {{ challenge.difficulty }}
           </span>
+          <!-- Resuelto por x personas -->
           <span class="ml-2">
             {{ 'challenge_card.solved_by' | translate : { solvedBy: challenge.solvedBy || 0 } }}
           </span>          

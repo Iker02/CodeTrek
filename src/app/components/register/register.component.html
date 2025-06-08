@@ -12,14 +12,14 @@
             [(ngModel)]="fullName"
             class="w-full rounded-md bg-[#E9EFF6] p-2.5 placeholder:text-[#000000]"
             style="box-shadow:rgb(0 0 0 / 21%) 0px 7px 5px 0px" />
-
+          <!-- Email -->
           <input
             type="email"
             placeholder="{{'register.email_placeholder' | translate}}"
             [(ngModel)]="email"
             class="w-full rounded-md bg-[#E9EFF6] p-2.5 placeholder:text-[#000000]"
             style="box-shadow:rgb(0 0 0 / 21%) 0px 7px 5px 0px" />
-
+          <!-- Contraseña -->
           <input
             type="password"
             placeholder="{{'register.password_placeholder' | translate}}"
@@ -34,7 +34,7 @@
             class="w-full rounded-md bg-[#E9EFF6] p-2.5 placeholder:text-[#000000]"
             style="box-shadow:rgb(0 0 0 / 21%) 0px 7px 5px 0px" />
 
-          <!-- 🌍 Selección de idioma -->
+          <!-- Selección de idioma -->
           <select
             [(ngModel)]="selectedLanguage"
             name="language"
@@ -42,12 +42,12 @@
             style="box-shadow:rgb(0 0 0 / 21%) 0px 7px 5px 0px">
             <option value="en">🌐 English</option>
             <option value="es">🌐 Español</option>
-            <!-- Agrega más idiomas si lo deseas -->
           </select>
         </div>
 
         <div class="mb-4 pt-2">
           <span class="ml-2 text-[10px] text-[#228CE0]">{{'register.already_have_account' | translate}}</span>
+          <!-- Botón navegar a login -->
           <button
             class="cursor-pointer text-[#7337FF] hover:underline bg-transparent border-none"
             (click)="navigateToLogin()"
@@ -56,6 +56,7 @@
           </button>
         </div>
 
+        <!-- Botón registrar -->
         <div class="mb-4 flex justify-center">
           <button
             class="h-10 w-full cursor-pointer rounded-md bg-gradient-to-br from-[#1980e6] to-[#3269FF] text-white shadow-md shadow-blue-950"

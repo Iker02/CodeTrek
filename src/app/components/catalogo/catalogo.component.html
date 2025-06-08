@@ -2,6 +2,7 @@
   <main
     class="w-[90vw] mx-auto pt-8 pb-8 mt-14 sm:w-[90vw] md:w-[90vw] xl:w-3/5 2xl:w-3/5"
   >
+    <!-- Título página -->
     <h1 class="text-3xl font-bold mb-4">
       {{ "learn_programming.title" | translate }}
     </h1>
@@ -25,7 +26,7 @@
       </button>
     </div>
 
-    <!-- Campo de búsqueda -->
+    <!-- Búsqueda -->
     <div class="relative mb-4">
       <input
         class="w-full px-4 py-2 rounded-xl bg-gray-700 text-white focus:outline-none"
@@ -36,7 +37,7 @@
       <i class="fas fa-search absolute right-4 top-3 text-gray-400"></i>
     </div>
 
-    <!-- Lista de lenguajes filtrados -->
+    <!-- Lista de lenguajes -->
     <div *ngIf="filteredLanguages.length > 0; else noResults">
       <div
         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"

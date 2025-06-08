@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import { Auth } from '@angular/fire/auth';
-import { Firestore, addDoc, collection, collectionData } from '@angular/fire/firestore';
+import {
+  Firestore,
+  addDoc,
+  collection,
+  collectionData,
+} from '@angular/fire/firestore';
 import { CodetrekServiceService } from '../../services/codetrek-service.service';
 import { doc, getDoc, setDoc, updateDoc, increment } from 'firebase/firestore';
 import { js as beautifyJs } from 'js-beautify';
-
 
 @Component({
   selector: 'app-challenges',
@@ -17,19 +21,18 @@ export class ChallengesComponent implements OnInit {
   showPopup = false;
   selectedDifficulty: string = '';
 
-
   newChallenge = {
     title: '',
     description: '',
     difficulty: 'Easy',
-    language: 'javascript', 
+    language: 'javascript',
     options: ['', '', ''],
     correctIndex: 0,
   };
 
   challengesFromDB: any[] = [];
   profileImageUrl: string = '';
-  selectedChallenge: any = null; 
+  selectedChallenge: any = null;
   userAnswers: { [challengeId: string]: number } = {};
 
   constructor(
@@ -54,7 +57,7 @@ export class ChallengesComponent implements OnInit {
         title: 'Inicia sesión',
         text: 'Debes estar registrado para añadir un nuevo desafío',
         confirmButtonText: 'Aceptar',
-        confirmButtonColor: '#3b82f6'
+        confirmButtonColor: '#3b82f6',
       });
       return;
     }
@@ -70,14 +73,16 @@ export class ChallengesComponent implements OnInit {
       title: '',
       description: '',
       difficulty: 'Easy',
-      language: 'javascript', 
+      language: 'javascript',
       options: ['', '', ''],
       correctIndex: 0,
     };
   }
 
+  // Guardar desafío en BBDD
   async saveChallenge() {
-    const { title, description, difficulty, language, options, correctIndex } = this.newChallenge;
+    const { title, description, difficulty, language, options, correctIndex } =
+      this.newChallenge;
 
     const isValid =
       title?.trim() &&
@@ -85,9 +90,11 @@ export class ChallengesComponent implements OnInit {
       difficulty &&
       language &&
       options.length === 3 &&
-      options.every(opt => opt?.trim()) &&
-      correctIndex !== null && correctIndex !== undefined;
-  
+      options.every((opt) => opt?.trim()) &&
+      correctIndex !== null &&
+      correctIndex !== undefined;
+
+    // Alerta si no es valido
     if (!isValid) {
       Swal.fire({
         icon: 'warning',
@@ -102,7 +109,7 @@ export class ChallengesComponent implements OnInit {
       title: 'Desafío guardado',
       text: '¡Tu desafío ha sido creado correctamente!',
       confirmButtonColor: '#3085d6',
-    });  
+    });
     const user = this.auth.currentUser;
     if (!user) return;
 
@@ -120,6 +127,7 @@ export class ChallengesComponent implements OnInit {
     this.loadChallenges();
   }
 
+  // Cargar todos los desafíos
   loadChallenges() {
     const desafiosRef = collection(this.firestore, 'desafios');
     collectionData(desafiosRef, { idField: 'id' }).subscribe((data) => {
@@ -138,37 +146,37 @@ export class ChallengesComponent implements OnInit {
   trackByIndex(index: number, item: any): number {
     return index;
   }
-  
 
   updateOption(index: number, value: string): void {
     this.newChallenge.options[index] = value;
   }
-  
-  
-  
 
+  // Ver respuesta cprrecta
   async validateAnswer(challenge: any, selectedOptionIndex: number) {
     this.userAnswers[challenge.id] = selectedOptionIndex;
-  
+
     if (selectedOptionIndex === challenge.correctIndex) {
       const user = this.auth.currentUser;
       if (!user) return;
-  
-      const solvedRef = doc(this.firestore, `desafios_resueltos/${user.uid}_${challenge.id}`);
+
+      const solvedRef = doc(
+        this.firestore,
+        `desafios_resueltos/${user.uid}_${challenge.id}`
+      );
       const solvedSnap = await getDoc(solvedRef);
-  
+
       if (!solvedSnap.exists()) {
         // Guardamos el registro de que el usuario lo resolvió
         await setDoc(solvedRef, {
           uid: user.uid,
           challengeId: challenge.id,
-          timestamp: new Date()
+          timestamp: new Date(),
         });
-  
+
         // Actualizamos el contador en el desafío
         const desafioRef = doc(this.firestore, `desafios/${challenge.id}`);
         await updateDoc(desafioRef, {
-          solvedBy: increment(1)
+          solvedBy: increment(1),
         });
       }
     }
@@ -177,8 +185,7 @@ export class ChallengesComponent implements OnInit {
   formatCode(code: string): string {
     return beautifyJs(code, {
       indent_size: 2,
-      space_in_empty_paren: true
+      space_in_empty_paren: true,
     });
   }
-  
 }

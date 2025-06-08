@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   selector: 'app-level',
   standalone: false,
   templateUrl: './level.component.html',
-  styleUrls: ['./level.component.css']
+  styleUrls: ['./level.component.css'],
 })
 export class LevelComponent {
   courseTitle: string = '';
@@ -16,15 +16,18 @@ export class LevelComponent {
     Python: 8,
     JavaScript: 10,
     Java: 12,
-    // Agrega más cursos aquí según sea necesario
   };
 
   constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
-    this.courseTitle = this.route.snapshot.paramMap.get('title') || 'Unknown Course';
+    this.courseTitle =
+      this.route.snapshot.paramMap.get('title') || 'Unknown Course';
     // Obtener el número de niveles para el curso seleccionado
-    this.levels = Array.from({ length: this.courseLevels[this.courseTitle] || 0 }, (_, i) => i + 1);
+    this.levels = Array.from(
+      { length: this.courseLevels[this.courseTitle] || 0 },
+      (_, i) => i + 1
+    );
   }
 
   goToLevel(level: number) {
