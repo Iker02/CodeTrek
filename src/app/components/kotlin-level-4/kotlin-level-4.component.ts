@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Auth } from '@angular/fire/auth';
+import { Auth, onAuthStateChanged } from '@angular/fire/auth';
 import { CodetrekServiceService } from '../../services/codetrek-service.service';
 
 @Component({
@@ -19,6 +19,32 @@ export class KotlinLevel4Component {
     private codetrekService: CodetrekServiceService,
     private auth: Auth
   ) {}
+
+  ngOnInit() {
+    onAuthStateChanged(this.auth, async (user) => {
+      if (user) {
+        const progress = await this.codetrekService.getUserProgressSecurity(
+          user.uid
+        );
+        const currentLanguage = 'kotlin';
+        const requiredLevel = 3;
+
+        if (!progress || !progress[currentLanguage]) {
+          this.router.navigate(['/bloqueado']);
+          return;
+        }
+
+        const [currentProgress] = progress[currentLanguage]
+          .split('/')
+          .map(Number);
+        if (currentProgress < requiredLevel) {
+          this.router.navigate(['/bloqueado']);
+        }
+      } else {
+        this.router.navigate(['/login']);
+      }
+    });
+  }
 
   async checkAnswer() {
     if (
@@ -40,8 +66,12 @@ export class KotlinLevel4Component {
       const user = this.auth.currentUser;
       if (user) {
         try {
-          await this.codetrekService.updateCourseProgress(user.uid, 'kotlin', 4);
-          await this.codetrekService.addPointsToUser(user.uid, 5); 
+          await this.codetrekService.updateCourseProgress(
+            user.uid,
+            'kotlin',
+            4
+          );
+          await this.codetrekService.addPointsToUser(user.uid, 5);
         } catch (error) {
           console.error('Error guardando progreso:', error);
         }

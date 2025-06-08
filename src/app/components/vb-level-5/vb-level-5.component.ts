@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Auth } from '@angular/fire/auth';
+import { Auth, onAuthStateChanged } from '@angular/fire/auth';
 import { CodetrekServiceService } from '../../services/codetrek-service.service';
 
 @Component({
   selector: 'app-vb-level-5',
   standalone: false,
   templateUrl: './vb-level-5.component.html',
-  styleUrl: './vb-level-5.component.css'
+  styleUrl: './vb-level-5.component.css',
 })
 export class VbLevel5Component {
   userCode: string = '';
@@ -25,15 +25,42 @@ export class VbLevel5Component {
     private auth: Auth
   ) {}
 
+  ngOnInit() {
+    onAuthStateChanged(this.auth, async (user) => {
+      if (user) {
+        const progress = await this.codetrekService.getUserProgressSecurity(
+          user.uid
+        );
+        const currentLanguage = 'visualbasic';
+        const requiredLevel = 4;
+
+        if (!progress || !progress[currentLanguage]) {
+          this.router.navigate(['/bloqueado']);
+          return;
+        }
+
+        const [currentProgress] = progress[currentLanguage]
+          .split('/')
+          .map(Number);
+        if (currentProgress < requiredLevel) {
+          this.router.navigate(['/bloqueado']);
+        }
+      } else {
+        this.router.navigate(['/login']);
+      }
+    });
+  }
+
   async checkCode() {
     const normalizedCode = this.userCode.replace(/\s+/g, '').toLowerCase();
 
-    const expectedPattern = normalizedCode.includes('dim') &&
-                             normalizedCode.includes('asstreamwriter') &&
-                             normalizedCode.includes('myfile=') &&
-                             normalizedCode.includes('newstreamwriter') &&
-                             normalizedCode.includes('myfile.writeline') &&
-                             normalizedCode.includes('myfile.close');
+    const expectedPattern =
+      normalizedCode.includes('dim') &&
+      normalizedCode.includes('asstreamwriter') &&
+      normalizedCode.includes('myfile=') &&
+      normalizedCode.includes('newstreamwriter') &&
+      normalizedCode.includes('myfile.writeline') &&
+      normalizedCode.includes('myfile.close');
 
     if (expectedPattern) {
       this.feedbackMessage = 'Correct! You handled the file correctly.';
@@ -43,13 +70,16 @@ export class VbLevel5Component {
       const user = this.auth.currentUser;
       if (user) {
         try {
-          await this.codetrekService.updateCourseProgress(user.uid, this.courseTitle, this.level);
-          await this.codetrekService.addPointsToUser(user.uid, 5); 
+          await this.codetrekService.updateCourseProgress(
+            user.uid,
+            this.courseTitle,
+            this.level
+          );
+          await this.codetrekService.addPointsToUser(user.uid, 5);
         } catch (error) {
           console.error('Error saving progress:', error);
         }
       }
-
     } else {
       this.feedbackMessage = 'Incorrect. Try again!';
       this.isCodeCorrect = false;

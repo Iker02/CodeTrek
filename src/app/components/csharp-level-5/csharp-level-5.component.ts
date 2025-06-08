@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { Auth } from '@angular/fire/auth';
+import { Auth, onAuthStateChanged } from '@angular/fire/auth';
 import { CodetrekServiceService } from '../../services/codetrek-service.service';
 
 @Component({
   selector: 'app-csharp-level-final',
   standalone: false,
   templateUrl: './csharp-level-5.component.html',
-  styleUrls: ['./csharp-level-5.component.css']
+  styleUrls: ['./csharp-level-5.component.css'],
 })
 export class CSharpLevel5Component {
   userCode: string = '';
@@ -25,17 +25,50 @@ export class CSharpLevel5Component {
     private auth: Auth
   ) {}
 
+  ngOnInit() {
+    onAuthStateChanged(this.auth, async (user) => {
+      if (user) {
+        const progress = await this.codetrekService.getUserProgressSecurity(
+          user.uid
+        );
+        const currentLanguage = 'csharp';
+        const requiredLevel = 4;
+
+        if (!progress || !progress[currentLanguage]) {
+          this.router.navigate(['/bloqueado']);
+          return;
+        }
+
+        const [currentProgress] = progress[currentLanguage]
+          .split('/')
+          .map(Number);
+        if (currentProgress < requiredLevel) {
+          this.router.navigate(['/bloqueado']);
+        }
+      } else {
+        this.router.navigate(['/login']);
+      }
+    });
+  }
+
   checkCode() {
     this.feedbackMessage = '';
     this.hintMessage = '';
     this.isCorrect = false;
     this.attempts++;
 
-    if (this.userCode.includes('Array.Reverse(arr)') && this.userCode.includes('Console.WriteLine')) {
+    if (
+      this.userCode.includes('Array.Reverse(arr)') &&
+      this.userCode.includes('Console.WriteLine')
+    ) {
       this.isCorrect = true;
-      this.feedbackMessage = this.translate.instant('CSharpFinalLevel.correct_message');
+      this.feedbackMessage = this.translate.instant(
+        'CSharpFinalLevel.correct_message'
+      );
     } else {
-      this.feedbackMessage = this.translate.instant('CSharpFinalLevel.incorrect_message');
+      this.feedbackMessage = this.translate.instant(
+        'CSharpFinalLevel.incorrect_message'
+      );
       if (this.attempts >= 2) {
         this.showHint = true;
       }
@@ -43,7 +76,8 @@ export class CSharpLevel5Component {
   }
 
   showHintMessage() {
-    this.hintMessage = 'Hint: Make sure you are using Array.Reverse() and printing each element with Console.WriteLine().';
+    this.hintMessage =
+      'Hint: Make sure you are using Array.Reverse() and printing each element with Console.WriteLine().';
   }
 
   async goHome() {
@@ -51,7 +85,7 @@ export class CSharpLevel5Component {
     if (user) {
       try {
         await this.codetrekService.updateCourseProgress(user.uid, 'csharp', 5);
-        await this.codetrekService.addPointsToUser(user.uid, 5); 
+        await this.codetrekService.addPointsToUser(user.uid, 5);
       } catch (error) {
         console.error('Error guardando progreso final:', error);
       }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { sendEmailVerification } from '@angular/fire/auth';
+import { sendEmailVerification, user } from '@angular/fire/auth';
 import {
   Auth,
   createUserWithEmailAndPassword,
@@ -220,6 +220,26 @@ export class CodetrekServiceService {
       console.log(`Progreso actualizado: ${courseName} → ${progressValue}`);
     } catch (error) {
       console.error('Error al actualizar el progreso del curso:', error);
+    }
+  }
+
+  async getUserProgressSecurity(
+    uid: string
+  ): Promise<{ [key: string]: string } | null> {
+    try {
+      const usersRef = collection(this.firestore, 'users');
+      const q = query(usersRef, where('uid', '==', uid));
+      const querySnapshot = await getDocs(q);
+
+      if (!querySnapshot.empty) {
+        const userData = querySnapshot.docs[0].data();
+        return userData['progress'] || null;
+      }
+
+      return null;
+    } catch (error) {
+      console.error('Error obteniendo el progreso:', error);
+      return null;
     }
   }
 

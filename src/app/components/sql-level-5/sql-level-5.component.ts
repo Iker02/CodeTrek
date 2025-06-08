@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Auth } from '@angular/fire/auth';
+import { Auth, onAuthStateChanged } from '@angular/fire/auth';
 import { CodetrekServiceService } from '../../services/codetrek-service.service';
 
 @Component({
@@ -23,6 +23,32 @@ export class SqlLevel5Component {
     private auth: Auth
   ) {}
 
+  ngOnInit() {
+    onAuthStateChanged(this.auth, async (user) => {
+      if (user) {
+        const progress = await this.codetrekService.getUserProgressSecurity(
+          user.uid
+        );
+        const currentLanguage = 'sql';
+        const requiredLevel = 4;
+
+        if (!progress || !progress[currentLanguage]) {
+          this.router.navigate(['/bloqueado']);
+          return;
+        }
+
+        const [currentProgress] = progress[currentLanguage]
+          .split('/')
+          .map(Number);
+        if (currentProgress < requiredLevel) {
+          this.router.navigate(['/bloqueado']);
+        }
+      } else {
+        this.router.navigate(['/login']);
+      }
+    });
+  }
+
   async checkCode() {
     const normalized = this.userCode.trim().replace(/\s+/g, ' ').toLowerCase();
 
@@ -30,13 +56,14 @@ export class SqlLevel5Component {
 
     if (normalized === correctQuery) {
       this.isCorrect = true;
-      this.feedbackMessage = '¡Correcto! Has insertado el registro correctamente.';
+      this.feedbackMessage =
+        '¡Correcto! Has insertado el registro correctamente.';
 
       const user = this.auth.currentUser;
       if (user) {
         try {
           await this.codetrekService.updateCourseProgress(user.uid, 'sql', 5);
-          await this.codetrekService.addPointsToUser(user.uid, 5); 
+          await this.codetrekService.addPointsToUser(user.uid, 5);
         } catch (error) {
           console.error('Error al guardar el progreso:', error);
         }

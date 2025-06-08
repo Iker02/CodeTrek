@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Auth } from '@angular/fire/auth';
+import { Auth, onAuthStateChanged } from '@angular/fire/auth';
 import { CodetrekServiceService } from '../../services/codetrek-service.service';
 
 @Component({
   selector: 'app-javascript-level-5',
   standalone: false,
   templateUrl: './javascript-level-5.component.html',
-  styleUrls: ['./javascript-level-5.component.css']
+  styleUrls: ['./javascript-level-5.component.css'],
 })
 export class JavascriptLevel5Component {
   userCode: string = '';
@@ -23,6 +23,32 @@ export class JavascriptLevel5Component {
     private auth: Auth
   ) {}
 
+  ngOnInit() {
+    onAuthStateChanged(this.auth, async (user) => {
+      if (user) {
+        const progress = await this.codetrekService.getUserProgressSecurity(
+          user.uid
+        );
+        const currentLanguage = 'javascript';
+        const requiredLevel = 4;
+
+        if (!progress || !progress[currentLanguage]) {
+          this.router.navigate(['/bloqueado']);
+          return;
+        }
+
+        const [currentProgress] = progress[currentLanguage]
+          .split('/')
+          .map(Number);
+        if (currentProgress < requiredLevel) {
+          this.router.navigate(['/bloqueado']);
+        }
+      } else {
+        this.router.navigate(['/login']);
+      }
+    });
+  }
+
   async checkCode() {
     this.attempts++;
     this.isCorrect = false;
@@ -31,7 +57,9 @@ export class JavascriptLevel5Component {
 
     try {
       // Evaluar el código del usuario
-      const testFunction = new Function(this.userCode + '; return sumar(2, 3);');
+      const testFunction = new Function(
+        this.userCode + '; return sumar(2, 3);'
+      );
       const result = testFunction();
 
       if (result === 5) {
@@ -42,14 +70,19 @@ export class JavascriptLevel5Component {
         const user = this.auth.currentUser;
         if (user) {
           try {
-            await this.codetrekService.updateCourseProgress(user.uid, 'javascript', 5);
-            await this.codetrekService.addPointsToUser(user.uid, 5); 
+            await this.codetrekService.updateCourseProgress(
+              user.uid,
+              'javascript',
+              5
+            );
+            await this.codetrekService.addPointsToUser(user.uid, 5);
           } catch (error) {
             console.error('Error guardando progreso:', error);
           }
         }
       } else {
-        this.feedbackMessage = '❌ El resultado no es correcto. Intenta nuevamente.';
+        this.feedbackMessage =
+          '❌ El resultado no es correcto. Intenta nuevamente.';
       }
     } catch (error) {
       this.feedbackMessage = '❌ Error en el código: ' + error;
@@ -62,7 +95,8 @@ export class JavascriptLevel5Component {
   }
 
   showHintMessage() {
-    this.hintMessage = 'Recuerda que puedes devolver la suma usando return a + b;';
+    this.hintMessage =
+      'Recuerda que puedes devolver la suma usando return a + b;';
   }
 
   goHome() {

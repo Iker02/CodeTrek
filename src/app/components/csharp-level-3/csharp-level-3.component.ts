@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { CodetrekServiceService } from '../../services/codetrek-service.service';
-import { Auth } from '@angular/fire/auth';
+import { Auth, onAuthStateChanged } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-csharp-level-3',
   standalone: false,
   templateUrl: './csharp-level-3.component.html',
-  styleUrls: ['./csharp-level-3.component.css']
+  styleUrls: ['./csharp-level-3.component.css'],
 })
 export class CSharpLevel3Component {
   courseTitle: string = 'csharp';
@@ -21,16 +21,47 @@ export class CSharpLevel3Component {
     private codetrekService: CodetrekServiceService,
     private auth: Auth
   ) {}
+
+  ngOnInit() {
+    onAuthStateChanged(this.auth, async (user) => {
+      if (user) {
+        const progress = await this.codetrekService.getUserProgressSecurity(
+          user.uid
+        );
+        const currentLanguage = 'csharp';
+        const requiredLevel = 2;
+
+        if (!progress || !progress[currentLanguage]) {
+          this.router.navigate(['/bloqueado']);
+          return;
+        }
+
+        const [currentProgress] = progress[currentLanguage]
+          .split('/')
+          .map(Number);
+        if (currentProgress < requiredLevel) {
+          this.router.navigate(['/bloqueado']);
+        }
+      } else {
+        this.router.navigate(['/login']);
+      }
+    });
+  }
+
   checkAnswer(option: string) {
     // Correct Answer: 1 2 3 because the while loop prints the value of a (1, 2, 3)
     if (option === 'option1') {
-      this.feedbackMessage = this.translate.instant('csharp_level3.correct_message');
+      this.feedbackMessage = this.translate.instant(
+        'csharp_level3.correct_message'
+      );
     } else {
-      this.feedbackMessage = this.translate.instant('csharp_level3.incorrect_message');
+      this.feedbackMessage = this.translate.instant(
+        'csharp_level3.incorrect_message'
+      );
     }
   }
 
-async goToNextLevel() {
+  async goToNextLevel() {
     const user = this.auth.currentUser;
 
     if (user) {
@@ -40,7 +71,7 @@ async goToNextLevel() {
           this.courseTitle,
           this.level
         );
-        await this.codetrekService.addPointsToUser(user.uid, 5); 
+        await this.codetrekService.addPointsToUser(user.uid, 5);
         this.router.navigate([
           `/course/${this.courseTitle}/level/${this.level + 1}`,
         ]);
