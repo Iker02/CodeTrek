@@ -70,6 +70,7 @@ import { HtmlLevel2Component } from './components/html-level-2/html-level-2.comp
 import { HtmlLevel3Component } from './components/html-level-3/html-level-3.component';
 import { HtmlLevel4Component } from './components/html-level-4/html-level-4.component';
 import { HtmlLevel5Component } from './components/html-level-5/html-level-5.component';
+import { LevelLockedComponent } from './components/level-locked/level-locked.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -131,6 +132,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HtmlLevel3Component,
     HtmlLevel4Component,
     HtmlLevel5Component,
+    LevelLockedComponent,
   ],
   imports: [
     BrowserModule,

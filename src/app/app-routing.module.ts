@@ -51,6 +51,7 @@ import { JavaLevel2Component } from './components/java-level-2/java-level-2.comp
 import { JavaLevel3Component } from './components/java-level-3/java-level-3.component';
 import { JavaLevel4Component } from './components/java-level-4/java-level-4.component';
 import { JavaLevel5Component } from './components/java-level-5/java-level-5.component';
+import { LevelLockedComponent } from './components/level-locked/level-locked.component';
 
 // Configuración de rutas
 const routes: Routes = [
@@ -60,6 +61,7 @@ const routes: Routes = [
   { path: 'settings', component: SettingsComponent },
   { path: 'catalogo', component: CatalogoComponent },
   { path: 'challenges', component: ChallengesComponent },
+  { path: 'bloqueado', component: LevelLockedComponent },
   {
     path: 'catalogo/programming-tutorial/:title',
     component: ProgrammingTutorialComponent,
